@@ -33,7 +33,7 @@ function Profile() {
 			}
 		}
 		authorizeUser()
-	}, [failedAuth]);
+	}, [failedAuth, user]);
 
 	if (failedAuth) {
 		return (
