@@ -1,0 +1,47 @@
+@use '../../styles/variables' as *;
+@use '../../styles/typography' as *;
+@use '../../styles/mixins' as *;
+@use '../../App.scss' as *;
+
+.nav-bar {
+  display: contents;
+}
+
+.failed-auth {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 30px auto;
+
+  // &__gif {
+  //   width:50%;
+  //   height:0;
+  //   padding-bottom:75%;
+  //   position:relative;
+  // }
+
+  &__giphy-embed {
+    margin-top: 20px;
+    width: 250px;
+
+    @include tablet {
+      width: 350px;
+    }
+  }
+
+  &__login-link {
+    text-decoration: none;
+    background-color: $Primary-Submit;
+    color: $Primary-White;
+    width: auto;
+    @include button;
+    @include transition;
+    line-height: normal;
+
+    &:hover {
+      background-color: $Secondary-SubmitHover;
+    }
+  }
+}

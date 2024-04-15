@@ -1,0 +1,40 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+@use '../../styles/typography' as *;
+@use '../../App.scss' as *;
+
+.comment {
+  padding: 1.1rem;
+  border-top: 1px solid lightgray;
+
+  &__container {
+    display: flex;
+    flex-flow: row nowrap;
+  }
+
+  &__avatar {
+    width: 2.22rem;
+    height: 2.22rem;
+    border-radius: 1.11rem;
+    background-image: url('../../assets/icons/profile-avatar.jpeg');
+    background-size: contain;
+    flex-shrink: 0;
+  }
+
+  &__info {
+    display: flex;
+    flex-flow: column nowrap;
+  }
+
+  &__name {
+    margin: 0 0 0.3rem 0.55rem;
+    font-weight: 600;
+  }
+
+  &__text {
+    width: 100%;
+    flex-shrink: 1;
+    margin: 0 0 0 0.55rem;
+    line-height: 1.22rem;
+  }
+}

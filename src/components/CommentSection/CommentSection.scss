@@ -1,0 +1,68 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+@use '../../styles/typography' as *;
+@use '../../App.scss' as *;
+
+.comments {
+  display: flex;
+  flex-flow: column nowrap;
+  margin: 2.22rem 0 1.11rem 0;
+
+  @include tablet {
+    margin-top: 0;
+  }
+
+  &__container {
+    display: flex;
+    flex-flow: row nowrap;
+    padding: 0 1.11rem;
+
+    @include tablet {
+      margin: 1.11rem 0;
+    }
+  }
+
+  &__input {
+    display: flex;
+    flex-flow: column nowrap;
+    flex-grow: 1;
+    margin-left: 0.55rem;
+  }
+
+  &__textarea {
+    margin-top: 0.55rem;
+    padding: 0.44rem;
+    border: 1px solid lightgrey;
+    border-radius: 0.55rem;
+
+    &:focus::placeholder {
+      color: transparent;
+    }
+
+    &-label {
+      font-size: 0.9rem;
+    }
+  }
+
+  &__button {
+    margin: 0.55rem 0 1.11rem 0;
+    @include button;
+    background-color: $Primary-Submit;
+    color: $Primary-White;
+
+    @include tablet {
+      width: 8.33rem;
+      margin-right: auto;
+    }
+  }
+
+  &__avatar {
+    position: relative;
+    top: 2.06rem;
+    width: 2.22rem;
+    height: 2.22rem;
+    background-image: url('../../assets/icons/profile-avatar.jpeg');
+    background-size: contain;
+    border-radius: 1.11rem;
+  }
+}

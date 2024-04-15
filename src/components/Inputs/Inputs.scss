@@ -1,0 +1,138 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+@use '../../styles/typography' as *;
+@use '../../App.scss' as *;
+
+.home {
+  &__heading {
+    text-align: center;
+    margin-top: 2.5rem;
+  }
+
+  &__desktop-toggle {
+    @include desktop {
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: flex-start;
+      margin: 2.22rem 7.22rem;
+    }
+  }
+
+  &__britney-gif {
+    width: 11.11rem;
+    @include drop-shadow;
+
+    @include tablet {
+      width: 16.67rem;
+    }
+
+    @include desktop {
+      width: 70%;
+      margin-bottom: 0.5rem;
+    }
+  }
+}
+
+
+.inputs {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  margin: 1.11rem auto;
+  width: 80%;
+
+  @include desktop {
+    width: 50%;
+    margin: 0 1.11rem;
+    position: sticky;
+    top: 2.22rem;
+  }
+
+  &__genre {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1.11rem;
+  }
+
+  &__form {
+    width: 70%;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    margin: 1.11rem 0;
+
+    @include desktop {
+      margin-top: 0;
+      font-size: 1.33rem;
+    }
+  }
+}
+
+.app-inputs {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  width: 30%;
+}
+
+.form {
+  &__input-label {
+    text-align: center;
+  }
+
+  &__input--popularity-container {
+    display: flex;
+    flex-flow: row nowrap;
+    margin: 0.55rem;
+  }
+
+  &__input--popularity-label {
+    font-size: 0.67rem;
+    font-style: italic;
+    font-weight: 600;
+
+    @include tablet {
+      font-size: 1rem;
+    }
+
+    @include desktop {
+      font-size: 1.33rem;
+    }
+  }
+
+  &__submit {
+    padding: 0.28rem 1.67rem;
+    border-radius: 1.1rem;
+    border: 0;
+    background-color: #282460;
+    color: white;
+    font-weight: 600;
+    @include button;
+
+    @include desktop {
+      font-size: 1.33rem;
+    }
+
+    &:hover {
+      &:hover {
+        background-color: #4940bc;
+      }
+    }
+  }
+}
+
+#inputs__genre-selector,
+#inputs__pop-selector {
+  margin: 0.55rem 1.11rem;
+}
+
+#inputs__genre-selector {
+  padding: 0.28rem 1.11rem;
+  border: 0;
+  border-radius: 1.11rem;
+  text-align: center;
+  @include input;
+}

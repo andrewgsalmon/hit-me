@@ -1,0 +1,54 @@
+@mixin tablet {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin drop-shadow {
+  filter: drop-shadow(3px 3px 4px #47474740);
+}
+
+@mixin input {
+  margin: 0.27rem 0 0.83rem 0;
+  padding: 0.27rem 0.83rem;
+  border: 0;
+  border-radius: 1.11rem;
+  height: 1.67rem;
+  @include drop-shadow;
+}
+
+@mixin button {
+  padding: 0.55rem 1.1rem;
+  border: 0;
+  border-radius: 1.11rem;
+  font-weight: 600;
+  @include drop-shadow;
+  transition: 0.3s;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+@mixin transition {
+  transition: ease-in-out 0.3s;
+}
+
+@mixin success-alert {
+  background-color: rgb(206, 245, 206);
+  padding: 0.5rem 1rem;
+  border: 1px solid green;
+  border-radius: 0.5rem;
+}
+
+@mixin error-alert {
+  padding: 0.5rem 1rem;
+  border: 1px solid red;
+  border-radius: 0.5rem;
+  background-color: rgb(255, 225, 230);
+  padding: 0.5rem 2rem;
+}

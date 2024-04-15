@@ -1,0 +1,109 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+@use '../../styles/typography' as *;
+@use '../../App.scss' as *;
+
+.profile {
+  &__info {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+
+    @include desktop {
+      flex-flow: row nowrap;
+      margin: 2.22rem auto;
+      width: 50%;
+    }
+  }
+
+  &__details {
+    display: flex;
+    flex-flow: column nowrap;
+    width: 100%;
+    text-align: center;
+
+    @include tablet {
+      max-width: 768px;
+      flex-flow: row nowrap;
+      justify-content: center;
+      justify-content: space-around;
+    }
+
+    @include desktop {
+      flex-flow: column nowrap;
+      margin: auto;
+      width: 50%;
+      align-items: center;
+    }
+  }
+
+  &__identity {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+
+    @include desktop {
+      margin: auto;
+      width: 50%;
+      border-right: 1px $Primary-White solid;
+    }
+  }
+
+  &__detail {
+    min-width: 25%;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+
+    @include tablet {
+      width: 32%;
+    }
+
+    @include desktop {
+      width: auto;
+      margin: 0.55rem 0;
+    }
+  }
+
+  &__avatar {
+    margin: 2.22rem 0 0 0;
+    border-radius: 50px;
+    width: 5.55rem;
+    height: 5.55rem;
+    background-image: url('../../assets/icons/profile-avatar.jpeg');
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    @include desktop {
+      margin-top: 0;
+      width: 8.33rem;
+      height: 8.33rem;
+      border-radius: 4.17rem;
+    }
+  }
+
+  &__heading {
+    @include desktop {
+      margin-bottom: 0;
+    }
+  }
+
+  &__label {
+    font-weight: 600;
+    font-size: 20px;
+
+    @include desktop {
+      font-size: 1.33rem;
+    }
+  }
+
+  &__value {
+    margin: 0 0 30px 0;
+    font-size: 14px;
+
+    @include desktop {
+      margin: 0;
+      font-size: 1rem;
+    }
+  }
+}

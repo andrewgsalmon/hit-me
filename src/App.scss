@@ -1,0 +1,30 @@
+@use './styles/variables' as *;
+@use './styles/typography' as *;
+@use './styles/mixins' as *;
+
+* {
+  box-sizing: border-box;
+  font-family: 'Josefin Sans';
+}
+
+html {
+  margin: 0;
+  height:100%;
+  width: 100vw;
+  background-color:#fff;
+  font-size: 18px;
+  line-height: 26px;
+}
+
+body {
+  background-image: linear-gradient(to bottom, rgb(250, 198, 151), white);
+  transition: 0.5s;
+  padding-bottom: 60px;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  flex-flow: column nowrap;
+  padding-bottom: 1.11rem;
+}

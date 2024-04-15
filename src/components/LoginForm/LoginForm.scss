@@ -1,0 +1,141 @@
+@use '../../styles/variables' as *;
+@use '../../styles/typography' as *;
+@use '../../styles/mixins' as *;
+@use '../../App.scss' as *;
+
+.login {
+  &__heading {
+    text-align: center;
+    margin: 2.22rem 0 0.55rem 0;
+
+    @include desktop {
+      margin: 0 0 0.55rem 0;
+      font-size: 2.5rem;
+    }
+  }
+
+  &__register-link {
+    text-align: center;
+    font-size: 0.89rem;
+
+    @include desktop {
+      font-size: 1.2rem;
+      margin-top: 1.2rem;
+    }
+  }
+
+  &__desktop-column {
+    @include desktop {
+      padding: 1.66rem;
+      width: 50%;
+      border-right: 1px solid $Primary-White;
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    margin: 0.55rem;
+    width: 100%;
+
+    @include desktop {
+      padding: 0 1.5rem;
+      margin: 0.55rem 0;
+      width: 50%;
+    }
+
+    &-label {
+      margin: 0.83rem 0 0 0;
+      font-weight: 600;
+
+      @include desktop {
+        font-size: 1.33rem;
+      }
+    }
+
+    &-input {
+      @include input;
+      padding: 0.27rem;
+      text-align: center;
+      width: 100%;
+      border-radius: 1.11rem;
+      border: 0;
+
+      @include desktop {
+        height: 2rem;
+      }
+
+      &:focus {
+        &::placeholder {
+          color: transparent;
+        }
+      }
+    }
+
+    &-submit {
+      @include button;
+      color: $Primary-White;
+      background-color: #282460;
+      margin-top: 0.83rem;
+      width: 100%;
+      @include transition;
+
+      @include desktop {
+        font-size: 1.2rem;
+      }
+
+      &:hover {
+        background-color: $Secondary-SubmitHover;
+      }
+    }
+  }
+
+  &__oauth {
+    background-color: #29D763;
+    @include button;
+    color: black;
+    text-decoration: none;
+    padding: 0.83rem 2.22rem;
+    font-size: 0.89rem;
+    border-radius: 1.67rem;
+    margin: 1.11rem;
+    background-image: url('../../assets/logo/spotify-icon.svg');
+    background-repeat: no-repeat;
+    background-position: 4%;
+    background-size: 10%;
+    @include transition;
+    width: 100%;
+    text-align: center;
+
+    @include desktop {
+      font-size: 1.1rem;
+    }
+
+    &:hover {
+      background-color: #1fb451;
+    }
+  }
+
+  &__error {
+    text-align: center;
+    color: red;
+    @include transition;
+    @include error-alert;
+    margin: auto;
+    width: 80%;
+
+    @include tablet {
+      width: auto;
+      margin: 1.11rem auto;
+
+      @include desktop {
+        font-size: 1.3rem;
+      }
+    }
+  }
+}
+
+.nav-bar {
+  display: none;
+}

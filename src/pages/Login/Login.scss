@@ -1,0 +1,22 @@
+@use '../../styles/variables' as *;
+@use '../../styles/typography' as *;
+@use '../../styles/mixins' as *;
+@use '../../App.scss' as *;
+
+.login {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  width: 80%;
+  margin: auto;
+
+  @include tablet {
+    width: 300px;
+  }
+
+  @include desktop {
+    flex-flow: row nowrap;
+    width: 60%;
+    margin-top: 2.5rem;
+  }
+}

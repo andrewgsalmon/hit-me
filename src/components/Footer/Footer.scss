@@ -1,0 +1,65 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+@use '../../styles/typography' as *;
+@use '../../App.scss' as *;
+
+.footer {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-items: center;
+  z-index: 2;
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  background-color: $Primary-Submit;
+  color: white;
+  font-weight: 600;
+  border-bottom: 0.44rem solid $Primary-White;
+
+  &__link {
+    width: 33%;
+    text-align: center;
+    color: $Primary-White;
+    text-decoration: none;
+    padding: 0.55rem 0;
+
+    @include desktop {
+      padding: 1.2rem 0;
+      font-size: 1.33rem;
+    }
+
+    &--active {
+      flex-grow: 1;
+      text-align: center;
+      color: $Primary-Submit;
+      background-color: $Primary-White;
+      text-decoration: none;
+      padding: 0.55rem 0;
+      border-top: lightgray solid 1px;
+      cursor: default;
+    }
+
+    @include desktop {
+      padding: 1.2rem;
+    }
+
+    &--inactive {
+      @include transition;
+
+      &:hover {
+        background-color: $Secondary-SubmitHover;
+      }
+    }
+
+    &--logout {
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    &--profile,
+    &--home {
+      border-right: 1px solid $Primary-White;
+    }
+  }
+}

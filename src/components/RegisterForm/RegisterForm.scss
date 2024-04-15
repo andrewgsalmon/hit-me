@@ -1,0 +1,150 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+@use '../../styles/typography' as *;
+@use '../../App.scss' as *;
+
+.register {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  padding-bottom: 8.33rem;
+  margin-top: 1.11rem;
+
+  &__heading {
+    margin-bottom: 0;
+
+    @include desktop {
+      font-size: 2rem;
+    }
+  }
+
+  &__login-link {
+    margin: 0.55rem 0;
+    font-size: 0.89rem;
+
+    @include desktop {
+      font-size: 1.1rem;
+    }
+  }
+
+  &__oauth {
+    background-color: #29D763;
+    @include button;
+    color: black;
+    text-decoration: none;
+    padding: 0.83rem 3.33rem;
+    border-radius: 1.67rem;
+    margin-bottom: 1.11rem;
+    background-image: url(../../assets/logo/spotify-icon.svg);
+    background-repeat: no-repeat;
+    background-position: 4%;
+    background-size: 10%;
+    transition: 0.5s;
+
+    &:hover {
+      background-color: #1fb451;
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    margin-top: 1.1rem;
+
+    @include tablet {
+      flex-flow: row nowrap;
+      align-items: flex-start;
+    }
+
+    @include desktop {
+      font-size: 1.2rem;
+      margin-top: 1.67rem;
+    }
+
+    &-input {
+      @include input;
+      text-align: center;
+
+      &:focus {
+        text-align: center;
+
+        &::placeholder {
+          color: transparent;
+        }
+      }
+
+      @include tablet {
+        width: 100%;
+        text-align: left;
+
+        &:focus {
+          text-align: left;
+        }
+      }
+
+      @include desktop {
+        height: 2rem;
+      }
+
+      &--artists {
+        @include tablet {
+          width: 100%;
+          height: 5.5rem;
+        }
+      }
+    }
+
+    &-submit {
+      @include button;
+      color: #fff;
+      background-color: $Primary-Submit;
+      margin-top: 1.11rem;
+      @include transition;
+
+      &:hover {
+        background-color: $Secondary-SubmitHover;
+      }
+
+      @include tablet {
+        margin-left: auto;
+      }
+
+      @include desktop {
+        font-size: 1.33rem;
+      }
+    }
+
+    &--tablet-column {
+      display: flex;
+      flex-flow: column nowrap;
+      align-items: center;
+
+      @include tablet {
+        align-items: flex-start;
+        margin: 0 1.11rem;
+        width: 50%;
+      }
+    }
+  }
+
+  &__message {
+    margin-top: 1.11rem;
+    text-align: center;
+    line-height: 2rem;
+    background-color: rgb(206, 245, 206);
+    padding: 0.5rem 1rem;
+    border: 1px solid green;
+    border-radius: 0.5rem;
+
+    @include desktop {
+      font-size: 1.2rem;
+    }
+
+    &--error {
+      border-color: red;
+      background-color: lightpink;
+      color: red;
+    }
+  }
+}

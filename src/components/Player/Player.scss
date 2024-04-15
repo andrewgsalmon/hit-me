@@ -1,0 +1,98 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+@use '../../styles/typography' as *;
+@use '../../App.scss' as *;
+
+iframe {
+  padding: 1.11rem;
+  height: 23.6rem;
+  @include drop-shadow;
+}
+
+.music-section {
+  @include desktop {
+    display: flex;
+    flex-flow: column nowrap;
+    width: 50%;
+    font-size: 1.1rem;
+  }
+}
+
+.spotify-player {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  width: 100%;
+
+  @include desktop {
+    flex-flow: column-reverse;
+  }
+
+  &__action {
+    margin: 1.11rem 1.11rem 0 1.11rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include desktop {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+
+    &--like {
+      margin-top: 0;
+    }
+
+    @include tablet {
+      justify-content: flex-end;
+    }
+
+    &--shuffle {
+      @include desktop {
+        margin-bottom: 20px;
+      }
+    }
+
+    &-button {
+      padding: 0.27rem 1.11rem;
+      background-color: #fff;
+      border: 0;
+      border-radius: 1.11rem;
+      color: #fff;
+      background-color: #282460;
+      font-weight: 600;
+      @include button;
+
+      &--save,
+      &--saved {
+        width: 100%;
+
+        @include tablet {
+          width: auto;
+        }
+      }
+
+      &--saved {
+        background-color: $Primary-White;
+        color: $Primary-Submit;
+      }
+
+      @include tablet {
+        margin-left: 1.11rem;
+      }
+    }
+  }
+}
+
+.output__standby {
+  text-align: center;
+  width: 70%;
+  margin: 1.11rem auto;
+
+  @include desktop {
+    width: 50%;
+    padding: 0 1.11rem;
+    font-size: 1.33rem;
+    margin-top: 0;
+  }
+}

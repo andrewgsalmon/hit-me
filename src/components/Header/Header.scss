@@ -1,0 +1,42 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+@use '../../styles/typography' as *;
+@use '../../App.scss' as *;
+
+.header {
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  flex-flow: column nowrap;
+  align-items: flex-start;
+  position: relative;
+  top: 0.55rem;
+  width: 100%;
+}
+
+.header-logo {
+  align-self: center;
+  width: 16.67rem;
+  filter: drop-shadow(0px 0px 0.66rem #FFF);
+
+  @include desktop {
+    width: 22.22rem;
+  }
+}
+
+.nav-bar {
+  display: flex;
+  align-items: center;
+
+  &__profile-avatar {
+    border: 2px solid black;
+    // padding: 5px;
+    width: 1.67rem;
+    height: 1.67rem;
+    border-radius: 1.11rem;
+    overflow: hidden;
+    background-image: url('../../assets/icons/profile-avatar.jpeg');
+    background-size: contain;
+    margin-right: 0.55rem;
+  }
+}
