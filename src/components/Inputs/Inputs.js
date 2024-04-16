@@ -79,7 +79,10 @@ function Inputs({ user }) {
           console.log(response.data)
         })
         .then(data => {
-          setRecommended(data)
+          console.log(data)
+          const randomIndex = Math.floor(Math.random() * 10);
+          console.log(data.tracks[randomIndex])
+          setRecommended(data.tracks[randomIndex])
           setLiked(false)
         })
         .catch(error => {

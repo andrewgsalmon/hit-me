@@ -8,7 +8,7 @@ function CommentSection({ recommended, user }) {
   const [comments, setComments] = useState(null)
   const [newComment, setNewComment] = useState(null);
 
-  const artistId = recommended.tracks[0].artists[0].id
+  const artistId = recommended.artists[0].id
 
   useEffect(() => {
     const getComments = async () => {
