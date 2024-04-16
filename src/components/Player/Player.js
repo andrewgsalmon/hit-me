@@ -15,9 +15,9 @@ function Player({ accessToken, recommended, handleSubmit, user, liked }) {
     try {
       const response = await axios.post(`${baseUrl}/api/users/likes`, {
         user_email: user.email,
-        artist_name: recommended.tracks[0].artists[0].name,
-        artist_id: recommended.tracks[0].artists[0].id,
-        artist_img: recommended.tracks[0].album.images[0].url
+        artist_name: recommended.artists[0].name,
+        artist_id: recommended.artists[0].id,
+        artist_img: recommended.album.images[0].url
       })
       setNewLike(response)
     } catch (error) {
@@ -27,7 +27,7 @@ function Player({ accessToken, recommended, handleSubmit, user, liked }) {
 
   useEffect(() => {
     if (recommended) {
-      setArtistId(recommended.tracks[0].artists[0].id)
+      setArtistId(recommended.artists[0].id)
     }
   }, [recommended])
 
