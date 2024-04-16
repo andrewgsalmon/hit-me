@@ -28,13 +28,9 @@
   }
 
   &__name-date--desktop {
-    // display: none;
-
-    // @include tablet {
-      display: flex;
-      justify-content: space-between;
-      flex-flow: row nowrap;
-    // }
+    display: flex;
+    justify-content: space-between;
+    flex-flow: row nowrap;
   }
 
   &__name {
