@@ -43,13 +43,13 @@
       padding: 1.2rem;
     }
 
-    &--inactive {
-      @include transition;
+    // &--inactive {
+    //   @include transition;
 
-      &:hover {
-        background-color: $Secondary-SubmitHover;
-      }
-    }
+    //   &:hover {
+    //     background-color: $Secondary-SubmitHover;
+    //   }
+    // }
 
     &--logout {
       &:hover {
