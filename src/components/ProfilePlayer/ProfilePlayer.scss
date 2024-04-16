@@ -26,7 +26,7 @@
     @include tablet {
       display: flex;
       flex-flow: row wrap;
-      justify-content: space-around;
+      justify-content: center;
       margin: 0.55rem;
     }
   }
@@ -41,8 +41,8 @@
 
     @include tablet {
       flex-flow: column nowrap;
-      width: 31%;
-      margin: 0 0.44rem 1.67rem 0.44rem;
+      width: 28%;
+      margin: 0 1rem 1.67rem 1rem;
       @include drop-shadow;
     }
 
