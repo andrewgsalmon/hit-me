@@ -54,7 +54,7 @@ function Player({ accessToken, recommended, handleSubmit, user, liked }) {
           </div>
           <iframe title='spotify-iframe' src={`https://open.spotify.com/embed/artist/${artistId}?utm_source=generator`} width="100%" height="152px" frameBorder="0" allowFullScreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
           <div className='spotify-player__action spotify-player__action--like'>
-            {!newLike ? <button className='spotify-player__action-button spotify-player__action-button--save' type='submit' onClick={handleSave}>Save this artist!</button> :
+            {!newLike ? <button className='spotify-player__action-button spotify-player__action-button--save' type='submit' onClick={handleSave}>Save this artist</button> :
               <button className='spotify-player__action-button spotify-player__action-button--saved' type='submit' onClick={handleSave}>Artist saved!</button>}
           </div>
         </div>
