@@ -27,7 +27,8 @@ function Player({ accessToken, recommended, handleSubmit, user, liked }) {
 
   useEffect(() => {
     if (recommended) {
-      setArtistId(recommended.tracks[0].artists[0].id)
+      const randomIndex = Math.floor(Math.random() * 100);
+      setArtistId(recommended.tracks[randomIndex].artists[0].id)
     }
   }, [recommended])
 

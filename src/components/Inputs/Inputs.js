@@ -58,7 +58,7 @@ function Inputs({ user }) {
     }
 
     if (genreSelected) {
-      const apiUrl = `https://api.spotify.com/v1/recommendations?limit=1&market=CA&seed_genres=${genreSelected}&target_popularity=${popularity}`;
+      const apiUrl = `https://api.spotify.com/v1/recommendations?limit=100&market=CA&seed_genres=${genreSelected}&target_popularity=${popularity}`;
       const header = {
         'Authorization': `Bearer ${accessToken}`
       };
@@ -76,6 +76,7 @@ function Inputs({ user }) {
             throw new Error('Network response was not ok');
           }
           return response.json();
+          console.log(response.data)
         })
         .then(data => {
           setRecommended(data)
