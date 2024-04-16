@@ -52,7 +52,7 @@ function RegisterForm() {
           <label className='register__form-label register__form-label--location' htmlFor="location">Location</label>
           <input className='register__form-input register__form-input--location' type="text" name='location' id='location'/>
           <label className='register__form-label register__form-label--artists' htmlFor="artists">Name a few of your favourite artists</label>
-          <input className='register__form-input register__form-input--artists' type="text" rows='5' name='artists' id='artists'/>
+          <textarea className='register__form-input register__form-input--artists' rows='5' name='artists' id='artists'/>
           <button className='register__form-submit'>Let's go!</button>
         </div>
       </form>
