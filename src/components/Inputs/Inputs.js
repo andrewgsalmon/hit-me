@@ -76,7 +76,6 @@ function Inputs({ user }) {
             throw new Error('Network response was not ok');
           }
           return response.json();
-          console.log(response.data)
         })
         .then(data => {
           console.log(data)
