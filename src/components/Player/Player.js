@@ -50,7 +50,7 @@ function Player({ accessToken, recommended, handleSubmit, user, liked }) {
         <div className='spotify-player'>
           <div className='spotify-player__action spotify-player__action--shuffle'>
             <span>Want something else?</span>
-            <button className='spotify-player__action-button spotify-player__action-button--shuffle' type='submit' onClick={handleSubmit}>Re-shuffle</button>
+            <button className='spotify-player__action-button spotify-player__action-button--shuffle' type='submit' onClick={handleSubmit}>HIT AGAIN!</button>
           </div>
           <iframe title='spotify-iframe' src={`https://open.spotify.com/embed/artist/${artistId}?utm_source=generator`} width="100%" height="152px" frameBorder="0" allowFullScreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
           <div className='spotify-player__action spotify-player__action--like'>
