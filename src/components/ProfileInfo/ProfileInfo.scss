@@ -4,6 +4,10 @@
 @use '../../App.scss' as *;
 
 .profile {
+  &__loading {
+      margin: 2rem auto;
+  }
+
   &__info {
     display: flex;
     flex-flow: column nowrap;
