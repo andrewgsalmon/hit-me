@@ -28,7 +28,7 @@ function ProfileInfo() {
 	}, []);
 
 	if (!user) {
-		return <div className='profile-info__loading'>Loading...</div>
+		return <div className='profile__loading'>Loading...</div>
 	}
 
 	return (

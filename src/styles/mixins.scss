@@ -32,6 +32,11 @@
   transition: 0.3s;
   text-decoration: none;
   cursor: pointer;
+  transition: 0.1s;
+
+  &:active {
+    transform: scale(0.95);
+  }
 }
 
 @mixin transition {
