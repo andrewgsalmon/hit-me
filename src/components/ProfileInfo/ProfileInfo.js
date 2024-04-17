@@ -27,6 +27,8 @@ function ProfileInfo() {
 
 	}, []);
 
+	console.log(user)
+
 	if (!user) {
 		return <div className='profile__loading'>Loading...</div>
 	}

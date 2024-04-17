@@ -7,33 +7,32 @@ import garth from '../../assets/images/garth.gif'
 const baseUrl = process.env.REACT_APP_BASE_URL;
 
 function Profile() {
-  const [user, setUser] = useState(null);
+  const [currentUser, setCurrentUser] = useState(null);
 	const [failedAuth, setFailedAuth] = useState(false);
+	const token = sessionStorage.getItem('token');
+	// const [userToken, setUserToken] = useState(null);
 
-  useEffect(() => {
-		// getItem from sessionStorage token
-		const token = sessionStorage.getItem('token');
+	if (!currentUser) {
+	const authorizeUser = async () => {
+		try {
+			const response = await axios.get(`${baseUrl}/api/users/current`, {
+				headers: {
+					Authorization: `Bearer ${token}`
+				}
+			})
+			setCurrentUser(response.data)
 
-		if(!token) {
+		} catch(error) {
 			setFailedAuth(true)
 		}
+	}
+	authorizeUser()
+}
 
-		const authorizeUser = async () => {
-			try {
-				const response = await axios.get(`${baseUrl}/api/users/current`, {
-					headers: {
-						Authorization: `Bearer ${token}`
-					}
-				})
+  // useEffect(() => {
+	// 	// getItem from sessionStorage token
 
-				setUser(response.data)
-
-			} catch(error) {
-				setFailedAuth(true)
-			}
-		}
-		authorizeUser()
-	}, [failedAuth, user]);
+	// }, [currentUser]);
 
 	if (failedAuth) {
 		return (
@@ -44,6 +43,9 @@ function Profile() {
 			</section>
 		);
 	}
+
+	console.log(failedAuth)
+	console.log(currentUser)
 
   return (
     <>
