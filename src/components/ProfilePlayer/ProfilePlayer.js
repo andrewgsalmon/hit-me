@@ -23,7 +23,7 @@ function ProfilePlayer({ user }) {
       }
     }
     getLikes()
-  }, [user, newLikes])
+  }, [newLikes, user])
 
   const handleDelete = async (id) => {
       const response = await axios.delete(`${baseUrl}/api/users/likes`, {
