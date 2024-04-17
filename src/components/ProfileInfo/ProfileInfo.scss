@@ -58,6 +58,7 @@
     display: flex;
     flex-flow: column;
     align-items: center;
+    filter: drop-shadow(0px 0px 0.66rem #FFF);
 
     @include tablet {
       width: 32%;
@@ -77,6 +78,7 @@
     background-image: url('../../assets/images/AndrewSalmon.jpg');
     background-size: contain;
     background-repeat: no-repeat;
+    @include drop-shadow;
 
     @include desktop {
       margin-top: 0;
@@ -87,14 +89,19 @@
   }
 
   &__heading {
+    filter: drop-shadow(0px 0px 0.66rem #FFF);
     @include desktop {
       margin-bottom: 0;
+    }
+    &-container {
+      filter: drop-shadow(0px 0px 0.66rem #FFF);
     }
   }
 
   &__label {
     font-weight: 600;
     font-size: 20px;
+    filter: drop-shadow(0px 0px 0.66rem #FFF);
 
     @include desktop {
       font-size: 1.33rem;

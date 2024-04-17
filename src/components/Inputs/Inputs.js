@@ -78,9 +78,7 @@ function Inputs({ user }) {
           return response.json();
         })
         .then(data => {
-          console.log(data)
-          const randomIndex = Math.floor(Math.random() * 10);
-          console.log(data.tracks[randomIndex])
+          const randomIndex = Math.floor(Math.random() * 100);
           setRecommended(data.tracks[randomIndex])
           setLiked(false)
         })

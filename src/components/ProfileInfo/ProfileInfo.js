@@ -27,8 +27,6 @@ function ProfileInfo() {
 
 	}, []);
 
-	console.log(user)
-
 	if (!user) {
 		return <div className='profile__loading'>Loading...</div>
 	}
@@ -39,7 +37,7 @@ function ProfileInfo() {
 				<div className='profile__info'>
 					<div className='profile__identity'>
 						<div className='profile__avatar'></div>
-						<h1 className='profile__heading'>{user.name}</h1>
+						<div className='profile__heading-container'><h1 className='profile__heading'>{user.name}</h1></div>
 					</div>
 					<div className='profile__details'>
 						<div className='profile__detail profile__email'>
