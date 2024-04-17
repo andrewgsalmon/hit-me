@@ -29,7 +29,7 @@
     }
 
     &--active {
-      flex-grow: 1;
+      width: 33.3%;
       text-align: center;
       color: $Primary-Submit;
       background-color: $Primary-White;
@@ -43,15 +43,16 @@
       padding: 1.2rem;
     }
 
-    // &--inactive {
-    //   @include transition;
-
-    //   &:hover {
-    //     background-color: $Secondary-SubmitHover;
-    //   }
-    // }
+    &--inactive {
+      width: 33.3%;
+      transition: 0.2s;
+      &:hover {
+        background-color: $Secondary-SubmitHover;
+      }
+    }
 
     &--logout {
+      width: 33.3%;
       &:hover {
         cursor: pointer;
       }

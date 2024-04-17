@@ -187,7 +187,7 @@ function Inputs({ user }) {
                 <option value="progressive-house">Progressive House</option>
                 <option value="psych-rock">Psychedelic Rock</option>
                 <option value="punk">Punk</option>
-                <option value="punk-rock">Punk Rick</option>
+                <option value="punk-rock">Punk Rock</option>
                 <option value="r-n-b">RnB</option>
                 <option value="reggae">Reggae</option>
                 <option value="reggaeton">Reggaeton</option>
