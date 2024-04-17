@@ -23,7 +23,6 @@ function Comment({ artistComment }) {
             <span className='comment__name'>{name}</span>
             <span>{formattedDate}</span>
           </div>
-          {/* <span className='comment__name comment__name--mobile'>{name}</span> */}
           <p className='comment__text'>{comment}</p>
         </div>
       </div>

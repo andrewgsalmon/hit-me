@@ -39,9 +39,6 @@ function Profile() {
 		);
 	}
 
-	console.log(failedAuth)
-	console.log(currentUser)
-
   return (
     <>
       <ProfileInfo />
