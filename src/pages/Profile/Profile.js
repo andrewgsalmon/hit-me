@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 import './Profile.scss'
 import ProfileInfo from '../../components/ProfileInfo/ProfileInfo'
 import axios from 'axios';
@@ -28,11 +28,6 @@ function Profile() {
 	}
 	authorizeUser()
 }
-
-  // useEffect(() => {
-	// 	// getItem from sessionStorage token
-
-	// }, [currentUser]);
 
 	if (failedAuth) {
 		return (
