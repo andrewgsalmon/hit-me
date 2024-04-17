@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 import './RegisterForm.scss';
 import axios from 'axios';
@@ -16,23 +16,18 @@ function RegisterForm() {
 
     if (name === 'password') {
       setPw(value)
-    } else if (name = 'confirmPassword') {
+    } else if (name === 'confirmPassword') {
       setConfirmPw(value)
     }
   }
 
-  useEffect(() => {
-    if (pw!==confirmPw) {
-      setPwUnmatched(true)
-    } else if (pw===confirmPw) {
-      setPwUnmatched(false)
-    }
-  }, [handleChange])
-
-  console.log(pwUnmatched)
-
   const handleSubmit = async (event) => {
     event.preventDefault();
+    if(pw!==confirmPw) {
+      setError(`Whoops! Your passwords don't match... let's try that again.`)
+      setPwUnmatched(true)
+      setStatus(false)
+    }
 
     try {
       const response = await axios.post(`${baseUrl}/api/users/register`, {
@@ -49,9 +44,7 @@ function RegisterForm() {
       }
 
     } catch (error) {
-      if(pw!==confirmPw) {
-        setPwUnmatched()
-        setError(`Whoops!  Passwords don't match. Let's try that again...`)
+      if(pwUnmatched) {
         setStatus(false)
       } else {
         setStatus(false)
@@ -85,8 +78,7 @@ function RegisterForm() {
           <button className='register__form-submit'>Let's go!</button>
         </div>
       </form>
-      {/* {pwUnmatched ? <div className="register__message register__message--error">Whoops... your passwords don't match!</div> : status ? <div className="register__message register__message--success">Registration complete! <br /><Link to='/login'>Sign in</Link>, homeslice!</div> : !error ? '' : <div className="register__message register__message--error">{error}</div>} */}
-      {status ? <div className="register__message register__message--success">Registration complete! <br /><Link to='/login'>Sign in</Link>, homeslice!</div> : !error ? '' : <div className="register__message register__message--error">{error}</div>}
+      {status ? <div className="register__message register__message--success">Registration complete! <br /><Link to='/login'>Sign in</Link>, homeslice!</div> : pwUnmatched ? <div className="register__message register__message--error">{error}</div> : !error ? '' : <div className="register__message register__message--error">{error}</div>}
     </section>
   )
 }
