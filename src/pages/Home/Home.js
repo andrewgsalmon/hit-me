@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Head from '../../layout/Head';
 import './Home.scss'
 import Inputs from '../../components/Inputs/Inputs';
 import axios from 'axios';
@@ -55,7 +56,8 @@ function Home() {
 
   return (
     <>
-      <Inputs user={user} />
+      <Head title="Home"/>
+			<Inputs user={user} />
     </>
   )
 }
