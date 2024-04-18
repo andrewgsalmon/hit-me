@@ -1,15 +1,13 @@
 import React from 'react'
+import Head from '../../layout/Head'
 import './Login.scss'
 import LoginForm from '../../components/LoginForm/LoginForm'
 
 function Login({userToken}) {
 
-  // if (userToken) {
-  //   window.location.href = './home'
-  // }
-
   return (
     <>
+      <Head title="Login"/>
       <LoginForm />
     </>
   )

@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import Head from '../../layout/Head';
 import './Profile.scss'
 import ProfileInfo from '../../components/ProfileInfo/ProfileInfo'
 import axios from 'axios';
@@ -41,7 +42,8 @@ function Profile() {
 
   return (
     <>
-      <ProfileInfo />
+      <Head title="Profile"/>
+			<ProfileInfo />
     </>
   )
 }
