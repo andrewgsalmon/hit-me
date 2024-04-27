@@ -25,6 +25,22 @@ function ProfilePlayer({ user }) {
     getLikes()
   }, [newLikes, user])
 
+  // useEffect(() => {
+  //   const getArtistInfo = async () => {
+  //     try {
+  //       const response = await axios.get(`${baseUrl}/api/users/likes`, {
+  //         params: {
+  //           user_email: user.email
+  //         }
+  //       })
+  //       setLikes(response.data.reverse())
+  //     } catch (error) {
+  //       console.error('Error fetching likes:', error);
+  //     }
+  //   }
+  //   getLikes()
+  // }, [newLikes, user])
+
   const handleDelete = async (id) => {
       const response = await axios.delete(`${baseUrl}/api/users/likes`, {
         params: {
