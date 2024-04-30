@@ -1,6 +1,6 @@
 <p style="text-align: center;">Introducing...</p>
 
-<p style="text-align: center;"><img style="width: 70%;" src='./src/assets/logo/hitme-logo.png'/></p>
+<p style="text-align: center;"><img style="width: 300px;" src='./src/assets/logo/hitme-logo.png'/></p>
 
 Have you ever thought to yourself... "I need some music while I'm working, but I can't decide what to listen to! I need a recommendation..."
 
@@ -10,11 +10,23 @@ Like the recommendation? Save it, and refer back to it later!  Or - leave a comm
 
 ### Get artist recommendaations
 
-<img src='./src/assets/readme-images/get-recos.gif/'/>
+<img src='./src/assets/readme-images/get-recos.gif'>
+
+### Save artists to your profile
+
+<img src='./src/assets/readme-images/save-artist1.gif'>
+
+<img src='./src/assets/readme-images/save-artist2.gif'>
+
+### Comment on artist recommendations you like
+
+<img src='./src/assets/readme-images/comment.gif'>
 
 ## Start using Hit Me
 
 <p>No need to download and install...  <a href='https://hitme.rocks/register'>Start using it now</a> on the live web app!</p>
+
+<p style="text-align: center"><a href="https://hitme.rocks/"><button style="font-size: 20px; padding: 10px 30px; background-color: #282460; color: white; border-radius: 20px; border: 0px; font-weight: bold; filter: drop-shadow(0px 0px 4px rgba(255, 255, 255, .175)); cursor: pointer;">HIT ME</button></a></p>
 
 Interested in the code and building upon it?  Cool!  See instructions below:
 
