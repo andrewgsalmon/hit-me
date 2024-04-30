@@ -8,23 +8,23 @@ Probably often, right?  Me too!  Well, the Hit Me app helps you with just that. 
 
 Like the recommendation? Save it, and refer back to it later!  Or - leave a comment to share what you think of the artist!
 
-<p align='center'><strong>Get artist recommendations</strong></p>
+<p align="center"><strong>Get artist recommendations</strong></p>
 
 <p align="center"><img width="80%" style="padding-bottom:20px;" align="center" src='./src/assets/readme-images/get-recos.gif'></p>
 
-<p align='center'><strong>Save artists to your profile</strong></p>
+<p align="center"><strong>Save artists to your profile</strong></p>
 
 <p align="center"><img width="80%" style="padding-bottom:20px;" align="center" src='./src/assets/readme-images/save-artist1.gif'></p>
 
 <p align="center"><img width="80%" style="padding-bottom:20px;" align="center" src='./src/assets/readme-images/save-artist2.gif'></p>
 
-<p align='center'><strong>Comment on artist recommendations you like</strong></p>
+<p align="center"><strong>Comment on artist recommendations you like</strong></p>
 
-<p align="center"><img style="padding-bottom:20px;" width="80%" src='./src/assets/readme-images/comment.gif'></p>
+<p align="center"><img style="padding-bottom:20px;" width="80%" src="./src/assets/readme-images/comment.gif"></p>
 
 ## Start using Hit Me
 
-<p>No need to download and install...  <a href='https://hitme.rocks/register'>Start using it now</a> on the live web app!</p>
+<p>No need to download and install...  <a href="https://hitme.rocks/register">Start using it now</a> on the live web app!</p>
 
 Interested in the code and building upon it?  Cool!  See instructions below:
 
@@ -46,15 +46,15 @@ Install the back end here: [link to backend]
 
 To make your app work, you'll need to add the following variables to your .env file:
 
-- *REACT_APP_CLIENT_ID=<span style='color: red;'>your_client_ID</span>*
+- *REACT_APP_CLIENT_ID=<span style="color: red;">your_client_ID</span>*
 
-- *REACT_APP_CLIENT_SECRET=<span style='color: red;'>your_client_secret</span>*
+- *REACT_APP_CLIENT_SECRET=<span style="color: red;">your_client_secret</span>*
 
 - *REACT_APP_BASE_URL=http://localhost:8080* <span style="color: orange;">--> We'll use this port to connect with the backend in the next step</span>
 
 ### Back end installation
 
-1. Clone <a href='https://github.com/andrewgsalmon/andrew-salmon-capstone-be'>this back end repo</a> locally.
+1. Clone <a href="https://github.com/andrewgsalmon/andrew-salmon-capstone-be">this back end repo</a> locally.
 
 2. Once cloned, install the necessary dependencies (ex. `npm i` via your CLI).
 
@@ -70,15 +70,15 @@ Here's all the configuration details required for your .env file:
 - CORS_ORIGIN=http://localhost:3000
 - PORT=8080
 - DB_HOST=127.0.0.1
-- DB_DATABASE=<span style='color: red'>your_DB_name</span>
-- DB_USER=<span style='color: red'>your_username</span>
-DB_PASSWORD=<span style='color: red'>your_password</span>
-- JWT_KEY=<span style='color: red'>your_JWT_key</span> --> Get a
-JWT key <a href='https://jwt.io/'>here</a>!
+- DB_DATABASE=<span style="color: red;">your_DB_name</span>
+- DB_USER=<span style="color: red;">your_username</span>
+- DB_PASSWORD=<span style="color: red;">your_password</span>
+- JWT_KEY=<span style="color: red;">your_JWT_key</span> --> Get a
+JWT key <a href="https://jwt.io/">here</a>!
 
 ##### Additional variables required for future OAUTH implementation:
-- CLIENT_ID=<span style='color: red'>your_spotify_clientID</span>
-- CLIENT_SECRET=<span style='color: red'>your_spotify_clientID</span>
+- CLIENT_ID=<span style="color: red;">your_spotify_clientID</span>
+- CLIENT_SECRET=<span style="color: red;">your_spotify_clientID</span>
 
 ## Starting your server
 
@@ -94,6 +94,6 @@ Once the server is up and running, just run `npm start` in your CLI, and you are
 
 ---
 
-<p align="center" style='padding-top: 20px'>I'd love to hear from you!  Reach out below:</p>
+<p align="center" style="padding-top: 20px;">I'd love to hear from you!  Reach out below:</p>
 
-<p align="center"><a href="https://www.linkedin.com/in/andrewgsalmon"><img align="center" style='height: 40px; padding: 0 5px' src='https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/LinkedIn_icon.svg/1024px-LinkedIn_icon.svg.png' /></a>  <a href="mailto:andrew.g.salmon@gmail.com"><img align="center" style='height: 40px;padding: 0 5px' src='https://cdn-icons-png.flaticon.com/512/7718/7718904.png' /></a></p>
+<p align="center"><a href="https://www.linkedin.com/in/andrewgsalmon"><img align="center" style="height: 40px; padding: 0 5px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/LinkedIn_icon.svg/1024px-LinkedIn_icon.svg.png" /></a>  <a href="mailto:andrew.g.salmon@gmail.com"><img align="center" style="height: 40px;padding: 0 5px" src="https://cdn-icons-png.flaticon.com/512/7718/7718904.png" /></a></p>
