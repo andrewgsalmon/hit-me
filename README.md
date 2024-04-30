@@ -1,70 +1,89 @@
-# Getting Started with Create React App
+<p style="text-align: center;">Introducing...</p>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p style="text-align: center;"><img style="width: 70%;" src='./src/assets/logo/hitme-logo.png'/></p>
 
-## Available Scripts
+Have you ever thought to yourself... "I need some music while I'm working, but I can't decide what to listen to! I need a recommendation..."
 
-In the project directory, you can run:
+Probably often, right?  Me too!  Well, the Hit Me app helps you with just that.  Just open the app, decide on the genre you want, and if you want a hugely popular artist, or one that's way more obscure.  Tell the app what you're looking for, and your soundtrack for the day has been set!
 
-### `npm start`
+Like the recommendation? Save it, and refer back to it later!  Or - leave a comment to share what you think of the artist!
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Get artist recommendaations
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<img src='./src/assets/readme-images/get-recos.gif/'/>
 
-### `npm test`
+## Start using Hit Me
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<p>No need to download and install...  <a href='https://hitme.rocks/register'>Start using it now</a> on the live web app!</p>
 
-### `npm run build`
+Interested in the code and building upon it?  Cool!  See instructions below:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Installing 'Hit Me' locally
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+To use the app locally, you will need to install this repository (front end), as well as the back end repository.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Install the back end here: [link to backend]
 
-### `npm run eject`
+### Front end installation
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+1. Clone the app to your local machine
+2. Install the necessary dependencies (ex. `npm i` via your CLI)
+3. Create a .env file in your root directory.  Before we add anything here, we will need to <a href="https://developer.spotify.com/">register for a developer account with Spotify</a>.
+4. Create a Spotify account, or login if you already have one.  Once registered and logged in, click "Create App".  Add a name and description of your choosing, set the website URL to localhost:3000, and your redirect URI to localhost:3000/home.
+5. Once submitted, go to your new app's settings and make note of your **client ID** and **client secret**.  We'll need these for your .env file.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### Configure your .env file
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+To make your app work, you'll need to add the following variables to your .env file:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- *REACT_APP_CLIENT_ID=<span style='color: red;'>your_client_ID</span>*
 
-## Learn More
+- *REACT_APP_CLIENT_SECRET=<span style='color: red;'>your_client_secret</span>*
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- *REACT_APP_BASE_URL=http://localhost:8080* <span style="color: orange;">--> We'll use this port to connect with the backend in the next step</span>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Back end installation
 
-### Code Splitting
+1. Clone <a href='https://github.com/andrewgsalmon/andrew-salmon-capstone-be'>this back end repo</a> locally.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+2. Once cloned, install the necessary dependencies (ex. `npm i` via your CLI).
 
-### Analyzing the Bundle Size
+#### Create a new MySQL database
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Create a new schema in a MySQL database, which will allow you to register for an account, leave comments on recommended artists, and save artists to your profile.  Make note of what you called your DB, as you will need this for your .env file!
 
-### Making a Progressive Web App
+#### Add and configure your .env file
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Here's all the configuration details required for your .env file:
 
-### Advanced Configuration
+- CLIENT_URL=http://localhost:3000
+- CORS_ORIGIN=http://localhost:3000
+- PORT=8080
+- DB_HOST=127.0.0.1
+- DB_DATABASE=<span style='color: red'>your_DB_name</span>
+- DB_USER=<span style='color: red'>your_username</span>
+DB_PASSWORD=<span style='color: red'>your_password</span>
+- JWT_KEY=<span style='color: red'>your_JWT_key</span> --> Get a
+JWT key <a href='https://jwt.io/'>here</a>!
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+##### Additional variables required for future OAUTH implementation:
+- CLIENT_ID=<span style='color: red'>your_spotify_clientID</span>
+- CLIENT_SECRET=<span style='color: red'>your_spotify_clientID</span>
 
-### Deployment
+## Starting your server
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Once the above has been completed, complete the following steps in your CLI:
 
-### `npm run build` fails to minify
+1. `npm run migrate`
+2. `npm start`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+## Starting the front end
+
+Once the server is up and running, just run `npm start` in your CLI, and you are up and running!
+
+---
+
+<p style='text-align:center; padding-top: 20px'>I'd love to hear from you!  Reach out below:</p>
+
+<p style='text-align:center'><a href="https://www.linkedin.com/in/andrewgsalmon"><img style='height: 30px; padding: 0 5px' src='https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/LinkedIn_icon.svg/1024px-LinkedIn_icon.svg.png' /></a>  <img style='height: 30px;padding: 0 5px' src='https://cdn-icons-png.flaticon.com/512/7718/7718904.png' /> <a href="mailto:andrew.g.salmon@gmail.com"></a></p>
