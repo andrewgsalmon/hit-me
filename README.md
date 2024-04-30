@@ -10,17 +10,17 @@ Like the recommendation? Save it, and refer back to it later!  Or - leave a comm
 
 <p align='center'><strong>Get artist recommendations</strong></p>
 
-<p align="center"><img width="100%" style="padding-bottom:20px;" align="center" src='./src/assets/readme-images/get-recos.gif'></p>
+<p align="center"><img width="80%" style="padding-bottom:20px;" align="center" src='./src/assets/readme-images/get-recos.gif'></p>
 
 <p align='center'><strong>Save artists to your profile</strong></p>
 
-<p align="center"><img width="100%" style="padding-bottom:20px;" align="center" src='./src/assets/readme-images/save-artist1.gif'></p>
+<p align="center"><img width="80%" style="padding-bottom:20px;" align="center" src='./src/assets/readme-images/save-artist1.gif'></p>
 
-<p align="center"><img width="100%" style="padding-bottom:20px;" align="center" src='./src/assets/readme-images/save-artist2.gif'></p>
+<p align="center"><img width="80%" style="padding-bottom:20px;" align="center" src='./src/assets/readme-images/save-artist2.gif'></p>
 
 <p align='center'><strong>Comment on artist recommendations you like</strong></p>
 
-<p align="center"><img style="padding-bottom:20px;" width="100%" src='./src/assets/readme-images/comment.gif'></p>
+<p align="center"><img style="padding-bottom:20px;" width="80%" src='./src/assets/readme-images/comment.gif'></p>
 
 ## Start using Hit Me
 
