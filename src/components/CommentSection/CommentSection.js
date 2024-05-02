@@ -48,13 +48,13 @@ function CommentSection({ recommended, user }) {
           <div className='comments__avatar'></div>
           <form onSubmit={handleSubmit} className='comments__input'>
             <span className='comments__textarea-label'>Like the tunes? Let us know!</span>
-            <textarea className='comments__textarea' name="comment" id="comment" rows="5" placeholder='comment here...' />
+            {comments.length > 0 ? <textarea className='comments__textarea' name="comment" id="comment" rows="5" placeholder='comment here...' /> : <textarea className='comments__textarea' name="comment" id="comment" rows="5" placeholder='Be the first to comment!' />}
             <button className='comments__button' type='submit'>Post</button>
           </form>
         </div>
         {comments ? comments.map((artistComment) => {
           return <Comment key={artistComment.id} artistComment={artistComment} />
-        }) : <p>Be the first to comment!</p>}
+        }) : ""}
       </section>
     </>
   )
