@@ -5,7 +5,7 @@ import axios from 'axios'
 const baseUrl = process.env.REACT_APP_BASE_URL;
 
 function CommentSection({ recommended, user }) {
-  const [comments, setComments] = useState(null)
+  const [comments, setComments] = useState([])
   const [newComment, setNewComment] = useState(null);
 
   const artistId = recommended.artists[0].id
