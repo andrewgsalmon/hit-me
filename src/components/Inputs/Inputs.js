@@ -73,8 +73,6 @@ function Inputs({ user, idFromParams }) {
     }
   }, [accessToken, idFromParams]);
 
-  console.log(artistFromParams)
-
   const handleGenreChange = (e) => {
     const { value } = e.target;
     setGenreSelected(value);
@@ -121,8 +119,6 @@ function Inputs({ user, idFromParams }) {
         });
     }
   }
-
-  console.log(recommended)
 
   return (
     <>

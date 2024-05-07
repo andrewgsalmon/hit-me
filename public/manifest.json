@@ -8,18 +8,18 @@
       "type": "image/x-icon"
     },
     {
-      "src": "hitme-preview.png",
+      "src": "hitme-preview-192.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "hitme-preview.png",
+      "src": "hitme-preview-512.png",
       "type": "image/png",
       "sizes": "512x512"
     }
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#282460",
+  "background_color": "#fac697"
 }

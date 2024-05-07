@@ -9,6 +9,8 @@ function Player({ accessToken, recommended, handleSubmit, user, liked, artistFro
   const [artistId, setArtistId] = useState(null)
   const [newLike, setNewLike] = useState(null)
 
+  console.log(artistFromParams)
+
   const handleSave = async (event) => {
     event.preventDefault();
 

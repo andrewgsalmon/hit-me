@@ -20,10 +20,6 @@ function CommentSection({ recommended, user, idFromParams }) {
     }
   }, [idFromParams, recommended])
 
-  console.log(artistId)
-  console.log(recommended)
-  console.log(idFromParams)
-
   useEffect(() => {
     const getComments = async () => {
       if (!recommended && !idFromParams) {
@@ -45,8 +41,6 @@ function CommentSection({ recommended, user, idFromParams }) {
     }
     getComments()
   }, [recommended, newComment, artistId, idFromParams])
-
-  console.log(comments)
 
   const handleSubmit = async (event) => {
     event.preventDefault();
