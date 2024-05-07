@@ -7,6 +7,7 @@ import Login from './pages/Login/Login';
 import Register from './pages/Register/Register';
 import Footer from './components/Footer/Footer';
 import Profile from './pages/Profile/Profile';
+import ArtistPage from './pages/ArtistPage/ArtistPage';
 
 function App() {
 	const [failedAuth, setFailedAuth] = useState(false);
@@ -35,6 +36,7 @@ function App() {
             <Route path='/' element={<Login userToken={userToken} />} />
             <Route path='login' element={<Login userToken={userToken}/>}/>
             <Route path='home' element={<Home />} />
+            <Route path='artist/:idFromParams' element={<ArtistPage />} />
             <Route path='register' element={<Register />} />
             <Route path='profile' element={<Profile />} />
           </Routes>

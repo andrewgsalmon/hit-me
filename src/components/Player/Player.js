@@ -5,7 +5,7 @@ import axios from 'axios'
 import britney from '../../assets/images/britney.gif'
 const baseUrl = process.env.REACT_APP_BASE_URL;
 
-function Player({ accessToken, recommended, handleSubmit, user, liked }) {
+function Player({ accessToken, recommended, handleSubmit, user, liked, artistFromParams }) {
   const [artistId, setArtistId] = useState(null)
   const [newLike, setNewLike] = useState(null)
 
@@ -28,8 +28,10 @@ function Player({ accessToken, recommended, handleSubmit, user, liked }) {
   useEffect(() => {
     if (recommended) {
       setArtistId(recommended.artists[0].id)
+    } else if (artistFromParams) {
+      setArtistId(artistFromParams)
     }
-  }, [recommended])
+  }, [recommended, artistFromParams])
 
   useEffect(() => {
     if (handleSubmit) {
@@ -37,7 +39,7 @@ function Player({ accessToken, recommended, handleSubmit, user, liked }) {
     }
   }, [handleSubmit])
 
-  if (!recommended) {
+  if (!recommended && !artistFromParams) {
     return <div className='output__standby'>
       <img className='home__britney-gif' src={britney} alt="gif of britney spears waiting in class" />
       <br />What are you waiting for...<br /><strong>Hit us</strong> with your preferences!

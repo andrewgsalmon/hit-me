@@ -2,17 +2,39 @@ import React, { useState, useEffect } from 'react'
 import './CommentSection.scss'
 import Comment from '../Comment/Comment'
 import axios from 'axios'
+// import { useParams } from 'react-router-dom';
 const baseUrl = process.env.REACT_APP_BASE_URL;
 
-function CommentSection({ recommended, user }) {
+function CommentSection({ recommended, user, idFromParams }) {
   const [comments, setComments] = useState([])
   const [newComment, setNewComment] = useState(null);
+  const [artistId, setArtistId] = useState(idFromParams);
 
-  const artistId = recommended.artists[0].id
+  // const {idFromParams} = useParams();
+
+  useEffect(() => {
+    if (idFromParams && !recommended) {
+      setArtistId(idFromParams)
+    } else if (recommended) {
+      setArtistId(recommended.artists[0].id)
+    }
+  }, [idFromParams, recommended])
+
+  console.log(artistId)
+  console.log(recommended)
+  console.log(idFromParams)
 
   useEffect(() => {
     const getComments = async () => {
-      if (recommended) {
+      if (!recommended && !idFromParams) {
+        return (
+          <section className="dashboard artist__comments">
+            <p className='home__loading artist__loading'>Loading...</p>
+          </section>
+        );
+      }
+
+      if (recommended || idFromParams) {
         try {
           const response = await axios.get(`${baseUrl}/api/artists/comments/${artistId}`)
           setComments((response.data).reverse())
@@ -22,7 +44,9 @@ function CommentSection({ recommended, user }) {
       }
     }
     getComments()
-  }, [recommended, newComment, artistId])
+  }, [recommended, newComment, artistId, idFromParams])
+
+  console.log(comments)
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -52,7 +76,7 @@ function CommentSection({ recommended, user }) {
             <button className='comments__button' type='submit'>Post</button>
           </form>
         </div>
-        {comments ? comments.map((artistComment) => {
+        {artistId ? comments.map((artistComment) => {
           return <Comment key={artistComment.id} artistComment={artistComment} />
         }) : ""}
       </section>

@@ -1,0 +1,22 @@
+@use '../../styles/variables' as *;
+@use '../../styles/typography' as *;
+@use '../../styles/mixins' as *;
+@use '../../App.scss' as *;
+
+.artist__player {
+  margin-top: 1.2rem;
+
+  @include desktop {
+    display: flex;
+    margin: 1.2rem auto 0 auto;
+    flex-flow: row nowrap;
+    width: 44.44rem;
+  }
+}
+
+.comments {
+  @include desktop {
+    width: 35rem;
+    margin: auto;
+  }
+}

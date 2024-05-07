@@ -3,13 +3,15 @@ import Head from '../../layout/Head';
 import './Home.scss'
 import Inputs from '../../components/Inputs/Inputs';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import garth from '../../assets/images/garth.gif'
 const baseUrl = process.env.REACT_APP_BASE_URL;
 
 function Home() {
   const [user, setUser] = useState(null);
 	const [failedAuth, setFailedAuth] = useState(false);
+
+	const { idFromParams } = useParams();
 
 	useEffect(() => {
 		// getItem from sessionStorage token
@@ -57,7 +59,7 @@ function Home() {
   return (
     <>
       <Head title="Home"/>
-			<Inputs user={user} />
+			<Inputs user={user} idFromParams={idFromParams}/>
     </>
   )
 }

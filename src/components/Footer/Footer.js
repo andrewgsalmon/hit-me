@@ -25,7 +25,7 @@ function Footer() {
           <NavLink to={'/home'} className={({ isActive, isPending }) => {
             return isPending ? "footer__link footer__link--inactive footer__link--home" : isActive ? 'footer__link footer__link--active footer__link--home' : "footer__link footer__link--inactive footer__link--home"
           }
-          }>Play</NavLink>
+          }>Find Music</NavLink>
           <NavLink to='/profile' className={({ isActive, isPending }) => {
             return isPending ? "footer__link footer__link--inactive footer__link--profile" : isActive ? 'footer__link footer__link--active footer__link--profile' : "footer__link--inactive footer__link footer__link--profile"
           }
