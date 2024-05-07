@@ -4,8 +4,8 @@ import axios from 'axios';
 import ProfilePlayer from '../ProfilePlayer/ProfilePlayer';
 const baseUrl = process.env.REACT_APP_BASE_URL;
 
-function ProfileInfo() {
-	const [user, setUser] = useState(null);
+function ProfileInfo({currentUser}) {
+	const [user, setUser] = useState(currentUser);
 
 	useEffect(() => {
 		const token = sessionStorage.getItem('token');

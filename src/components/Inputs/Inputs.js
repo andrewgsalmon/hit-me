@@ -5,12 +5,13 @@ import Player from '../Player/Player';
 const REACT_APP_CLIENT_ID = process.env.REACT_APP_CLIENT_ID;
 const REACT_APP_CLIENT_SECRET = process.env.REACT_APP_CLIENT_SECRET;
 
-function Inputs({ user }) {
+function Inputs({ user, idFromParams }) {
   const [recommended, setRecommended] = useState(null);
   const [genreSelected, setGenreSelected] = useState(null);
   const [popularity, setPopularity] = useState(100)
   const [accessToken, setAccessToken] = useState(null)
   const [liked, setLiked] = useState(false)
+  const [artistFromParams, setArtistFromParams] = useState(null);
 
   // GET Spotify access token
   useEffect(() => {
@@ -40,6 +41,39 @@ function Inputs({ user }) {
         console.error('There was a problem with the request:', error);
       });
   }, [])
+
+  useEffect(() => {
+    if (idFromParams) {
+      const apiUrl = `https://api.spotify.com/v1/artists/${idFromParams}`;
+      const header = {
+        'Authorization': `Bearer ${accessToken}`
+      };
+
+      // Create the request options object
+      const requestOptions = {
+        method: 'GET',
+        headers: header,
+      };
+
+      // Make the API call
+      fetch(apiUrl, requestOptions)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return response.json();
+        })
+        .then(data => {
+          setArtistFromParams(data)
+          setLiked(false)
+        })
+        .catch(error => {
+          console.error('There was a problem with the request:', error);
+        });
+    }
+  }, [accessToken, idFromParams]);
+
+  console.log(artistFromParams)
 
   const handleGenreChange = (e) => {
     const { value } = e.target;
@@ -87,6 +121,9 @@ function Inputs({ user }) {
         });
     }
   }
+
+  console.log(recommended)
+
   return (
     <>
       <h1 className='home__heading'>Welcome, {user.name}!</h1>
@@ -229,7 +266,7 @@ function Inputs({ user }) {
             <button className='form__submit' type='submit'>HIT ME!</button>
           </form >
         </section >
-        <Player recommended={recommended} handleSubmit={handleSubmit} user={user} liked={liked} />
+        <Player recommended={recommended} handleSubmit={handleSubmit} user={user} liked={liked} artistFromParams={artistFromParams} />
       </div>
     </>
   )

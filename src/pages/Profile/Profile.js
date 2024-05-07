@@ -43,7 +43,7 @@ function Profile() {
   return (
     <>
       <Head title="Profile"/>
-			<ProfileInfo />
+			<ProfileInfo currentUser={currentUser} />
     </>
   )
 }
