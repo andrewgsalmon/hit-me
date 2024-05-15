@@ -2,15 +2,12 @@ import React, { useState, useEffect } from 'react'
 import './CommentSection.scss'
 import Comment from '../Comment/Comment'
 import axios from 'axios'
-// import { useParams } from 'react-router-dom';
 const baseUrl = process.env.REACT_APP_BASE_URL;
 
-function CommentSection({ recommended, user, idFromParams }) {
+function CommentSection({ recommended, user, idFromParams, artistClass }) {
   const [comments, setComments] = useState([])
   const [newComment, setNewComment] = useState(null);
   const [artistId, setArtistId] = useState(idFromParams);
-
-  // const {idFromParams} = useParams();
 
   useEffect(() => {
     if (idFromParams && !recommended) {
@@ -61,7 +58,7 @@ function CommentSection({ recommended, user, idFromParams }) {
 
   return (
     <>
-      <section className='comments'>
+      <section className={artistClass ? artistClass : 'comments'}>
         <div className='comments__container'>
           <div className='comments__avatar'></div>
           <form onSubmit={handleSubmit} className='comments__input'>

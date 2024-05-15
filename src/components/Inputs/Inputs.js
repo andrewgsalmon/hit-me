@@ -204,7 +204,6 @@ function Inputs({ user, idFromParams }) {
                 <option value="Malay">Malay</option>
                 <option value="Mandopop">Mandopop</option>
                 <option value="metal">Metal</option>
-                <option value="metal-misc">Metal - Avant Garde</option>
                 <option value="metalcore">Metalcore</option>
                 <option value="minimal-techno">Minimal Techno</option>
                 <option value="Movies">Movies</option>
@@ -220,7 +219,6 @@ function Inputs({ user, idFromParams }) {
                 <option value="progressive-house">Progressive House</option>
                 <option value="psych-rock">Psychedelic Rock</option>
                 <option value="punk">Punk</option>
-                <option value="punk-rock">Punk Rock</option>
                 <option value="r-n-b">RnB</option>
                 <option value="reggae">Reggae</option>
                 <option value="reggaeton">Reggaeton</option>
