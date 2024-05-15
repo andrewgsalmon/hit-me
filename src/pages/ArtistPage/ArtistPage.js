@@ -74,10 +74,10 @@ function ArtistPage() {
   return (
     <>
       <Head title="Listen" />
-      <section className='artist__player'>
+      <section className='artist artist__player'>
         <iframe title='spotify-iframe' src={`https://open.spotify.com/embed/artist/${idFromParams}?utm_source=generator`} width="100%" height="152px" frameBorder="0" allowFullScreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       </section>
-      <CommentSection idFromParams={idFromParams} user={user} comments={comments} />
+      <CommentSection idFromParams={idFromParams} user={user} comments={comments} artistClass={'artist artist__comments'} />
     </>
   )
 }

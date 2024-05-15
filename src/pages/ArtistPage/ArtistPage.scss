@@ -3,6 +3,14 @@
 @use '../../styles/mixins' as *;
 @use '../../App.scss' as *;
 
+.artist {
+  @include tablet {
+    max-width: 768px;
+    width: 100%;
+    margin: auto;
+  }
+}
+
 .artist__player {
   margin-top: 1.2rem;
 
@@ -12,9 +20,10 @@
     flex-flow: row nowrap;
     width: 44.44rem;
   }
+
 }
 
-.comments {
+.artist__comments {
   @include desktop {
     width: 35rem;
     margin: auto;
