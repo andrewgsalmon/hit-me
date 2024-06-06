@@ -69,6 +69,10 @@ iframe {
       font-weight: 600;
       @include button;
 
+      &:hover {
+        background-color: #4940bc;
+      }
+
       &--save,
       &--saved {
         width: 100%;
@@ -81,6 +85,11 @@ iframe {
       &--saved {
         background-color: $Primary-White;
         color: $Primary-Submit;
+
+        &:hover {
+          background-color: #fff;
+          color: #4940bc;
+        }
       }
 
       @include tablet {
@@ -101,4 +110,8 @@ iframe {
     font-size: 1.33rem;
     margin-top: 0;
   }
+}
+
+.home__britney-gif {
+  border-radius: 20px;
 }

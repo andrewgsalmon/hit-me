@@ -114,6 +114,7 @@
 
   &__gif {
     width: 80%;
+    border-radius: 20px;
     @include drop-shadow;
   }
 
@@ -122,10 +123,7 @@
   }
 
   &__remove-like--tablet {
-    // display: none;
-
     @include tablet {
-      // display: contents;
       position: absolute;
       right: -0.55rem;
       top: -0.55rem;

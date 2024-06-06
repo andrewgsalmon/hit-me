@@ -81,6 +81,12 @@
 .form {
   &__input-label {
     text-align: center;
+
+    &--popularity {
+      @include desktop {
+        max-width: 342px;
+      }
+    }
   }
 
   &__input--popularity-container {
