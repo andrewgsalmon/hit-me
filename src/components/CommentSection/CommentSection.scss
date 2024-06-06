@@ -56,6 +56,10 @@
     background-color: $Primary-Submit;
     color: $Primary-White;
 
+    &:hover {
+      background-color: #4940bc;
+    }
+
     @include tablet {
       width: 8.33rem;
       margin-right: auto;

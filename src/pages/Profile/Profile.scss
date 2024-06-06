@@ -1,0 +1,8 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+@use '../../styles/typography' as *;
+@use '../../App.scss' as *;
+
+.failed-auth__giphy-embed {
+  @include drop-shadow;
+}
