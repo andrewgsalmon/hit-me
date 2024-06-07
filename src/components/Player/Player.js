@@ -9,8 +9,6 @@ function Player({ accessToken, recommended, handleSubmit, user, liked, artistFro
   const [artistId, setArtistId] = useState(null)
   const [newLike, setNewLike] = useState(null)
 
-  console.log(artistFromParams)
-
   const handleSave = async (event) => {
     event.preventDefault();
 
@@ -25,6 +23,16 @@ function Player({ accessToken, recommended, handleSubmit, user, liked, artistFro
     } catch (error) {
       console.error(error)
     }
+  }
+
+  const handleDelete = async (id) => {
+    await axios.delete(`${baseUrl}/api/users/likes`, {
+      params: {
+        user_email: user.email,
+        artist_id: artistId
+      }
+    })
+    setNewLike(null);
   }
 
   useEffect(() => {
@@ -59,7 +67,7 @@ function Player({ accessToken, recommended, handleSubmit, user, liked, artistFro
           <iframe title='spotify-iframe' src={`https://open.spotify.com/embed/artist/${artistId}?utm_source=generator`} width="100%" height="152px" frameBorder="0" allowFullScreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
           <div className='spotify-player__action spotify-player__action--like'>
             {!newLike ? <button className='spotify-player__action-button spotify-player__action-button--save' type='submit' onClick={handleSave}>Save this artist</button> :
-              <button className='spotify-player__action-button spotify-player__action-button--saved' type='submit' onClick={handleSave}>Artist saved!</button>}
+              <button className='spotify-player__action-button spotify-player__action-button--saved' type='submit' onClick={handleDelete}>Artist saved!</button>}
           </div>
         </div>
         <CommentSection recommended={recommended} user={user} />
