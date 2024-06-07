@@ -57,7 +57,6 @@ function ProfilePlayer({ user }) {
               <div className='profile-player__artist-info'>
                 <div className='profile-player__artist-name'><h3 className='profile-player__artist-h3'>{like.artist_name}</h3></div>
                 <Link className='profile-player__link' to={`../artist/${like.artist_id}`} >Listen now</Link>
-                {/* <Link className='profile-player__link' to={`https://open.spotify.com/artist/${like.artist_id}`} target='_blank'>Play on Spotify</Link> */}
               </div>
             </article>
           })
