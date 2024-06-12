@@ -4,22 +4,22 @@ import Comment from '../Comment/Comment'
 import axios from 'axios'
 const baseUrl = process.env.REACT_APP_BASE_URL;
 
-function CommentSection({ recommended, user, idFromParams, artistClass }) {
+function CommentSection({ user, idFromParams, artistClass, artistId }) {
   const [comments, setComments] = useState([])
   const [newComment, setNewComment] = useState(null);
-  const [artistId, setArtistId] = useState(idFromParams);
+  const [artist, setArtist] = useState(idFromParams);
 
   useEffect(() => {
-    if (idFromParams && !recommended) {
-      setArtistId(idFromParams)
-    } else if (recommended) {
-      setArtistId(recommended.artists[0].id)
+    if (idFromParams) {
+      setArtist(idFromParams)
+    } else if (artistId) {
+      setArtist(artistId)
     }
-  }, [idFromParams, recommended])
+  }, [idFromParams, artist, artistId])
 
   useEffect(() => {
     const getComments = async () => {
-      if (!recommended && !idFromParams) {
+      if (!artist && !idFromParams) {
         return (
           <section className="dashboard artist__comments">
             <p className='home__loading artist__loading'>Loading...</p>
@@ -27,9 +27,9 @@ function CommentSection({ recommended, user, idFromParams, artistClass }) {
         );
       }
 
-      if (recommended || idFromParams) {
+      if (artist) {
         try {
-          const response = await axios.get(`${baseUrl}/api/artists/comments/${artistId}`)
+          const response = await axios.get(`${baseUrl}/api/artists/comments/${artist}`)
           setComments((response.data).reverse())
         } catch (error) {
           error.log(error)
@@ -37,7 +37,7 @@ function CommentSection({ recommended, user, idFromParams, artistClass }) {
       }
     }
     getComments()
-  }, [recommended, newComment, artistId, idFromParams])
+  }, [newComment, artist, idFromParams])
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -47,7 +47,7 @@ function CommentSection({ recommended, user, idFromParams, artistClass }) {
         name: user.name,
         email: user.email,
         comment: event.target.comment.value,
-        artist_id: artistId
+        artist_id: artist
       })
       setNewComment(response)
       event.target.reset();
@@ -67,7 +67,7 @@ function CommentSection({ recommended, user, idFromParams, artistClass }) {
             <button className='comments__button' type='submit'>Post</button>
           </form>
         </div>
-        {artistId ? comments.map((artistComment) => {
+        {artist ? comments.map((artistComment) => {
           return <Comment key={artistComment.id} artistComment={artistComment} />
         }) : ""}
       </section>

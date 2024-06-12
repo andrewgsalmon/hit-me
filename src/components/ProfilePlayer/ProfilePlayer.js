@@ -53,7 +53,7 @@ function ProfilePlayer({ user }) {
             return <article key={like.id} className='profile-player__artist'>
               <div className='profile-player__remove-like--tablet' onClick={() => handleDelete(like.artist_id)}></div>
               <div className='profile-player__remove-like--mobile' onClick={() => handleDelete(like.artist_id)}>remove</div>
-              <img className='profile-player__thumb' src={like.artist_img} alt='' />
+              <img className='profile-player__thumb' src={like.artist_img} alt={like.artist_name} />
               <div className='profile-player__artist-info'>
                 <div className='profile-player__artist-name'><h3 className='profile-player__artist-h3'>{like.artist_name}</h3></div>
                 <Link className='profile-player__link' to={`../artist/${like.artist_id}`} >Listen now</Link>

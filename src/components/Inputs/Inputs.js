@@ -1,74 +1,75 @@
-import React from 'react'
-import './Inputs.scss'
-import { useState, useEffect } from 'react'
-import Player from '../Player/Player';
+import React from "react";
+import "./Inputs.scss";
+import { useState, useEffect } from "react";
+import Player from "../Player/Player";
 const REACT_APP_CLIENT_ID = process.env.REACT_APP_CLIENT_ID;
 const REACT_APP_CLIENT_SECRET = process.env.REACT_APP_CLIENT_SECRET;
 
 function Inputs({ user, idFromParams }) {
   const [recommended, setRecommended] = useState(null);
   const [genreSelected, setGenreSelected] = useState(null);
-  const [popularity, setPopularity] = useState(100)
-  const [accessToken, setAccessToken] = useState(null)
-  const [liked, setLiked] = useState(false)
+  const [popularity, setPopularity] = useState(100);
+  const [accessToken, setAccessToken] = useState(null);
+  const [liked, setLiked] = useState(false);
   const [artistFromParams, setArtistFromParams] = useState(null);
+  const [similarArtist, setSimilarArtist] = useState(null);
+  const [artistId, setArtistId] = useState(null);
 
   // GET Spotify access token
   useEffect(() => {
     const apiUrl = `https://accounts.spotify.com/api/token?grant_type=client_credentials&client_id=${REACT_APP_CLIENT_ID}&client_secret=${REACT_APP_CLIENT_SECRET}`;
 
-
     const header = {
-      'Content-Type': 'application/x-www-form-urlencoded'
+      "Content-Type": "application/x-www-form-urlencoded",
     };
 
     const requestOptions = {
-      method: 'POST',
-      headers: header
+      method: "POST",
+      headers: header,
     };
 
     fetch(apiUrl, requestOptions)
-      .then(response => {
+      .then((response) => {
         if (!response.ok) {
-          throw new Error('Network response was not ok');
+          throw new Error("Network response was not ok");
         }
         return response.json();
       })
-      .then(data => {
+      .then((data) => {
         setAccessToken(data.access_token);
       })
-      .catch(error => {
-        console.error('There was a problem with the request:', error);
+      .catch((error) => {
+        console.error("There was a problem with the request:", error);
       });
-  }, [])
+  }, []);
 
   useEffect(() => {
     if (idFromParams) {
       const apiUrl = `https://api.spotify.com/v1/artists/${idFromParams}`;
       const header = {
-        'Authorization': `Bearer ${accessToken}`
+        Authorization: `Bearer ${accessToken}`,
       };
 
       // Create the request options object
       const requestOptions = {
-        method: 'GET',
+        method: "GET",
         headers: header,
       };
 
       // Make the API call
       fetch(apiUrl, requestOptions)
-        .then(response => {
+        .then((response) => {
           if (!response.ok) {
-            throw new Error('Network response was not ok');
+            throw new Error("Network response was not ok");
           }
           return response.json();
         })
-        .then(data => {
-          setArtistFromParams(data)
-          setLiked(false)
+        .then((data) => {
+          setArtistFromParams(data);
+          setLiked(false);
         })
-        .catch(error => {
-          console.error('There was a problem with the request:', error);
+        .catch((error) => {
+          console.error("There was a problem with the request:", error);
         });
     }
   }, [accessToken, idFromParams]);
@@ -76,59 +77,105 @@ function Inputs({ user, idFromParams }) {
   const handleGenreChange = (e) => {
     const { value } = e.target;
     setGenreSelected(value);
-  }
+  };
 
   const handlePopularity = (e) => {
     const { value } = e.target;
     setPopularity(value);
-  }
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!genreSelected) {
-      alert('You gotta select a genre!')
+      alert("You gotta select a genre!");
     }
 
     if (genreSelected) {
+      setTimeout(() => {
+        setSimilarArtist(false);
+      }, 1000);
       const apiUrl = `https://api.spotify.com/v1/recommendations?limit=100&market=CA&seed_genres=${genreSelected}&target_popularity=${popularity}`;
       const header = {
-        'Authorization': `Bearer ${accessToken}`
+        Authorization: `Bearer ${accessToken}`,
       };
 
       // Create the request options object
       const requestOptions = {
-        method: 'GET',
+        method: "GET",
         headers: header,
       };
 
       // Make the API call
       fetch(apiUrl, requestOptions)
-        .then(response => {
+        .then((response) => {
           if (!response.ok) {
-            throw new Error('Network response was not ok');
+            throw new Error("Network response was not ok");
           }
           return response.json();
         })
-        .then(data => {
+        .then((data) => {
           const randomIndex = Math.floor(Math.random() * 100);
-          setRecommended(data.tracks[randomIndex])
-          setLiked(false)
+          setRecommended(data.tracks[randomIndex]);
+          setLiked(false);
         })
-        .catch(error => {
-          console.error('There was a problem with the request:', error);
+        .catch((error) => {
+          console.error("There was a problem with the request:", error);
         });
     }
-  }
+  };
+
+  const handleSimilar = (e) => {
+    e.preventDefault();
+
+    if (recommended) {
+      setTimeout(() => {
+        setRecommended(false);
+      }, 1000);
+    }
+    const apiUrl = `https://api.spotify.com/v1/artists/${artistId}/related-artists`;
+    const header = {
+      Authorization: `Bearer ${accessToken}`,
+    };
+
+    // Create the request options object
+    const requestOptions = {
+      method: "GET",
+      headers: header,
+    };
+
+    // Make the API call
+    fetch(apiUrl, requestOptions)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        const randomIndex = Math.floor(Math.random() * data.artists.length);
+        setSimilarArtist(data.artists[randomIndex]);
+        setLiked(false);
+      })
+      .catch((error) => {
+        console.error("There was a problem with the request:", error);
+      });
+  };
 
   return (
     <>
-      <h1 className='home__heading'>Welcome, {user.name}!</h1>
-      <div className='home__desktop-toggle'>
-        <section className='inputs'>
-          <form onSubmit={handleSubmit} className='inputs__form'>
-            <div className='inputs__genre'>
-              <label className='form__input-label form__input-label--genre'>What genre are you in the mood for today?</label>
-              <select name='inputs__genre-selector' id='inputs__genre-selector' onChange={handleGenreChange}>
+      <h1 className="home__heading">Welcome, {user.name}!</h1>
+      <div className="home__desktop-toggle">
+        <section className="inputs">
+          <form onSubmit={handleSubmit} className="inputs__form">
+            <div className="inputs__genre">
+              <label className="form__input-label form__input-label--genre">
+                What genre are you in the mood for today?
+              </label>
+              <select
+                name="inputs__genre-selector"
+                id="inputs__genre-selector"
+                onChange={handleGenreChange}
+              >
                 <option value="">--select your genre--</option>
                 <option value="acoustic">Acoustic</option>
                 <option value="afrobeat">Afrobeat</option>
@@ -251,19 +298,44 @@ function Inputs({ user, idFromParams }) {
                 <option value="world-music">World-Music</option>
               </select>
             </div>
-            <label className='form__input-label form__input-label--popularity' htmlFor="pop">Do you want an indie artist, or a chart-topper? </label>
-            <div className='form__input--popularity-container'>
-              <p className='form__input--popularity-label'>Indie</p>
-              <input onChange={handlePopularity} type='range' id='inputs__pop-selector' name='pop' min='1' max='100' />
-              <p className='form__input--popularity-label'>Major</p>
+            <label
+              className="form__input-label form__input-label--popularity"
+              htmlFor="pop"
+            >
+              Do you want an indie artist, or a chart-topper?{" "}
+            </label>
+            <div className="form__input--popularity-container">
+              <p className="form__input--popularity-label">Indie</p>
+              <input
+                onChange={handlePopularity}
+                type="range"
+                id="inputs__pop-selector"
+                name="pop"
+                min="1"
+                max="100"
+              />
+              <p className="form__input--popularity-label">Major</p>
             </div>
-            <button className='form__submit' type='submit'>HIT ME!</button>
-          </form >
-        </section >
-        <Player recommended={recommended} handleSubmit={handleSubmit} user={user} liked={liked} artistFromParams={artistFromParams} />
+            <button className="form__submit" type="submit">
+              {!artistId ? 'HIT ME!' : 'HIT ME AGAIN!'}
+            </button>
+          </form>
+        </section>
+        <Player
+          recommended={recommended}
+          similarArtist={similarArtist}
+          setSimilarArtist={setSimilarArtist}
+          handleSimilar={handleSimilar}
+          handleSubmit={handleSubmit}
+          user={user}
+          liked={liked}
+          artistFromParams={artistFromParams}
+          artistId={artistId}
+          setArtistId={setArtistId}
+        />
       </div>
     </>
-  )
+  );
 }
 
-export default Inputs
+export default Inputs;
