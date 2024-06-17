@@ -317,7 +317,7 @@ function Inputs({ user, idFromParams }) {
               <p className="form__input--popularity-label">Major</p>
             </div>
             <button className="form__submit" type="submit">
-              {!artistId ? 'HIT ME!' : 'HIT ME AGAIN!'}
+              {!artistId ? "HIT ME!" : "HIT ME AGAIN!"}
             </button>
           </form>
         </section>
