@@ -168,7 +168,10 @@ function Inputs({ user, idFromParams }) {
         <section className="inputs">
           <form onSubmit={handleSubmit} className="inputs__form">
             <div className="inputs__genre">
-              <label className="form__input-label form__input-label--genre">
+              <label
+                className="form__input-label form__input-label--genre"
+                htmlFor="inputs__genre-selector"
+              >
                 What genre are you in the mood for today?
               </label>
               <select
@@ -300,7 +303,7 @@ function Inputs({ user, idFromParams }) {
             </div>
             <label
               className="form__input-label form__input-label--popularity"
-              htmlFor="pop"
+              htmlFor="inputs__pop-selector"
             >
               Do you want an indie artist, or a chart-topper?{" "}
             </label>
