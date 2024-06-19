@@ -46,11 +46,11 @@ function ProfileInfo({currentUser}) {
 						</div>
 						<div className='profile__detail profile__location'>
 							<span className='profile__label profile__label--location'>Location</span>
-							<p className='profile__value profile__value--location'>{user.location}</p>
+							<p className='profile__value profile__value--location'>{user.location ? user.location : '(not provided)'}</p>
 						</div>
 						<div className='profile__detail profile__artists'>
 							<span className='profile__label profile__label--fav-artists'>Favourite Artists</span>
-							<p className='profile__value profile__value--fav-artists'>{user.fav_artists}</p>
+							<p className='profile__value profile__value--fav-artists'>{user.fav_artists ? user.fav_artists : '(not provided)'}</p>
 						</div>
 					</div>
 				</div>

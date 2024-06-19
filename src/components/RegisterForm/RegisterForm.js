@@ -1,15 +1,41 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { ToastContainer, toast, Flip } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "./RegisterForm.scss";
 import axios from "axios";
 const baseUrl = process.env.REACT_APP_BASE_URL;
 
 function RegisterForm() {
-  const [error, setError] = useState("");
-  const [status, setStatus] = useState(null);
-  const [pwUnmatched, setPwUnmatched] = useState(null);
   const [pw, setPw] = useState("");
   const [confirmPw, setConfirmPw] = useState("");
+
+  const notify = (type, message) => {
+    if (type === "error") {
+      toast.error(message, {
+        position: "bottom-right",
+        autoClose: 3000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        transition: Flip,
+      });
+    } else if (type === 'success') {
+      toast.success(message, {
+        position: "bottom-center",
+        autoClose: false,
+        hideProgressBar: true,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        transition: Flip,
+      });
+    }
+  };
 
   const handleChange = (event) => {
     let { name, value } = event.target;
@@ -24,9 +50,11 @@ function RegisterForm() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (pw !== confirmPw) {
-      setError(`Whoops! Your passwords don't match... let's try that again.`);
-      setPwUnmatched(true);
-      setStatus(false);
+      notify(
+        "error",
+        "Whoops! Your passwords don't match... let's try that again."
+      );
+      return;
     }
 
     try {
@@ -38,17 +66,15 @@ function RegisterForm() {
         location: event.target.location.value,
       });
       if (response && pw === confirmPw) {
-        setStatus(true);
-        setError(false);
+        notify('success', "Successfully registered! You will be redirected momentarily...")
+        setTimeout(() => {
+          window.location.href = '/login';
+        }, 3000);
         event.target.reset();
       }
     } catch (error) {
-      if (pwUnmatched) {
-        setStatus(false);
-      } else {
-        setStatus(false);
-        setError(error.response.data);
-      }
+      notify('error', error.response.data)
+      console.error(error)
     }
   };
 
@@ -86,6 +112,7 @@ function RegisterForm() {
             name="email"
             id="email"
             placeholder="required"
+            autoComplete="email"
           />
           <label
             className="register__form-label register__form-label--password"
@@ -98,6 +125,7 @@ function RegisterForm() {
             className="register__form-input register__form-input--password"
             type="password"
             name="password"
+            id="password"
             placeholder="required"
           />
           <label
@@ -111,6 +139,7 @@ function RegisterForm() {
             className="register__form-input register__form-input--confirm-password"
             type="password"
             name="confirmPassword"
+            id="confirmPassword"
             placeholder="required"
           />
         </div>
@@ -139,25 +168,10 @@ function RegisterForm() {
             name="artists"
             id="artists"
           />
-          <button className="register__form-submit">Let's go!</button>
+          <button className="register__form-submit">Submit</button>
         </div>
       </form>
-      {status ? (
-        <div className="register__message register__message--success">
-          Registration complete! <br />
-          <Link to="/login">Sign in</Link>, homeslice!
-        </div>
-      ) : pwUnmatched ? (
-        <div className="register__message register__message--error">
-          {error}
-        </div>
-      ) : !error ? (
-        ""
-      ) : (
-        <div className="register__message register__message--error">
-          {error}
-        </div>
-      )}
+      <ToastContainer />
     </section>
   );
 }

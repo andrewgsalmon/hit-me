@@ -1,5 +1,5 @@
 import React from "react";
-import { ToastContainer, toast, Slide } from "react-toastify";
+import { ToastContainer, toast, Flip } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./LoginForm.scss";
 import axios from "axios";
@@ -9,7 +9,7 @@ function LoginForm() {
 
   const notify = (message) => {
     toast.error(message, {
-      position: "top-right",
+      position: "bottom-right",
       autoClose: 3000,
       hideProgressBar: true,
       closeOnClick: true,
@@ -17,7 +17,7 @@ function LoginForm() {
       draggable: true,
       progress: undefined,
       theme: "colored",
-      transition: Slide,
+      transition: Flip,
     });
   };
 
