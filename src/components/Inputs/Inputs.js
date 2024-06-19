@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { ToastContainer, toast, Slide } from "react-toastify";
+import { ToastContainer, toast, Flip } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./Inputs.scss";
 import Player from "../Player/Player";
@@ -20,7 +20,7 @@ function Inputs({ user, idFromParams }) {
   const notify = (type, message) => {
     if (type === 'error') {
       toast.error(message, {
-        position: "top-right",
+        position: "bottom-right",
         autoClose: 3000,
         hideProgressBar: true,
         closeOnClick: true,
@@ -28,7 +28,7 @@ function Inputs({ user, idFromParams }) {
         draggable: true,
         progress: undefined,
         theme: "colored",
-        transition: Slide
+        transition: Flip
       });
     }
   };

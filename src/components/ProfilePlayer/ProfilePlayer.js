@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { ToastContainer, toast, Flip } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "./ProfilePlayer.scss";
 import travolta from "../../assets/images/travolta.gif";
 import axios from "axios";
@@ -8,6 +10,20 @@ const baseUrl = process.env.REACT_APP_BASE_URL;
 function ProfilePlayer({ user }) {
   const [likes, setLikes] = useState(null);
   const [newLikes, setNewLikes] = useState(null);
+
+  const notify = (artistName) => {
+    toast.success(`Successfully removed ${artistName} from your saved artists.`, {
+      position: "bottom-center",
+      autoClose: 2000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+      transition: Flip,
+    });
+  }
 
   useEffect(() => {
     const getLikes = async () => {
@@ -25,13 +41,14 @@ function ProfilePlayer({ user }) {
     getLikes();
   }, [newLikes, user]);
 
-  const handleDelete = async (id) => {
+  const handleDelete = async (id, artistName) => {
     const response = await axios.delete(`${baseUrl}/api/users/likes`, {
       params: {
         user_email: user.email,
         artist_id: id,
       },
     });
+    notify(artistName)
     setNewLikes(response);
   };
 
@@ -65,11 +82,11 @@ function ProfilePlayer({ user }) {
               <article key={like.id} className="profile-player__artist">
                 <div
                   className="profile-player__remove-like--tablet"
-                  onClick={() => handleDelete(like.artist_id)}
+                  onClick={() => handleDelete(like.artist_id, like.artist_name)}
                 ></div>
                 <div
                   className="profile-player__remove-like--mobile"
-                  onClick={() => handleDelete(like.artist_id)}
+                  onClick={() => handleDelete(like.artist_id, like.artist_name)}
                 >
                   remove
                 </div>
@@ -96,6 +113,7 @@ function ProfilePlayer({ user }) {
           })
         )}
       </div>
+      <ToastContainer />
     </section>
   );
 }
