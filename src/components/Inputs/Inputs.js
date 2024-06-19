@@ -1,6 +1,8 @@
 import React from "react";
-import "./Inputs.scss";
 import { useState, useEffect } from "react";
+import { ToastContainer, toast, Slide } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import "./Inputs.scss";
 import Player from "../Player/Player";
 const REACT_APP_CLIENT_ID = process.env.REACT_APP_CLIENT_ID;
 const REACT_APP_CLIENT_SECRET = process.env.REACT_APP_CLIENT_SECRET;
@@ -14,6 +16,22 @@ function Inputs({ user, idFromParams }) {
   const [artistFromParams, setArtistFromParams] = useState(null);
   const [similarArtist, setSimilarArtist] = useState(null);
   const [artistId, setArtistId] = useState(null);
+
+  const notify = (type, message) => {
+    if (type === 'error') {
+      toast.error(message, {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        transition: Slide
+      });
+    }
+  };
 
   // GET Spotify access token
   useEffect(() => {
@@ -87,7 +105,7 @@ function Inputs({ user, idFromParams }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!genreSelected) {
-      alert("You gotta select a genre!");
+      notify("error", "Ahem... a genre, please?");
     }
 
     if (genreSelected) {
@@ -336,6 +354,7 @@ function Inputs({ user, idFromParams }) {
           artistId={artistId}
           setArtistId={setArtistId}
         />
+        <ToastContainer />
       </div>
     </>
   );
