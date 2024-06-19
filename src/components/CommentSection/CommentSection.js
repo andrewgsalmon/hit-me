@@ -64,7 +64,7 @@ function CommentSection({ user, idFromParams, artistClass, artistId }) {
         <div className="comments__container">
           <div className="comments__avatar"></div>
           <form onSubmit={handleSubmit} className="comments__input">
-            <span className="comments__textarea-label">Like the tunes? Let us know!</span>
+            <label className="comments__textarea-label" htmlFor="comment">Like the tunes? Let us know!</label>
             {comments.length > 0 ? (
               <textarea
                 className="comments__textarea"
