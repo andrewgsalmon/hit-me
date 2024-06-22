@@ -149,12 +149,16 @@
   text-align-last: center;
   height: 2.5rem;
   background-color: #fff;
+  color: $Primary-Submit;
   background-image: url(../../assets/icons/dropdown.svg);
   background-size: 8%;
   background-repeat: no-repeat;
   background-position: 95%;
 
   & option {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
     text-align: center;
     margin: auto;
     color: $Primary-Submit;
