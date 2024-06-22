@@ -153,6 +153,11 @@
   background-repeat: no-repeat;
   background-position: 95%;
 
+  & option {
+    text-align: center;
+    color: $Primary-Submit;
+  }
+
   &:focus {
     outline: 2px solid $Secondary-SubmitHover;
   }
