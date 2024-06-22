@@ -1,7 +1,7 @@
-@use '../../styles/variables' as *;
-@use '../../styles/mixins' as *;
-@use '../../styles/typography' as *;
-@use '../../App.scss' as *;
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+@use "../../styles/typography" as *;
+@use "../../App.scss" as *;
 
 .home {
   &__heading {
@@ -33,7 +33,6 @@
   }
 }
 
-
 .inputs {
   display: flex;
   flex-flow: column nowrap;
@@ -58,6 +57,7 @@
 
   &__form {
     width: 70%;
+    position: relative;
     display: flex;
     flex-flow: column;
     justify-content: center;
@@ -137,9 +137,66 @@
 }
 
 #inputs__genre-selector {
-  padding: 0.28rem 1.11rem;
+  @include input;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 12rem;
+  padding: 0.28rem 0;
   border: 0;
   border-radius: 1.11rem;
   text-align: center;
-  @include input;
+  height: 2.5rem;
+  background-color: #fff;
+  background-image: url(../../assets/icons/dropdown.svg);
+  background-size: 8%;
+  background-repeat: no-repeat;
+  background-position: 95%;
+
+  &:focus {
+    outline: 2px solid $Secondary-SubmitHover;
+  }
+}
+
+#inputs__pop-selector {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    margin-top: -5px;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 0.5rem;
+    height: 1rem;
+    width: 1rem;
+  }
+
+  &::-moz-range-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    margin-top: -5px;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 1rem;
+    height: 1rem;
+    width: 1rem;
+  }
+
+  &::-moz-range-track {
+    border-radius: 5px;
+    background: linear-gradient(0.25turn, rgb(255, 238, 238), #ff3939);
+    height: 0.5rem;
+    border: 1px solid grey;
+  }
+
+  &::-webkit-slider-runnable-track {
+    border-radius: 5px;
+    background: linear-gradient(0.25turn, rgb(255, 238, 238), #ff3939);
+    height: 0.5rem;
+    border: 1px solid grey;
+  }
 }

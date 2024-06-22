@@ -1,3 +1,5 @@
+@use "./variables" as *;
+
 @mixin tablet {
   @media (min-width: 768px) {
     @content;
@@ -20,7 +22,12 @@
   border: 0;
   border-radius: 1.11rem;
   height: 1.67rem;
+  font-size: 0.9rem;
   @include drop-shadow;
+
+  &:focus {
+    outline: 2px solid $Secondary-SubmitHover;
+  }
 }
 
 @mixin button {
