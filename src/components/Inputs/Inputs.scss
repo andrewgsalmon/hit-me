@@ -146,6 +146,7 @@
   border: 0;
   border-radius: 1.11rem;
   text-align: center;
+  text-align-last: center;
   height: 2.5rem;
   background-color: #fff;
   background-image: url(../../assets/icons/dropdown.svg);
@@ -155,6 +156,7 @@
 
   & option {
     text-align: center;
+    margin: auto;
     color: $Primary-Submit;
   }
 
@@ -204,4 +206,10 @@
     height: 0.5rem;
     border: 1px solid grey;
   }
+}
+
+select option {
+  // margin-right: auto;
+  padding-right: 70%;
+  color: $Primary-Submit;
 }
