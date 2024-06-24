@@ -2,12 +2,12 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ToastContainer, toast, Flip } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import "./ProfilePlayer.scss";
+import "./SavedArtists.scss";
 import travolta from "../../assets/images/travolta.gif";
 import axios from "axios";
 const baseUrl = process.env.REACT_APP_BASE_URL;
 
-function ProfilePlayer({ user }) {
+function SavedArtists({ user }) {
   const [likes, setLikes] = useState(null);
   const [newLikes, setNewLikes] = useState(null);
 
@@ -118,4 +118,4 @@ function ProfilePlayer({ user }) {
   );
 }
 
-export default ProfilePlayer;
+export default SavedArtists;
