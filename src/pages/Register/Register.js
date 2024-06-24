@@ -6,7 +6,7 @@ import RegisterForm from '../../components/RegisterForm/RegisterForm';
 function Register() {
   return (
     <>
-      <Head title="Register" />
+      <Head title="Register" description="Register to discover new music your way with Hit Me!" canonical="/register" />
       <RegisterForm />
     </>
   )
