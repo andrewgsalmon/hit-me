@@ -1,7 +1,7 @@
-@use '../../styles/variables' as *;
-@use '../../styles/mixins' as *;
-@use '../../styles/typography' as *;
-@use '../../App.scss' as *;
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+@use "../../styles/typography" as *;
+@use "../../App.scss" as *;
 
 iframe {
   padding: 1.11rem;
@@ -68,6 +68,15 @@ iframe {
       background-color: #282460;
       font-weight: 600;
       @include button;
+      min-width: 9.4rem;
+      min-height: 2.05rem;
+
+      &--loading {
+        background-image: url(../../assets/images/fadeStaggerCircles.svg);
+        background-repeat: no-repeat;
+        background-size: 35%;
+        background-position: 50%;
+      }
 
       &:hover {
         background-color: #4940bc;

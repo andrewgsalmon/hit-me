@@ -10,12 +10,14 @@ const REACT_APP_CLIENT_SECRET = process.env.REACT_APP_CLIENT_SECRET;
 function Inputs({ user, idFromParams }) {
   const [recommended, setRecommended] = useState(null);
   const [genreSelected, setGenreSelected] = useState(null);
-  const [popularity, setPopularity] = useState(100);
+  const [popularity, setPopularity] = useState(50);
   const [accessToken, setAccessToken] = useState(null);
   const [liked, setLiked] = useState(false);
   const [artistFromParams, setArtistFromParams] = useState(null);
   const [similarArtist, setSimilarArtist] = useState(null);
   const [artistId, setArtistId] = useState(null);
+  const [isLoading, setIsLoading] = useState(false)
+  const [similarLoading, setSimilarLoading] = useState(false)
 
   const notify = (type, message) => {
     if (type === 'error') {
@@ -109,9 +111,11 @@ function Inputs({ user, idFromParams }) {
     }
 
     if (genreSelected) {
+      setIsLoading(true)
       setTimeout(() => {
         setSimilarArtist(false);
-      }, 1000);
+        setIsLoading(false)
+      }, 1500);
       const apiUrl = `https://api.spotify.com/v1/recommendations?limit=100&market=CA&seed_genres=${genreSelected}&target_popularity=${popularity}`;
       const header = {
         Authorization: `Bearer ${accessToken}`,
@@ -144,6 +148,7 @@ function Inputs({ user, idFromParams }) {
 
   const handleSimilar = (e) => {
     e.preventDefault();
+    setSimilarLoading(true)
 
     if (recommended) {
       setTimeout(() => {
@@ -177,6 +182,10 @@ function Inputs({ user, idFromParams }) {
       .catch((error) => {
         console.error("There was a problem with the request:", error);
       });
+
+      setTimeout(() => {
+        setSimilarLoading(false)
+      }, 1500);
   };
 
   return (
@@ -337,8 +346,8 @@ function Inputs({ user, idFromParams }) {
               />
               <p className="form__input--popularity-label">Major</p>
             </div>
-            <button className="form__submit" type="submit">
-              {!artistId ? "HIT ME!" : "HIT ME AGAIN!"}
+            <button className={isLoading ? "form__submit--loading" : "form__submit"} type="submit">
+              {isLoading ? '' : !artistId ? "HIT ME!" : "HIT ME AGAIN!"}
             </button>
           </form>
         </section>
@@ -353,6 +362,7 @@ function Inputs({ user, idFromParams }) {
           artistFromParams={artistFromParams}
           artistId={artistId}
           setArtistId={setArtistId}
+          similarLoading={similarLoading}
         />
         <ToastContainer />
       </div>

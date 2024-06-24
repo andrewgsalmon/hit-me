@@ -96,7 +96,7 @@
   }
 
   &__input--popularity-label {
-    font-size: 0.67rem;
+    font-size: 0.9rem;
     font-style: italic;
     font-weight: 600;
 
@@ -109,7 +109,8 @@
     }
   }
 
-  &__submit {
+  &__submit,
+  &__submit--loading {
     padding: 0.28rem 1.67rem;
     border-radius: 1.1rem;
     border: 0;
@@ -117,16 +118,31 @@
     color: white;
     font-weight: 600;
     @include button;
+    min-width: 8.88rem;
+    min-height: 2rem;
+
+    @include tablet {
+      min-width: 9.2rem;
+    }
 
     @include desktop {
       font-size: 1.33rem;
       padding: 0.55rem 1.5rem;
+      min-width: 12.78rem;
+      min-height: 2.432rem;
     }
 
     &:hover {
       &:hover {
         background-color: #4940bc;
       }
+    }
+
+    &--loading {
+      background-image: url(../../assets/images/fadeStaggerCircles.svg);
+      background-repeat: no-repeat;
+      background-size: 35%;
+      background-position: 50%;
     }
   }
 }
@@ -178,12 +194,12 @@
   &::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    margin-top: -5px;
+    margin-top: -7px;
     background-color: white;
     border: 2px solid black;
-    border-radius: 0.5rem;
-    height: 1rem;
-    width: 1rem;
+    border-radius: 0.75rem;
+    height: 1.5rem;
+    width: 1.5rem;
   }
 
   &::-moz-range-thumb {
@@ -192,28 +208,27 @@
     margin-top: -5px;
     background-color: white;
     border: 2px solid black;
-    border-radius: 1rem;
-    height: 1rem;
-    width: 1rem;
+    border-radius: 0.75rem;
+    height: 1.5rem;
+    width: 1.5rem;
   }
 
   &::-moz-range-track {
-    border-radius: 5px;
+    border-radius: 10px;
     background: linear-gradient(0.25turn, rgb(255, 238, 238), #ff3939);
-    height: 0.5rem;
+    height: 0.75rem;
     border: 1px solid grey;
   }
 
   &::-webkit-slider-runnable-track {
-    border-radius: 5px;
+    border-radius: 10px;
     background: linear-gradient(0.25turn, rgb(255, 238, 238), #ff3939);
-    height: 0.5rem;
+    height: 0.75rem;
     border: 1px solid grey;
   }
 }
 
 select option {
-  // margin-right: auto;
   padding-right: 70%;
   color: $Primary-Submit;
 }

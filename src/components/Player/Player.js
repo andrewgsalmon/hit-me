@@ -6,17 +6,15 @@ import britney from "../../assets/images/britney.gif";
 const baseUrl = process.env.REACT_APP_BASE_URL;
 
 function Player({
-  accessToken,
   recommended,
   handleSubmit,
   user,
-  liked,
   artistFromParams,
   similarArtist,
-  setSimilarArtist,
   handleSimilar,
   artistId,
   setArtistId,
+  similarLoading
 }) {
   const [newLike, setNewLike] = useState(null);
 
@@ -99,11 +97,11 @@ function Player({
           <div className="spotify-player__action spotify-player__action--shuffle">
             <span>Like what you hear?</span>
             <button
-              className="spotify-player__action-button spotify-player__action-button--shuffle"
+              className={similarLoading ? 'spotify-player__action-button spotify-player__action-button--loading' : "spotify-player__action-button spotify-player__action-button--shuffle"}
               type="submit"
               onClick={handleSimilar}
             >
-              Get similar artist
+              {similarLoading ? '' : "Get similar artist"}
             </button>
           </div>
           <iframe
