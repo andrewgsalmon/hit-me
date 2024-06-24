@@ -56,13 +56,17 @@
   }
 
   &__form {
-    width: 70%;
+    width: 90%;
     position: relative;
     display: flex;
     flex-flow: column;
     justify-content: center;
     align-items: center;
     margin: 1.11rem 0;
+
+    @include tablet {
+      max-width: 20rem;
+    }
 
     @include desktop {
       margin-top: 0;
@@ -93,6 +97,12 @@
     display: flex;
     flex-flow: row nowrap;
     margin: 0.55rem;
+    width: 90%;
+
+    @include tablet {
+      justify-content: center;
+      width: 100%;
+    }
   }
 
   &__input--popularity-label {
@@ -102,6 +112,7 @@
 
     @include tablet {
       font-size: 1rem;
+      flex-grow: 0;
     }
 
     @include desktop {
@@ -189,6 +200,7 @@
   -webkit-appearance: none;
   appearance: none;
   background: transparent;
+  flex-grow: 1;
   cursor: pointer;
 
   &::-webkit-slider-thumb {
