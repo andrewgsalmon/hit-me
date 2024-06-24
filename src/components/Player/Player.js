@@ -14,7 +14,7 @@ function Player({
   handleSimilar,
   artistId,
   setArtistId,
-  similarLoading
+  similarLoading,
 }) {
   const [newLike, setNewLike] = useState(null);
 
@@ -92,55 +92,63 @@ function Player({
 
   return (
     <>
-      <section className="music-section">
-        <div className="spotify-player">
-          <div className="spotify-player__action spotify-player__action--shuffle">
-            <span>Like what you hear?</span>
-            <button
-              className={similarLoading ? 'spotify-player__action-button spotify-player__action-button--loading' : "spotify-player__action-button spotify-player__action-button--shuffle"}
-              type="submit"
-              onClick={handleSimilar}
-            >
-              {similarLoading ? '' : "Get similar artist"}
-            </button>
-          </div>
-          <iframe
-            title="spotify-iframe"
-            src={`https://open.spotify.com/embed/artist/${artistId}?utm_source=generator`}
-            width="100%"
-            height="152px"
-            frameBorder="0"
-            allowFullScreen=""
-            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-            loading="lazy"
-          ></iframe>
-          <div className="spotify-player__action spotify-player__action--like">
-            {!newLike ? (
+      {!artistId ? (
+        ""
+      ) : (
+        <section className="music-section">
+          <div className="spotify-player">
+            <div className="spotify-player__action spotify-player__action--shuffle">
+              <span>Like what you hear?</span>
               <button
-                className="spotify-player__action-button spotify-player__action-button--save"
+                className={
+                  similarLoading
+                    ? "spotify-player__action-button spotify-player__action-button--loading"
+                    : "spotify-player__action-button spotify-player__action-button--shuffle"
+                }
                 type="submit"
-                onClick={handleSave}
+                onClick={handleSimilar}
               >
-                Save this artist
+                {similarLoading ? "" : "Get similar artist"}
               </button>
-            ) : (
-              <button
-                className="spotify-player__action-button spotify-player__action-button--saved"
-                type="submit"
-                onClick={handleDelete}
-              >
-                Artist saved!
-              </button>
-            )}
+            </div>
+            <iframe
+              title="spotify-iframe"
+              src={`https://open.spotify.com/embed/artist/${artistId}?utm_source=generator`}
+              width="100%"
+              height="152px"
+              frameBorder="0"
+              allowFullScreen=""
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              loading="lazy"
+            ></iframe>
+            <div className="spotify-player__action spotify-player__action--like">
+              {!newLike ? (
+                <button
+                  className="spotify-player__action-button spotify-player__action-button--save"
+                  type="submit"
+                  onClick={handleSave}
+                >
+                  Save this artist
+                </button>
+              ) : (
+                <button
+                  className="spotify-player__action-button spotify-player__action-button--saved"
+                  type="submit"
+                  onClick={handleDelete}
+                >
+                  Artist saved!
+                </button>
+              )}
+            </div>
           </div>
-        </div>
-        <CommentSection
-          recommended={recommended}
-          user={user}
-          artistId={artistId}
-          setArtistId={setArtistId}
-        />
-      </section>
+          <CommentSection
+            recommended={recommended}
+            user={user}
+            artistId={artistId}
+            setArtistId={setArtistId}
+          />
+        </section>
+      )}
     </>
   );
 }
