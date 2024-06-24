@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import './ProfileInfo.scss'
 import axios from 'axios';
-import ProfilePlayer from '../ProfilePlayer/ProfilePlayer';
+import SavedArtists from '../SavedArtists/SavedArtists';
 const baseUrl = process.env.REACT_APP_BASE_URL;
 
 function ProfileInfo({currentUser}) {
@@ -55,7 +55,7 @@ function ProfileInfo({currentUser}) {
 					</div>
 				</div>
 			</section>
-			<ProfilePlayer user={user} />
+			<SavedArtists user={user} />
 		</>
 	)
 }
