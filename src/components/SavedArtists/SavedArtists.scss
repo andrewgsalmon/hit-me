@@ -38,8 +38,10 @@
     width: 100%;
     border-top: 1px solid grey;
     position: relative;
+    background-color: rgb(255, 233, 214);
 
     @include tablet {
+      background-color: transparent;
       flex-flow: column nowrap;
       width: 28%;
       margin: 0 1rem 1.67rem 1rem;

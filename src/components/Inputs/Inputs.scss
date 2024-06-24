@@ -38,7 +38,7 @@
   flex-flow: column nowrap;
   align-items: center;
   margin: 1.11rem auto;
-  width: 80%;
+  width: 90%;
 
   @include desktop {
     width: 50%;
@@ -65,7 +65,7 @@
     margin: 1.11rem 0;
 
     @include tablet {
-      max-width: 20rem;
+      max-width: 22rem;
     }
 
     @include desktop {
@@ -96,12 +96,19 @@
   &__input--popularity-container {
     display: flex;
     flex-flow: row nowrap;
-    margin: 0.55rem;
-    width: 90%;
+    margin: 0.55rem 0 1rem 0;
+    padding: 0 1rem;
+    width: 100%;
+    max-width: 19.67rem;
+    background: #fff;
+    border-radius: 1rem;
+    @include drop-shadow;
 
     @include tablet {
       justify-content: center;
       width: 100%;
+      max-width: 22rem;
+      margin: 0.55rem 0 1rem 0;
     }
   }
 
@@ -168,7 +175,7 @@
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
-  width: 12rem;
+  width: 100%;
   padding: 0.28rem 0;
   border: 0;
   border-radius: 1.11rem;
@@ -181,6 +188,11 @@
   background-size: 8%;
   background-repeat: no-repeat;
   background-position: 95%;
+
+  @include tablet {
+    width: 100%;
+    font-size: 1.3rem;
+  }
 
   & option {
     appearance: none;
@@ -199,7 +211,6 @@
 #inputs__pop-selector {
   -webkit-appearance: none;
   appearance: none;
-  background: transparent;
   flex-grow: 1;
   cursor: pointer;
 

@@ -43,6 +43,7 @@
     background-color: #fff;
     padding: 0.25rem 0.5rem;
     border-radius: 2rem;
+    @include drop-shadow;
   }
 
   &__label {
