@@ -7,7 +7,7 @@ function Login({userToken}) {
 
   return (
     <>
-      <Head title="Login"/>
+      <Head title="Login" description="Login to discover amazing new music with Hit Me!" canonical="/login"/>
       <LoginForm />
     </>
   )

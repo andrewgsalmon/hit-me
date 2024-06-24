@@ -49,7 +49,7 @@ function Profile() {
 
   return (
     <>
-      <Head title="Profile" />
+      <Head title="Profile" description="Login to view your profile and saved artists on Hit Me" canonical="/profile" />
       <ProfileInfo currentUser={currentUser} />
     </>
   );
