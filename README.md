@@ -4,10 +4,10 @@
 
 <p align="center"><img style="width: 30px;" src='https://user-images.githubusercontent.com/25181517/192158954-f88b5814-d510-4564-b285-dff7d6400dad.png
 '/> <img style="width: 30px;" src='https://user-images.githubusercontent.com/25181517/192158956-48192682-23d5-4bfc-9dfb-6511ade346bc.png
-'/> <img style="width: 30px;" src='https://user-images.githubusercontent.com/25181517/117447155-6a868a00-af3d-11eb-9cfe-245df15c9f3f.png'/> <img style="width: 30px;" src='https://user-images.githubusercontent.com/25181517/183897015-94a058a6-b86e-4e42-a37f-bf92061753e5.png
-'/> <img style="width: 30px;" src='https://user-images.githubusercontent.com/25181517/183568594-85e280a7-0d7e-4d1a-9028-c8c2209e073c.png
-'/> <img style="width: 30px;" src='https://user-images.githubusercontent.com/25181517/183859966-a3462d8d-1bc7-4880-b353-e2cbed900ed6.png
-'/> <img style="width: 30px;" src='https://user-images.githubusercontent.com/25181517/192107858-fe19f043-c502-4009-8c47-476fc89718ad.png'/> <img style="width: 30px;" src='https://user-images.githubusercontent.com/25181517/183896128-ec99105a-ec1a-4d85-b08b-1aa1620b2046.png'/></p>
+'/> <img style="width: 30px;" src='https://user-images.githubusercontent.com/25181517/117447155-6a868a00-af3d-11eb-9cfe-245df15c9f3f.png'/> <img style="width: 30px;" src='https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg
+'/> <img style="width: 30px;" src='https://d3sxshmncs10te.cloudfront.net/icon/free/svg/3030179.svg?token=eyJhbGciOiJoczI1NiIsImtpZCI6ImRlZmF1bHQifQ__.eyJpc3MiOiJkM3N4c2htbmNzMTB0ZS5jbG91ZGZyb250Lm5ldCIsImV4cCI6MTcxOTYwMjg0OSwicSI6bnVsbCwiaWF0IjoxNzE5MzQzNjQ5fQ__.46b55605ed89ba92f8a4c0a600274066d6ce04ec13f443b6fd2aaf94ad9cbb21
+'/> <img style="width: 30px;" src='https://d3sxshmncs10te.cloudfront.net/icon/free/svg/1175029.svg?token=eyJhbGciOiJoczI1NiIsImtpZCI6ImRlZmF1bHQifQ__.eyJpc3MiOiJkM3N4c2htbmNzMTB0ZS5jbG91ZGZyb250Lm5ldCIsImV4cCI6MTcxOTYwMjk3MywicSI6bnVsbCwiaWF0IjoxNzE5MzQzNzczfQ__.f4118c5c9c1d35c49e88ccec66e2608870eda6a0018aa5ea1c4e3f7411a84e95
+'/> <img style="width: 30px;" src='https://user-images.githubusercontent.com/25181517/192107858-fe19f043-c502-4009-8c47-476fc89718ad.png'/> <img style="width: 30px;" src='https://d3sxshmncs10te.cloudfront.net/icon/free/svg/1174940.svg?token=eyJhbGciOiJoczI1NiIsImtpZCI6ImRlZmF1bHQifQ__.eyJpc3MiOiJkM3N4c2htbmNzMTB0ZS5jbG91ZGZyb250Lm5ldCIsImV4cCI6MTcxOTYwMzAxNCwicSI6bnVsbCwiaWF0IjoxNzE5MzQzODE0fQ__.193498e7d49f86fbcdc33ef05946026b5b795932e7a34cbf2e371dede5629906'/></p>
 
 Have you ever thought to yourself... "I need some music while I'm working, but I can't decide what to listen to! I need a recommendation..."
 
