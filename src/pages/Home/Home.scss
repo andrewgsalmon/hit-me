@@ -18,6 +18,7 @@
   &__giphy-embed {
     margin-top: 20px;
     width: 250px;
+    border-radius: 1rem;
 
     @include tablet {
       width: 350px;

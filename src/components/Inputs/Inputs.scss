@@ -107,7 +107,7 @@
     @include tablet {
       justify-content: center;
       width: 100%;
-      max-width: 22rem;
+      max-width: 19.67rem;
       margin: 0.55rem 0 1rem 0;
     }
   }
@@ -192,6 +192,7 @@
   @include tablet {
     width: 100%;
     font-size: 1.3rem;
+    max-width: 19.67rem;
   }
 
   & option {
