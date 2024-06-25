@@ -41,7 +41,7 @@
     top: 2.75rem;
     right: 2rem;
     background-color: #fff;
-    padding: 0.25rem 0.5rem;
+    padding: 0.5rem 0.5rem;
     border-radius: 2rem;
     @include drop-shadow;
   }
@@ -58,18 +58,34 @@
   }
 
   & a {
-    height: 2.75rem;
+    height: 2.25rem;
   }
 
   &__icon {
-    width: 2.75rem;
-    height: 2.75rem;
+    width: 2.25rem;
+    height: 2.25rem;
     margin: 0 0.25rem;
     cursor: pointer;
     filter: drop-shadow(0px 0px 0.66rem #fff);
+    transition: 0.2s ease-in-out;
+    fill: #282460;
+
+    & path {
+      fill: #282460;
+      transition: 0.2s ease-in-out;
+    }
+
+    &:hover path {
+      // opacity: 75%;
+      fill: #4940bc;
+    }
 
     @include desktop {
-      width: 2rem;
+      width: 2.5rem;
     }
   }
+}
+
+.social-icons__icons path {
+  fill: #282460;
 }
