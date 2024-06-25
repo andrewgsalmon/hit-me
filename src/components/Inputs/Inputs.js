@@ -16,11 +16,11 @@ function Inputs({ user, idFromParams }) {
   const [artistFromParams, setArtistFromParams] = useState(null);
   const [similarArtist, setSimilarArtist] = useState(null);
   const [artistId, setArtistId] = useState(null);
-  const [isLoading, setIsLoading] = useState(false)
-  const [similarLoading, setSimilarLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(false);
+  const [similarLoading, setSimilarLoading] = useState(false);
 
   const notify = (type, message) => {
-    if (type === 'error') {
+    if (type === "error") {
       toast.error(message, {
         position: "bottom-right",
         autoClose: 3000,
@@ -30,7 +30,7 @@ function Inputs({ user, idFromParams }) {
         draggable: true,
         progress: undefined,
         theme: "colored",
-        transition: Flip
+        transition: Flip,
       });
     }
   };
@@ -111,10 +111,10 @@ function Inputs({ user, idFromParams }) {
     }
 
     if (genreSelected) {
-      setIsLoading(true)
+      setIsLoading(true);
       setTimeout(() => {
         setSimilarArtist(false);
-        setIsLoading(false)
+        setIsLoading(false);
       }, 1500);
       const apiUrl = `https://api.spotify.com/v1/recommendations?limit=100&market=CA&seed_genres=${genreSelected}&target_popularity=${popularity}`;
       const header = {
@@ -148,7 +148,7 @@ function Inputs({ user, idFromParams }) {
 
   const handleSimilar = (e) => {
     e.preventDefault();
-    setSimilarLoading(true)
+    setSimilarLoading(true);
 
     if (recommended) {
       setTimeout(() => {
@@ -183,9 +183,9 @@ function Inputs({ user, idFromParams }) {
         console.error("There was a problem with the request:", error);
       });
 
-      setTimeout(() => {
-        setSimilarLoading(false)
-      }, 1500);
+    setTimeout(() => {
+      setSimilarLoading(false);
+    }, 1500);
   };
 
   return (
@@ -346,8 +346,11 @@ function Inputs({ user, idFromParams }) {
               />
               <p className="form__input--popularity-label">Major</p>
             </div>
-            <button className={isLoading ? "form__submit--loading" : "form__submit"} type="submit">
-              {isLoading ? '' : !artistId ? "HIT ME!" : "HIT ME AGAIN!"}
+            <button
+              className={isLoading ? "form__submit--loading" : "form__submit"}
+              type="submit"
+            >
+              {isLoading ? "" : !artistId ? "HIT ME!" : "HIT ME AGAIN!"}
             </button>
           </form>
         </section>

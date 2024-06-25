@@ -37,14 +37,16 @@
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
-  margin: 1.11rem auto;
+  margin: 0 auto;
+  padding: 1.11rem;
   width: 90%;
 
   @include desktop {
     width: 50%;
-    margin: 0 1.11rem;
+    padding: 0 1.11rem;
     position: sticky;
     top: 2.22rem;
+    border-right: 1px solid #fff;
   }
 
   &__genre {
@@ -96,6 +98,7 @@
   &__input--popularity-container {
     display: flex;
     flex-flow: row nowrap;
+    justify-content: center;
     margin: 0.55rem 0 1rem 0;
     padding: 0 1rem;
     width: 100%;
@@ -109,6 +112,10 @@
       width: 100%;
       max-width: 19.67rem;
       margin: 0.55rem 0 1rem 0;
+    }
+
+    @include desktop {
+      margin: 0.55rem 0 2rem 0;
     }
   }
 
