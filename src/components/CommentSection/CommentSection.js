@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { ToastContainer, toast, Flip } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "./CommentSection.scss";
 import Comment from "../Comment/Comment";
 import axios from "axios";
@@ -8,6 +10,22 @@ function CommentSection({ user, idFromParams, artistClass, artistId }) {
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState(null);
   const [artist, setArtist] = useState(idFromParams);
+
+  const notify = (type, message) => {
+    if (type === "error") {
+      toast.error(message, {
+        position: "bottom-right",
+        autoClose: 3000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        transition: Flip,
+      });
+    }
+  };
 
   useEffect(() => {
     if (idFromParams) {
@@ -43,6 +61,11 @@ function CommentSection({ user, idFromParams, artistClass, artistId }) {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    console.log(event)
+
+    if (!event.target.comment.value) {
+      return notify("error", "Are you new to this? Add a comment before posting!")
+    }
 
     try {
       const response = await axios.post(`${baseUrl}/api/artists/comment/`, {
@@ -93,6 +116,7 @@ function CommentSection({ user, idFromParams, artistClass, artistId }) {
             })
           : ""}
       </section>
+      <ToastContainer />
     </>
   );
 }
