@@ -8,7 +8,7 @@
   <img style="width: 30px;" src='https://user-images.githubusercontent.com/25181517/117447155-6a868a00-af3d-11eb-9cfe-245df15c9f3f.png'/>
   <img style="width: 30px;" src='./src/assets/icons/readme-logos/react.svg'/>
   <img style="width: 30px;" src='./src/assets/icons/readme-logos/node-js.svg'/>
-  <img style="width: 30px;" src='./src/assets/icons/readme-logos/express.svg'/>
+  <img style="width: 30px; background-color: #fff; padding: 1px; height: 27px" src='./src/assets/icons/readme-logos/express.svg'/>
   <img style="width: 30px;" src='https://user-images.githubusercontent.com/25181517/192107858-fe19f043-c502-4009-8c47-476fc89718ad.png'/>
   <img style="width: 30px;" src='https://d3sxshmncs10te.cloudfront.net/icon/free/svg/1174940.svg?token=eyJhbGciOiJoczI1NiIsImtpZCI6ImRlZmF1bHQifQ__.eyJpc3MiOiJkM3N4c2htbmNzMTB0ZS5jbG91ZGZyb250Lm5ldCIsImV4cCI6MTcxOTYwMzAxNCwicSI6bnVsbCwiaWF0IjoxNzE5MzQzODE0fQ__.193498e7d49f86fbcdc33ef05946026b5b795932e7a34cbf2e371dede5629906'/>
 </p>
