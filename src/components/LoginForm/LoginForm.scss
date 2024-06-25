@@ -61,12 +61,15 @@
       width: 100%;
       border-radius: 1.11rem;
       border: 0;
+      font-size: 1rem;
 
       @include desktop {
         height: 2rem;
       }
 
       &:focus {
+        outline: 2px solid $Secondary-SubmitHover;
+
         &::placeholder {
           color: transparent;
         }
