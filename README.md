@@ -2,11 +2,18 @@
 
 <p align="center"><img style="width: 300px;" src='./src/assets/logo/hitme-logo.png'/></p>
 
+<p align="center"><img style="width: 30px;" src='https://user-images.githubusercontent.com/25181517/192158954-f88b5814-d510-4564-b285-dff7d6400dad.png
+'/> <img style="width: 30px;" src='https://user-images.githubusercontent.com/25181517/192158956-48192682-23d5-4bfc-9dfb-6511ade346bc.png
+'/> <img style="width: 30px;" src='https://user-images.githubusercontent.com/25181517/117447155-6a868a00-af3d-11eb-9cfe-245df15c9f3f.png'/> <img style="width: 30px;" src='https://user-images.githubusercontent.com/25181517/183897015-94a058a6-b86e-4e42-a37f-bf92061753e5.png
+'/> <img style="width: 30px;" src='https://user-images.githubusercontent.com/25181517/183568594-85e280a7-0d7e-4d1a-9028-c8c2209e073c.png
+'/> <img style="width: 30px;" src='https://user-images.githubusercontent.com/25181517/183859966-a3462d8d-1bc7-4880-b353-e2cbed900ed6.png
+'/> <img style="width: 30px;" src='https://user-images.githubusercontent.com/25181517/192107858-fe19f043-c502-4009-8c47-476fc89718ad.png'/> <img style="width: 30px;" src='https://user-images.githubusercontent.com/25181517/183896128-ec99105a-ec1a-4d85-b08b-1aa1620b2046.png'/></p>
+
 Have you ever thought to yourself... "I need some music while I'm working, but I can't decide what to listen to! I need a recommendation..."
 
 Probably often, right?  Me too!  Well, the Hit Me app helps you with just that.  Just open the app, decide on the genre you want, and if you want a hugely popular artist, or one that's way more obscure.  Tell the app what you're looking for, and your soundtrack for the day has been set!
 
-Like the recommendation? Save it, and refer back to it later!  Or - leave a comment to share what you think of the artist!
+Like the recommendation? Save it, refer back to it later, or even find similar artists!  Or - leave a comment to share what you think of the artist!
 
 <p align="center"><strong>Get artist recommendations</strong></p>
 
@@ -32,7 +39,7 @@ Interested in the code and building upon it?  Cool!  See instructions below:
 
 To use the app locally, you will need to install this repository (front end), as well as the back end repository.
 
-Install the back end here: [link to backend]
+Install the back end <a href="https://github.com/andrewgsalmon/andrew-salmon-capstone-be" target="_blank">here</a>.
 
 ### Front end installation
 
