@@ -12,6 +12,12 @@
   }
 }
 
+@mixin four-k {
+  @media (min-width: 2560) {
+    @content;
+  }
+}
+
 @mixin drop-shadow {
   filter: drop-shadow(3px 3px 4px #47474740);
 }

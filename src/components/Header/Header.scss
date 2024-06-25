@@ -4,14 +4,11 @@
 @use "../../App.scss" as *;
 
 .header {
-  width: 90%;
-  display: flex;
-  justify-content: center;
-  flex-flow: column nowrap;
-  align-items: flex-start;
   position: relative;
   top: 0.55rem;
   width: 100%;
+  max-width: 65rem;
+  margin: auto;
 
   @include desktop {
     flex-flow: row nowrap;
@@ -19,7 +16,7 @@
 }
 
 .header-logo {
-  justify-self: center;
+  display: block;
   margin: auto;
   width: 16.67rem;
   filter: drop-shadow(0px 0px 0.66rem #fff);
