@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import Head from '../../layout/Head';
 import './Home.scss'
 import Inputs from '../../components/Inputs/Inputs';
+import FailedAuth from '../../components/FailedAuth/FailedAuth';
+import Loading from '../../components/Loading/Loading';
 import axios from 'axios';
-import { Link, useParams } from 'react-router-dom';
-import garth from '../../assets/images/garth.gif'
 const baseUrl = process.env.REACT_APP_BASE_URL;
 
 function Home() {
@@ -14,7 +15,6 @@ function Home() {
 	const { idFromParams } = useParams();
 
 	useEffect(() => {
-		// getItem from sessionStorage token
 		const token = sessionStorage.getItem('token');
 
 		if(!token) {
@@ -39,27 +39,13 @@ function Home() {
 	}, [failedAuth]);
 
 	if (failedAuth) {
-		return (
-			<section className="failed-auth">
-				<img className="failed-auth__giphy-embed" src={garth} alt='gif of garth from waynes world saying no way'/>
-        <p>WHOOPS! <br />You gotta login to use this app...</p>
-        <Link className='failed-auth__login-link' to="/login">LOG IN</Link>
-			</section>
-		);
-	}
-
-	if (user === null) {
-		return (
-			<main className="dashboard">
-				<p className='home__loading'>Loading...</p>
-			</main>
-		);
+		return <FailedAuth />;
 	}
 
   return (
     <>
       <Head title="Home" description="You must register to use the Hit Me app." canonical="/home"/>
-			<Inputs user={user} idFromParams={idFromParams}/>
+			{!user ? <Loading /> : <Inputs user={user} idFromParams={idFromParams}/>}
     </>
   )
 }
