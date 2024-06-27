@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import Head from "../../layout/Head";
 import "./Profile.scss";
 import ProfileInfo from "../../components/ProfileInfo/ProfileInfo";
+import FailedAuth from "../../components/FailedAuth/FailedAuth";
+import Loading from "../../components/Loading/Loading";
 import axios from "axios";
-import { Link } from "react-router-dom";
-import garth from "../../assets/images/garth.gif";
 const baseUrl = process.env.REACT_APP_BASE_URL;
 
 function Profile() {
@@ -29,28 +29,13 @@ function Profile() {
   }
 
   if (failedAuth) {
-    return (
-      <section className="failed-auth">
-        <img
-          className="failed-auth__giphy-embed"
-          src={garth}
-          alt="gif of garth from waynes world saying no way"
-        />
-        <p>
-          WHOOPS! <br />
-          You gotta login to use this app...
-        </p>
-        <Link className="failed-auth__login-link" to="/login">
-          LOG IN
-        </Link>
-      </section>
-    );
+    return <FailedAuth />;
   }
 
   return (
     <>
       <Head title="Profile" description="Login to view your profile and saved artists on Hit Me" canonical="/profile" />
-      <ProfileInfo currentUser={currentUser} />
+      {!currentUser ? <Loading /> : <ProfileInfo currentUser={currentUser} />}
     </>
   );
 }

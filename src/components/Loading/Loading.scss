@@ -1,0 +1,16 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+@use "../../styles/typography" as *;
+@use "../../App.scss" as *;
+
+.loading-container {
+  position: relative;
+  top: 10vh;
+  margin: auto;
+  width: 15vw;
+  text-align: center;
+
+  & p {
+    margin-top: 0.5rem;
+  }
+}
