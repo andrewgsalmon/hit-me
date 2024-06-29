@@ -3,7 +3,7 @@ import Head from '../../layout/Head'
 import './Login.scss'
 import LoginForm from '../../components/LoginForm/LoginForm'
 
-function Login({userToken}) {
+function Login() {
 
   return (
     <>

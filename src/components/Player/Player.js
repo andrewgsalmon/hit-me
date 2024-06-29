@@ -3,6 +3,7 @@ import "./Player.scss";
 import CommentSection from "../CommentSection/CommentSection";
 import axios from "axios";
 import britney from "../../assets/images/britney.gif";
+import Loading from "../Loading/Loading";
 const baseUrl = process.env.REACT_APP_BASE_URL;
 
 function Player({
@@ -16,6 +17,7 @@ function Player({
   setArtistId,
   similarLoading,
 }) {
+
   const [newLike, setNewLike] = useState(null);
 
   const handleSave = async (event) => {
@@ -93,7 +95,7 @@ function Player({
   return (
     <>
       {!artistId ? (
-        ""
+        <Loading />
       ) : (
         <section className="music-section">
           <div className="spotify-player">

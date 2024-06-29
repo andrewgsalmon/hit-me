@@ -61,8 +61,6 @@ function CommentSection({ user, idFromParams, artistClass, artistId }) {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(event)
-
     if (!event.target.comment.value) {
       return notify("error", "Are you new to this? Add a comment before posting!")
     }
