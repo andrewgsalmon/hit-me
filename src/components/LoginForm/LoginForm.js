@@ -92,7 +92,6 @@ function LoginForm() {
           {/* <a className='login__oauth' href={`${baseUrl}/auth/spotify`}>Or sign in via Spotify</a> */}
         </form>
       </section>
-      {/* {error ? <p className="login__error">{error.data}</p> : ""} */}
       <ToastContainer />
     </>
   );

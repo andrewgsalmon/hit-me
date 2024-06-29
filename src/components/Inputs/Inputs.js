@@ -57,6 +57,7 @@ function Inputs({ user, idFromParams }) {
       })
       .then((data) => {
         setAccessToken(data.access_token);
+        sessionStorage.setItem("spotifyToken", data.access_token);
       })
       .catch((error) => {
         console.error("There was a problem with the request:", error);
@@ -136,8 +137,8 @@ function Inputs({ user, idFromParams }) {
           return response.json();
         })
         .then((data) => {
-          const randomIndex = Math.floor(Math.random() * 100);
-          setRecommended(data.tracks[randomIndex]);
+          const randomArtist = Math.floor(Math.random() * data.tracks.length);
+          setRecommended(data.tracks[randomArtist]);
           setLiked(false);
         })
         .catch((error) => {
@@ -175,8 +176,8 @@ function Inputs({ user, idFromParams }) {
         return response.json();
       })
       .then((data) => {
-        const randomIndex = Math.floor(Math.random() * data.artists.length);
-        setSimilarArtist(data.artists[randomIndex]);
+        const random = Math.floor(Math.random() * data.artists.length);
+        setSimilarArtist(data.artists[random]);
         setLiked(false);
       })
       .catch((error) => {
