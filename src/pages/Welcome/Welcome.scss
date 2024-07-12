@@ -21,16 +21,19 @@
 
   &__app-description {
     text-align: center;
+    @include glow;
 
     &-container {
       display: flex;
       flex-flow: column nowrap;
       align-items: center;
       padding: 2rem;
+      @include glow;
 
       @include tablet {
         width: 50%;
         border-right: 1px solid #fff;
+        filter: none;
       }
 
       @include desktop {
@@ -38,6 +41,7 @@
         font-size: 1.5rem;
         line-height: 2rem;
         padding: 5rem;
+        filter: none;
       }
     }
   }

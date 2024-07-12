@@ -22,6 +22,10 @@
   filter: drop-shadow(3px 3px 4px #47474740);
 }
 
+@mixin glow {
+  filter: drop-shadow(0px 0px 0.66rem #FFF);
+}
+
 @mixin input {
   margin: 0.27rem 0 0.83rem 0;
   padding: 0.27rem 0.83rem;

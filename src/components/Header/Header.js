@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 import logo from "../../assets/logo/hitme-logo.png";
 import "./Header.scss";
 
-function Header() {
+function Header({failedAuth}) {
   return (
     <>
       <header className="header">
-        <Link className="header-logo" to="/home">
+        <Link className="header-logo" to={failedAuth ? "/" : "/home"}>
           <img className="header-logo" src={logo} alt="hit me logo" />
         </Link>
         <br />
