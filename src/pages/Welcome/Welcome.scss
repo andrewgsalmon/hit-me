@@ -23,6 +23,14 @@
     text-align: center;
     @include glow;
 
+    @include tablet {
+      max-width: 16rem;
+    }
+
+    @include desktop {
+      max-width: 30rem;
+    }
+
     &-container {
       display: flex;
       flex-flow: column nowrap;

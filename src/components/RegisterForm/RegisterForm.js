@@ -118,7 +118,7 @@ function RegisterForm() {
             className="register__form-label register__form-label--password"
             htmlFor="password"
           >
-            Password
+            Password*
           </label>
           <input
             onChange={handleChange}
@@ -171,6 +171,7 @@ function RegisterForm() {
           <button className="register__form-submit">Submit</button>
         </div>
       </form>
+      <p className="register__form-input--password-disclaimer">*Passwords are encrypted with bcrypt.</p>
       <ToastContainer />
     </section>
   );
