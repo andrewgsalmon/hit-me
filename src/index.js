@@ -4,9 +4,10 @@ import './index.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import TagManager from 'react-gtm-module';
+const googleId = process.env.REACT_APP_GTM_ID;
 
 const tagManagerArgs = {
-  gtmId: 'GTM-K4VJR458'
+  gtmId: googleId,
 };
 
 TagManager.initialize(tagManagerArgs);
