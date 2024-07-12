@@ -13,7 +13,7 @@
 }
 
 @mixin four-k {
-  @media (min-width: 2560) {
+  @media (min-width: 2560px) {
     @content;
   }
 }
