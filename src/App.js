@@ -31,7 +31,7 @@ function App() {
 	return (
     <>
       <BrowserRouter>
-        <Header />
+        <Header failedAuth={failedAuth} />
         <main>
           <Routes>
             <Route path='/' element={<Welcome />} />
