@@ -94,6 +94,17 @@
           padding-top: 0.55rem;
         }
       }
+
+      &--confirm-password {
+        margin-bottom: 0.5rem;
+      }
+
+      &--password-disclaimer {
+        font-size: 0.8rem;
+        margin-top: 2rem;
+        margin-left: 1rem;
+        color: #757575;
+      }
     }
 
     &-submit {
