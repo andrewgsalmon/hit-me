@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import './App.scss';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from './components/Header/Header';
+import Welcome from './pages/Welcome/Welcome';
 import Home from './pages/Home/Home';
 import ArtistPage from './pages/ArtistPage/ArtistPage';
 import Login from './pages/Login/Login';
@@ -33,7 +34,7 @@ function App() {
         <Header />
         <main>
           <Routes>
-            <Route path='/' element={<Login userToken={userToken} />} />
+            <Route path='/' element={<Welcome />} />
             <Route path='login' element={<Login userToken={userToken}/>}/>
             <Route path='home' element={<Home />} />
             <Route path='artist/:idFromParams' element={<ArtistPage />} />
