@@ -42,9 +42,10 @@ function LoginForm() {
 
       // redirect upon successful login
       window.location.href = "/home";
+      // return;
     } catch (error) {
       notify(error.response.data)
-      console.error(error.response)
+      console.error(error.response.data)
     }
   };
 
