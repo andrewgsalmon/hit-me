@@ -3,19 +3,20 @@ import { useNavigate, NavLink } from "react-router-dom";
 import "./Footer.scss";
 
 function Footer() {
-  const [token, setToken] = useState(true);
-  const navigate = useNavigate();
+  // const [token, setToken] = useState(true);
+  // const navigate = useNavigate();
+  const token = sessionStorage.getItem("token")
 
   const handleLogout = () => {
+    window.location.href = "/login";
     sessionStorage.removeItem("token");
-    setToken(false);
   };
 
-  useEffect(() => {
-    if (!token) {
-      navigate("/login");
-    }
-  }, [token, navigate]);
+  // useEffect(() => {
+  //   if (!token) {
+  //     navigate("/login");
+  //   }
+  // }, [token, navigate]);
 
   return (
     <>

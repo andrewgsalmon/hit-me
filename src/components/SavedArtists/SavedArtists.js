@@ -12,18 +12,21 @@ function SavedArtists({ user }) {
   const [newLikes, setNewLikes] = useState(null);
 
   const notify = (artistName) => {
-    toast.success(`Successfully removed ${artistName} from your saved artists.`, {
-      position: "bottom-center",
-      autoClose: 2000,
-      hideProgressBar: true,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "colored",
-      transition: Flip,
-    });
-  }
+    toast.success(
+      `Successfully removed ${artistName} from your saved artists.`,
+      {
+        position: "bottom-center",
+        autoClose: 2000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        transition: Flip,
+      }
+    );
+  };
 
   useEffect(() => {
     const getLikes = async () => {
@@ -48,30 +51,30 @@ function SavedArtists({ user }) {
         artist_id: id,
       },
     });
-    notify(artistName)
+    notify(artistName);
     setNewLikes(response);
   };
 
   if (!user) {
-    return <p className="profile-player__no-user">Loading...</p>;
+    return <p className="saved-artists__no-user">Loading...</p>;
   }
 
   if (!likes) {
-    return <p className="profile-player__no-likes">Loading...</p>;
+    return <p className="saved-artists__no-likes">Loading...</p>;
   }
 
   return (
-    <section className="profile-player">
-      <h2 className="profile-player__heading">Saved Artists</h2>
-      <div className="profile-player__saved-artists-container">
+    <section className="saved-artists">
+      <h2 className="saved-artists__heading">Saved Artists</h2>
+      <div className="saved-artists__saved-artists-container">
         {likes.length < 1 ? (
-          <article className="profile-player__placeholder">
+          <article className="saved-artists__placeholder">
             <img
-              className="profile-player__gif"
+              className="saved-artists__gif"
               src={travolta}
               alt="john travolta confused gif from pulp fiction"
             />
-            <p className="profile-player__text-placeholder">
+            <p className="saved-artists__text-placeholder">
               Nothing to see here yet... <br />
               Your saved music will appear here!
             </p>
@@ -79,30 +82,30 @@ function SavedArtists({ user }) {
         ) : (
           likes.map((like) => {
             return (
-              <article key={like.id} className="profile-player__artist">
+              <article key={like.id} className="saved-artists__artist">
                 <div
-                  className="profile-player__remove-like--tablet"
+                  className="saved-artists__remove-like--tablet"
                   onClick={() => handleDelete(like.artist_id, like.artist_name)}
                 ></div>
                 <div
-                  className="profile-player__remove-like--mobile"
+                  className="saved-artists__remove-like--mobile"
                   onClick={() => handleDelete(like.artist_id, like.artist_name)}
                 >
                   remove
                 </div>
-                <img
-                  className="profile-player__thumb"
-                  src={like.artist_img}
-                  alt={like.artist_name}
-                />
-                <div className="profile-player__artist-info">
-                  <div className="profile-player__artist-name">
-                    <h3 className="profile-player__artist-h3">
+                  <img
+                    className="saved-artists__thumb"
+                    src={like.artist_img}
+                    alt={like.artist_name}
+                  />
+                <div className="saved-artists__artist-info">
+                  <div className="saved-artists__artist-name">
+                    <h3 className="saved-artists__artist-h3">
                       {like.artist_name}
                     </h3>
                   </div>
                   <Link
-                    className="profile-player__link"
+                    className="saved-artists__link"
                     to={`../artist/${like.artist_id}`}
                   >
                     Listen now

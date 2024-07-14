@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import './ProfileInfo.scss'
 import axios from 'axios';
 import SavedArtists from '../SavedArtists/SavedArtists';
+import Loading from '../Loading/Loading';
 const baseUrl = process.env.REACT_APP_BASE_URL;
 
 function ProfileInfo({currentUser}) {
@@ -28,7 +29,7 @@ function ProfileInfo({currentUser}) {
 	}, []);
 
 	if (!user) {
-		return <div className='profile__loading'>Loading...</div>
+		return <Loading />;
 	}
 
 	return (
