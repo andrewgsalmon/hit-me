@@ -16,6 +16,8 @@ function Player({
   artistId,
   setArtistId,
   similarLoading,
+  genreSelected,
+  genrePlainText
 }) {
 
   const [newLike, setNewLike] = useState(null);
@@ -30,6 +32,7 @@ function Player({
           artist_name: recommended.artists[0].name,
           artist_id: recommended.artists[0].id,
           artist_img: recommended.album.images[0].url,
+          artist_genre: genrePlainText.toLowerCase()
         });
         setNewLike(response);
       } catch (error) {
@@ -42,6 +45,7 @@ function Player({
           artist_name: similarArtist.name,
           artist_id: similarArtist.id,
           artist_img: similarArtist.images[0].url,
+          artist_genre: similarArtist.genres[0]
         });
         setNewLike(response);
       } catch (error) {

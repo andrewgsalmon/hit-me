@@ -103,6 +103,9 @@ function SavedArtists({ user }) {
                     <h3 className="saved-artists__artist-h3">
                       {like.artist_name}
                     </h3>
+                    <h4 className="saved-artists__artist-info--genre">
+                      {like.artist_genre}
+                    </h4>
                   </div>
                   <Link
                     className="saved-artists__link"

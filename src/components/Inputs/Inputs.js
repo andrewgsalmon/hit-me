@@ -18,6 +18,7 @@ function Inputs({ user, idFromParams }) {
   const [artistId, setArtistId] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [similarLoading, setSimilarLoading] = useState(false);
+  const [genrePlainText, setGenrePlainText] = useState(null);
 
   const notify = (type, message) => {
     if (type === "error") {
@@ -96,8 +97,10 @@ function Inputs({ user, idFromParams }) {
   }, [accessToken, idFromParams]);
 
   const handleGenreChange = (e) => {
-    const { value } = e.target;
-    setGenreSelected(value);
+    const genreApiParam = e.target.value;
+    const genrePlainText = e.target.options[e.target.selectedIndex].text;
+    setGenreSelected(genreApiParam);
+    setGenrePlainText(genrePlainText);
   };
 
   const handlePopularity = (e) => {
@@ -367,6 +370,8 @@ function Inputs({ user, idFromParams }) {
           artistId={artistId}
           setArtistId={setArtistId}
           similarLoading={similarLoading}
+          genreSelected={genreSelected}
+          genrePlainText={genrePlainText}
         />
         <ToastContainer />
       </div>
