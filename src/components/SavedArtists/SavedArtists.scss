@@ -82,6 +82,13 @@
         background-color: $Secondary-BackgroundBlue;
         border: 1px solid lightgray;
       }
+
+      &--genre {
+        font-weight: 400;
+        margin-top: 0;
+        font-size: 0.9rem;
+        opacity: 0.75;
+      }
     }
   }
 
