@@ -1,8 +1,8 @@
-@use '../../styles/variables' as *;
-@use '../../styles/mixins' as *;
-@use '../../styles/typography' as *;
-@use '../../App.scss' as *;
-@use '../../styles/keyframes.scss' as *;
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+@use "../../styles/typography" as *;
+@use "../../App.scss" as *;
+@use "../../styles/keyframes.scss" as *;
 
 .saved-artists {
   text-align: center;
@@ -99,10 +99,13 @@
     width: 50%;
     background-color: grey;
     height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 
     @include tablet {
       aspect-ratio: 1/1;
-      width: 100%;
+      min-width: 100%;
     }
   }
 
@@ -145,7 +148,7 @@
       height: 1.67rem;
       border-radius: 0.83rem;
       background-color: rgb(255, 113, 113);
-      background-image: url('../../assets/icons/xmark-solid.svg');
+      background-image: url("../../assets/icons/xmark-solid.svg");
       background-size: contain;
       background-repeat: no-repeat;
       background-position: 50%;
@@ -189,15 +192,16 @@
     }
 
     &--delete {
-      transition: height 0.3s ease-in 0.5s;
+      transition: height 0.3s ease-in;
       height: 0;
-      -webkit-animation: text-blur-out 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
-      animation: text-blur-out 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+      border: 0;
 
       @include tablet {
         height: auto;
-        -webkit-animation: flip-out-ver-left 0.8s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
-        animation: flip-out-ver-left 0.8s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+        -webkit-animation: flip-out-ver-left 0.5s
+          cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+        animation: flip-out-ver-left 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53)
+          both;
       }
     }
 
