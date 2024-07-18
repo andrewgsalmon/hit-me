@@ -1,7 +1,7 @@
-@use '../../styles/variables' as *;
-@use '../../styles/typography' as *;
-@use '../../styles/mixins' as *;
-@use '../../App.scss' as *;
+@use "../../styles/variables" as *;
+@use "../../styles/typography" as *;
+@use "../../styles/mixins" as *;
+@use "../../App.scss" as *;
 
 .nav-bar {
   display: contents;
@@ -26,16 +26,18 @@
   }
 
   &__login-link {
-    text-decoration: none;
-    background-color: $Primary-Submit;
-    color: $Primary-White;
-    width: auto;
-    @include button;
-    @include transition;
-    line-height: normal;
-
     &:hover {
       background-color: $Secondary-SubmitHover;
+    }
+
+    & {
+      @include transition;
+      line-height: normal;
+      text-decoration: none;
+      color: $Primary-White;
+      width: auto;
+      background-color: $Primary-Submit;
+      @include button;
     }
   }
 }

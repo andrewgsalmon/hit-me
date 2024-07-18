@@ -44,15 +44,20 @@ function SavedArtists({ user }) {
     getLikes();
   }, [newLikes, user]);
 
-  const handleDelete = async (id, artistName) => {
+  const handleDelete = async (id, artistName, savedArtistId) => {
     const response = await axios.delete(`${baseUrl}/api/users/likes`, {
       params: {
         user_email: user.email,
         artist_id: id,
       },
     });
-    notify(artistName);
-    setNewLikes(response);
+    const like = document.getElementById(savedArtistId);
+    like.classList.add("saved-artists__artist--delete")
+
+    setTimeout(() => {
+      notify(artistName);
+      setNewLikes(response);
+    }, 800);
   };
 
   if (!user) {
@@ -81,15 +86,17 @@ function SavedArtists({ user }) {
           </article>
         ) : (
           likes.map((like) => {
+            let savedArtistId = `saved-artist-${like.id}`
+
             return (
-              <article key={like.id} className="saved-artists__artist">
+              <article key={like.id} id={savedArtistId} className="saved-artists__artist">
                 <div
                   className="saved-artists__remove-like--tablet"
-                  onClick={() => handleDelete(like.artist_id, like.artist_name)}
+                  onClick={() => handleDelete(like.artist_id, like.artist_name, savedArtistId)}
                 ></div>
                 <div
                   className="saved-artists__remove-like--mobile"
-                  onClick={() => handleDelete(like.artist_id, like.artist_name)}
+                  onClick={() => handleDelete(like.artist_id, like.artist_name, savedArtistId)}
                 >
                   remove
                 </div>
