@@ -52,12 +52,12 @@ function SavedArtists({ user }) {
       },
     });
     const like = document.getElementById(savedArtistId);
-    like.classList.add("saved-artists__artist--delete")
+    like.classList.add("saved-artists__artist--delete");
 
     setTimeout(() => {
       notify(artistName);
       setNewLikes(response);
-    }, 800);
+    }, 500);
   };
 
   if (!user) {
@@ -86,25 +86,44 @@ function SavedArtists({ user }) {
           </article>
         ) : (
           likes.map((like) => {
-            let savedArtistId = `saved-artist-${like.id}`
+            let savedArtistId = `saved-artist-${like.id}`;
+            let backgroundImg = {
+              backgroundImage: `url('${like.artist_img}')`,
+            };
 
             return (
-              <article key={like.id} id={savedArtistId} className="saved-artists__artist">
+              <article
+                key={like.id}
+                id={savedArtistId}
+                className="saved-artists__artist"
+              >
                 <div
                   className="saved-artists__remove-like--tablet"
-                  onClick={() => handleDelete(like.artist_id, like.artist_name, savedArtistId)}
+                  onClick={() =>
+                    handleDelete(
+                      like.artist_id,
+                      like.artist_name,
+                      savedArtistId
+                    )
+                  }
                 ></div>
                 <div
                   className="saved-artists__remove-like--mobile"
-                  onClick={() => handleDelete(like.artist_id, like.artist_name, savedArtistId)}
+                  onClick={() =>
+                    handleDelete(
+                      like.artist_id,
+                      like.artist_name,
+                      savedArtistId
+                    )
+                  }
                 >
                   remove
                 </div>
-                  <img
-                    className="saved-artists__thumb"
-                    src={like.artist_img}
-                    alt={like.artist_name}
-                  />
+                <div
+                  className="saved-artists__thumb"
+                  style={backgroundImg}
+                  alt={like.artist_name}
+                ></div>
                 <div className="saved-artists__artist-info">
                   <div className="saved-artists__artist-name">
                     <h3 className="saved-artists__artist-h3">
