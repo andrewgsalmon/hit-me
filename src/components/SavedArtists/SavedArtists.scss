@@ -2,6 +2,7 @@
 @use '../../styles/mixins' as *;
 @use '../../styles/typography' as *;
 @use '../../App.scss' as *;
+@use '../../styles/keyframes.scss' as *;
 
 .saved-artists {
   text-align: center;
@@ -75,12 +76,13 @@
       margin: 0 auto;
       height: 100%;
       justify-content: space-evenly;
+      padding: 1.5rem 0;
 
       @include tablet {
         min-height: 9.72rem;
         width: 100%;
         background-color: $Secondary-BackgroundBlue;
-        border: 1px solid lightgray;
+        padding: 0;
       }
 
       &--genre {
@@ -96,6 +98,7 @@
     aspect-ratio: 1/1;
     width: 50%;
     background-color: grey;
+    height: 100%;
 
     @include tablet {
       aspect-ratio: 1/1;
@@ -104,13 +107,13 @@
   }
 
   &__link {
-    @include button;
     background-color: $Primary-Submit;
     color: $Primary-White;
     margin: 0 auto;
-    font-size: 0.78rem;
     padding: 0.27rem 1rem;
+    font-size: 0.78rem;
     transition: 0.3s;
+    @include button;
 
     &:hover {
       background-color: $Secondary-SubmitHover;
@@ -165,17 +168,36 @@
     padding: 0 0.55rem;
     border-radius: 0.83rem;
     font-weight: 400;
+    @include drop-shadow;
 
     @include tablet {
       display: none;
+      filter: none;
     }
   }
 
   &__artist {
+    height: 12rem;
+
     @include tablet {
-      transition: 0.2s ease-out;
+      height: 21.5rem;
+      border: 1px solid #c2c2c2;
+
       &:hover {
         transform: scale(1.05);
+      }
+    }
+
+    &--delete {
+      transition: height 0.3s ease-in 0.5s;
+      height: 0;
+      -webkit-animation: text-blur-out 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+      animation: text-blur-out 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+
+      @include tablet {
+        height: auto;
+        -webkit-animation: flip-out-ver-left 0.8s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+        animation: flip-out-ver-left 0.8s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
       }
     }
 
