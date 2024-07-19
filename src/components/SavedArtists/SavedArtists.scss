@@ -196,12 +196,14 @@
     }
 
     &--delete {
-      transition: height 0.3s ease-in;
+      transition: 0.3s ease-in;
       height: 0;
+      opacity: 0;
       border: 0;
 
       @include tablet {
         height: auto;
+        opacity: 1;
         -webkit-animation: flip-out-ver-left 0.5s
           cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
         animation: flip-out-ver-left 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53)
