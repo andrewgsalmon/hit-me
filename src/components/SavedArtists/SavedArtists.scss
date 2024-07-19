@@ -77,12 +77,14 @@
       height: 100%;
       justify-content: space-evenly;
       padding: 1.5rem 0;
+      overflow: hidden;
 
       @include tablet {
         min-height: 9.72rem;
         width: 100%;
         background-color: $Secondary-BackgroundBlue;
         padding: 0;
+        overflow: scroll;
       }
 
       &--genre {
