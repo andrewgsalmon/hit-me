@@ -3,10 +3,13 @@ import './ProfileInfo.scss'
 import axios from 'axios';
 import SavedArtists from '../SavedArtists/SavedArtists';
 import Loading from '../Loading/Loading';
+import AvatarModal from '../AvatarModal/AvatarModal';
 const baseUrl = process.env.REACT_APP_BASE_URL;
 
 function ProfileInfo({currentUser}) {
 	const [user, setUser] = useState(currentUser);
+	const [modal, setModal] = useState(false)
+	const avatar = {backgroundImage: `url('${user.profile_img}')`}
 
 	useEffect(() => {
 		const token = sessionStorage.getItem('token');
@@ -28,6 +31,11 @@ function ProfileInfo({currentUser}) {
 
 	}, []);
 
+  const modalToggle = (e) => {
+    e.preventDefault();
+		setModal(!modal)
+  }
+
 	if (!user) {
 		return <Loading />;
 	}
@@ -35,9 +43,14 @@ function ProfileInfo({currentUser}) {
 	return (
 		<>
 			<section className='profile'>
-				<div className='profile__info'>
+				{modal && <AvatarModal modalToggle={modalToggle} user={user}/>}
+					<div className='profile__info'>
 					<div className='profile__identity'>
-						<div className='profile__avatar'></div>
+						<div className='profile__avatar' style={avatar}>
+							<form className='profile__avatar--edit'>
+								<button onClick={modalToggle} className='profile__avatar--upload'></button>
+							</form>
+						</div>
 						<div className='profile__heading-container'><h1 className='profile__heading'>{user.name}</h1></div>
 					</div>
 					<div className='profile__details'>

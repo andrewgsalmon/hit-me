@@ -3,6 +3,7 @@ import { ToastContainer, toast, Flip } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./CommentSection.scss";
 import Comment from "../Comment/Comment";
+import Loading from "../Loading/Loading";
 import axios from "axios";
 const baseUrl = process.env.REACT_APP_BASE_URL;
 
@@ -10,6 +11,8 @@ function CommentSection({ user, idFromParams, artistClass, artistId }) {
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState(null);
   const [artist, setArtist] = useState(idFromParams);
+
+  const avatar = {backgroundImage: `url('${user.profile_img}')`}
 
   const notify = (type, message) => {
     if (type === "error") {
@@ -38,11 +41,7 @@ function CommentSection({ user, idFromParams, artistClass, artistId }) {
   useEffect(() => {
     const getComments = async () => {
       if (!artist && !idFromParams) {
-        return (
-          <section className="dashboard artist__comments">
-            <p className="home__loading artist__loading">Loading...</p>
-          </section>
-        );
+        return <Loading />
       }
 
       if (artist) {
@@ -83,7 +82,7 @@ function CommentSection({ user, idFromParams, artistClass, artistId }) {
     <>
       <section className={artistClass ? artistClass : "comments"}>
         <div className="comments__container">
-          <div className="comments__avatar"></div>
+          <div className="comments__avatar" style={avatar}></div>
           <form onSubmit={handleSubmit} className="comments__input">
             <label className="comments__textarea-label" htmlFor="comment">Like the tunes? Let us know!</label>
             {comments.length > 0 ? (
