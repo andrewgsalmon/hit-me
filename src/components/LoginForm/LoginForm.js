@@ -1,8 +1,8 @@
 import React from "react";
+import axios from "axios";
 import { ToastContainer, toast, Flip } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./LoginForm.scss";
-import axios from "axios";
 const baseUrl = process.env.REACT_APP_BASE_URL;
 
 function LoginForm() {
