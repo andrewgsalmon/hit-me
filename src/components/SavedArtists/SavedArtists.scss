@@ -183,10 +183,9 @@
   }
 
   &__artist {
-    height: 12rem;
+    height: auto;
 
     @include tablet {
-      height: 21.5rem;
       border: 1px solid #c2c2c2;
       transition: 0.2s;
 
