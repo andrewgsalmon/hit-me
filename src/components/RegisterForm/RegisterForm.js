@@ -6,6 +6,7 @@ import axios from "axios";
 const baseUrl = process.env.REACT_APP_BASE_URL;
 
 function RegisterForm() {
+  const [email, setEmail] = useState("");
   const [pw, setPw] = useState("");
   const [confirmPw, setConfirmPw] = useState("");
 
@@ -40,15 +41,30 @@ function RegisterForm() {
   const handleChange = (event) => {
     let { name, value } = event.target;
 
-    if (name === "password") {
+    if (name === "email") {
+      setEmail(value)
+    } else if (name === "password") {
       setPw(value);
     } else if (name === "confirmPassword") {
       setConfirmPw(value);
     }
   };
 
+  console.log(email, pw)
+
   const handleSubmit = async (event) => {
     event.preventDefault();
+
+    const isValidEmail = (email) => {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return emailRegex.test(email);
+    }
+
+    if (!isValidEmail(email)) {
+      notify("error", "Please input a valid email address!")
+      return;
+    }
+
     if (pw !== confirmPw) {
       notify(
         "error",
@@ -107,6 +123,7 @@ function RegisterForm() {
             Email
           </label>
           <input
+            onChange={handleChange}
             className="register__form-input register__form-input--email"
             type="text"
             name="email"
