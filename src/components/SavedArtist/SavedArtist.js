@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./Artist.scss";
+import "./SavedArtist.scss";
 
-function Artist({ like, handleDelete }) {
+function SavedArtist({ like, handleDelete }) {
   let savedArtistId = `saved-artist-${like.id}`;
   let backgroundImg = {
     backgroundImage: `url('${like.artist_img}')`,
@@ -47,4 +47,4 @@ function Artist({ like, handleDelete }) {
   );
 }
 
-export default Artist;
+export default SavedArtist;

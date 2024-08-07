@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { ToastContainer, toast, Flip } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Artist from "../Artist/Artist";
+import SavedArtist from "../SavedArtist/SavedArtist";
+import Loading from "../Loading/Loading";
 import "./SavedArtistList.scss";
 import travolta from "../../assets/images/travolta.gif";
 import axios from "axios";
@@ -60,12 +61,8 @@ function SavedArtistList({ user }) {
     }, 500);
   };
 
-  if (!user) {
-    return <p className="saved-artists__no-user">Loading...</p>;
-  }
-
-  if (!likes) {
-    return <p className="saved-artists__no-likes">Loading...</p>;
+  if (!user || !likes) {
+    return <Loading />;
   }
 
   return (
@@ -87,7 +84,7 @@ function SavedArtistList({ user }) {
         ) : (
           likes.map((like) => {
             return (
-              <Artist key={like.id} like={like} handleDelete={handleDelete} />
+              <SavedArtist key={like.id} like={like} handleDelete={handleDelete} />
             );
           })
         )}
