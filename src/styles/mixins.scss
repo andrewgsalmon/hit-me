@@ -46,10 +46,9 @@
   border-radius: 1.11rem;
   font-weight: 600;
   @include drop-shadow;
-  transition: 0.3s;
   text-decoration: none;
   cursor: pointer;
-  transition: 0.1s ease-in-out;
+  transition: 0.3s ease-in-out;
 
   &:active {
     transform: scale(0.95);

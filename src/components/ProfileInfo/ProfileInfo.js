@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import './ProfileInfo.scss'
 import axios from 'axios';
-import SavedArtists from '../SavedArtists/SavedArtists';
+import SavedArtistList from '../SavedArtistList/SavedArtistList';
 import Loading from '../Loading/Loading';
 import AvatarModal from '../AvatarModal/AvatarModal';
 const baseUrl = process.env.REACT_APP_BASE_URL;
@@ -69,7 +69,7 @@ function ProfileInfo({currentUser}) {
 					</div>
 				</div>
 			</section>
-			<SavedArtists user={user} />
+			<SavedArtistList user={user} />
 		</>
 	)
 }
