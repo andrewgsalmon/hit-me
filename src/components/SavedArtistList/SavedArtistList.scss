@@ -1,0 +1,43 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+@use "../../styles/typography" as *;
+@use "../../App.scss" as *;
+
+.saved-artists {
+  text-align: center;
+  border-bottom: 1px grey solid;
+
+  @include tablet {
+    border: 0;
+  }
+
+  @include desktop {
+    width: 80%;
+    margin: auto;
+  }
+
+  &__heading {
+    @include desktop {
+      font-size: 2.33rem;
+    }
+  }
+
+  &__saved-artists-container {
+    @include tablet {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: center;
+      margin: 0.55rem;
+    }
+  }
+
+  &__gif {
+    width: 80%;
+    border-radius: 20px;
+    @include drop-shadow;
+  }
+
+  &__text-placeholder {
+    margin: 0.5rem;
+  }
+}
