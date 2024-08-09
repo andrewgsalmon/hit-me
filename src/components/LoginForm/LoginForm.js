@@ -42,7 +42,7 @@ function LoginForm() {
 
       // redirect upon successful login
       window.location.href = "/home";
-      // return;
+
     } catch (error) {
       notify(error.response.data)
       console.error(error.response.data)
@@ -68,7 +68,7 @@ function LoginForm() {
           </label>
           <input
             className="login__form-input login__form-input--email"
-            type="text"
+            type="email"
             id="email"
             name="email"
             placeholder="ringo@beatles.co.uk"
