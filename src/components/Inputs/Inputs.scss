@@ -298,7 +298,8 @@
     width: 100%;
     max-width: 19.67rem;
     margin-top: 0.27rem;
-    @include drop-shadow;
+    border: 1px solid lightgray;
+    border-radius: 1rem;
 
     &--track {
       width: 100%;
