@@ -39,9 +39,14 @@
   flex-flow: column nowrap;
   align-items: center;
   margin: 0 auto;
-  padding: 1.11rem;
+  padding: 1.11rem 0;
   width: 90%;
   text-align: center;
+  min-height: 27.5rem;
+
+  @include tablet {
+    padding: 1.11rem;
+  }
 
   @include desktop {
     width: 50%;
@@ -199,14 +204,16 @@
     border-radius: 1.1rem;
     border: 0;
     background-color: #282460;
+    background-position: 50%;
     color: white;
     font-weight: 600;
     @include button;
-    min-width: 8.88rem;
-    min-height: 2rem;
+    min-width: 9.55rem;
+    min-height: 2.154rem;
 
-    @include tablet {
-      min-width: 9.2rem;
+    &:active {
+      transform: none;
+      min-width: 9.55rem;
     }
 
     @include desktop {
@@ -214,12 +221,14 @@
       padding: 0.55rem 1.5rem;
       min-width: 12.78rem;
       min-height: 2.432rem;
+
+      &:active {
+        transform: none;
+      }
     }
 
     &:hover {
-      &:hover {
-        background-color: #4940bc;
-      }
+      background-color: #4940bc;
     }
 
     &--loading {
@@ -227,6 +236,12 @@
       background-repeat: no-repeat;
       background-size: 35%;
       background-position: 50%;
+      min-height: 2.155rem;
+
+      @include desktop {
+        min-width: 12.78rem;
+        min-height: 2.432rem;
+      }
     }
   }
 

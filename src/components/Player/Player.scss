@@ -66,16 +66,35 @@ iframe {
       border-radius: 1.11rem;
       color: #fff;
       background-color: #282460;
+      background-position: 50%;
       font-weight: 600;
       @include button;
       min-width: 9.4rem;
-      min-height: 2.05rem;
+      min-height: 2.154rem;
+
+      &:active {
+        transform: none;
+      }
 
       &--loading {
         background-image: url(../../assets/images/fadeStaggerCircles.svg);
         background-repeat: no-repeat;
         background-size: 35%;
         background-position: 50%;
+        min-width: 9.78rem;
+
+        &:active {
+          transform: none;
+        }
+      }
+
+      &--shuffle {
+        min-height: 2.154rem;
+        min-width: 9.78rem;
+
+        &:active {
+          transform: none;
+        }
       }
 
       &:hover {

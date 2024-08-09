@@ -268,9 +268,7 @@ function Inputs({ user, idFromParams }) {
               {!toggleGenre ? (
                 <>
                   <label className="form__input-label" htmlFor="custom-input">
-                    {seedTrack
-                      ? "Getting recommendation based on:"
-                      : "Enter a song, get something similar!"}
+                    Get music that sounds like:
                   </label>
                   {seedTrack ? (
                     ""
@@ -293,7 +291,10 @@ function Inputs({ user, idFromParams }) {
                       </article>
                       <button
                         className="custom-input__selected-artist--delete"
-                        onClick={() => setSeedTrack(null)}
+                        onClick={() => {
+                          setSeedTrack(null);
+                          setCustomSearch(null);
+                        }}
                       ></button>
                     </div>
                   ) : (
@@ -455,7 +456,7 @@ function Inputs({ user, idFromParams }) {
               className="form__input-label form__input-label--popularity"
               htmlFor="inputs__pop-selector"
             >
-              Do you want an indie artist, or a chart-topper?{" "}
+              The artist should be:
             </label>
             <div className="form__input--popularity-container">
               <p className="form__input--popularity-label">Indie</p>
@@ -470,7 +471,7 @@ function Inputs({ user, idFromParams }) {
               <p className="form__input--popularity-label">Major</p>
             </div>
             <button
-              className={isLoading ? "form__submit--loading" : "form__submit"}
+              className={isLoading ? "form__submit form__submit--loading" : "form__submit"}
               type="submit"
             >
               {isLoading ? "" : !artistId ? "HIT ME!" : "HIT ME AGAIN!"}

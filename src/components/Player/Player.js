@@ -104,7 +104,7 @@ function Player({
         <section className="music-section">
           <div className="spotify-player">
             <div className="spotify-player__action spotify-player__action--shuffle">
-              <span>Like what you hear?</span>
+              <span>Like the tunes?</span>
               <button
                 className={
                   similarLoading
