@@ -242,7 +242,7 @@ function Inputs({ user, idFromParams }) {
         <section className="inputs">
           <div className="inputs__recommendation-container">
             <h3 className="inputs__recommendation-toggle--heading">
-              I want recommendations based on:
+              I want new music based on:
             </h3>
             <div className="inputs__recommendation-toggle--container">
               <span className="inputs__recommendation-toggle--label">
