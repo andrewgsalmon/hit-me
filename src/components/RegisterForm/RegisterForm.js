@@ -50,8 +50,6 @@ function RegisterForm() {
     }
   };
 
-  console.log(email, pw)
-
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -90,7 +88,7 @@ function RegisterForm() {
       }
     } catch (error) {
       notify('error', error.response.data)
-      console.error(error)
+      console.error(`Error status code ${error.response.status}:`, error.response.data)
     }
   };
 
@@ -125,7 +123,7 @@ function RegisterForm() {
           <input
             onChange={handleChange}
             className="register__form-input register__form-input--email"
-            type="text"
+            type="email"
             name="email"
             id="email"
             placeholder="required"

@@ -117,11 +117,14 @@ iframe {
     width: 50%;
     padding: 0 1.11rem;
     font-size: 1.33rem;
-    margin-top: 0;
-    border-left: 1px solid #fff;
+    margin-top: 1.17rem;
   }
 }
 
 .home__britney-gif {
   border-radius: 20px;
+
+  @include desktop {
+    width: 80%;
+  }
 }

@@ -16,7 +16,6 @@ function Player({
   artistId,
   setArtistId,
   similarLoading,
-  genreSelected,
   genrePlainText
 }) {
 
@@ -38,6 +37,7 @@ function Player({
       } catch (error) {
         console.error(error);
       }
+
     } else if (similarArtist) {
       try {
         const response = await axios.post(`${baseUrl}/api/users/likes`, {

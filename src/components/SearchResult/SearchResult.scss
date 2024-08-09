@@ -1,0 +1,64 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+@use "../../styles/typography" as *;
+@use "../../App.scss" as *;
+
+.form {
+  &__custom-input {
+    position: relative;
+    display: flex;
+    flex-flow: column nowrap;
+    text-align: center;
+
+    &--result {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      z-index: 1000;
+      width: 100%;
+      background: #fff;
+      padding: 0.5rem;
+      border-bottom: 1px solid gray;
+      text-align: left;
+      @include transition;
+
+      &-info {
+        display: flex;
+        flex-flow: column nowrap;
+      }
+
+      &:hover {
+        background: $Secondary-BackgroundBlue;
+      }
+    }
+
+    &--trackname, &--artist, &--album {
+      font-size: 0.5rem;
+      margin: 0;
+      line-height: 1rem;
+
+      @include desktop {
+        font-size: 1.1rem;
+        margin: 0.25rem;
+        overflow: hidden;
+      }
+    }
+
+    &--album {
+      color: grey;
+    }
+
+    &--select {
+      background-color: $Primary-Submit;
+      color: #fff;
+      margin-left: 1rem;
+      @include button;
+
+      &:hover {
+        background-color: $Secondary-SubmitHover;
+      }
+    }
+  }
+}
