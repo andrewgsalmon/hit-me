@@ -22,23 +22,22 @@
     width: 75%;
     top: 25%;
     left: 12.5%;
-    padding: 40px 20px;
+    padding: 20px;
     border-radius: 20px;
 
     @include tablet {
-      width: 50%;
+      width: 16rem;
       left: 25%;
     }
 
     @include desktop {
-      width: 40%;
-      left: 30%;
+      left: 40%;
     }
   }
 
   &__top-row {
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: column-reverse nowrap;
     justify-content: space-between;
 
     &--close {
@@ -52,8 +51,7 @@
       border-radius: 12.5px;
       border: none;
       position: relative;
-      top: -20px;
-      margin-left: 30px;
+      margin-left: auto;
       transition: 0.2s ease-in-out;
       cursor: pointer;
 
@@ -117,6 +115,13 @@
           background-color: rgb(0, 186, 0);
         }
       }
+    }
+
+    &--max-filesize-exceeded {
+      background-color: pink;
+      color: red;
+      border: 0px;
+      pointer-events: none;
     }
 
     &--pending {
