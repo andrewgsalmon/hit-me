@@ -21,17 +21,12 @@ function AvatarModal({ modalToggle, user }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // if (maxFileExceeded) {
-    //   console.log("file is too big!")
-    //   return;
-    // }
-
     const formData = new FormData();
     formData.append("avatar", fileUpload);
     formData.append("user_email", user.email);
 
     try {
-      const response = await axios.post(
+      await axios.post(
         `${baseUrl}/api/users/profile-img`,
         formData,
         {
