@@ -22,6 +22,7 @@ function Profile() {
         });
         setCurrentUser(response.data);
       } catch (error) {
+        sessionStorage.removeItem('token');
         setFailedAuth(true);
       }
     };
