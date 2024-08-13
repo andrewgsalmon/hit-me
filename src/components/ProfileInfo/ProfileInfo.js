@@ -24,6 +24,7 @@ function ProfileInfo({currentUser}) {
 				setUser(response.data)
 
 			} catch (error) {
+				sessionStorage.removeItem('token');
 				console.error(error);
 			}
 		}

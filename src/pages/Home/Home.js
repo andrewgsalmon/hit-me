@@ -32,6 +32,7 @@ function Home() {
 				setUser(response.data)
 
 			} catch(error) {
+				sessionStorage.removeItem('token');
 				setFailedAuth(true)
 			}
 		}
