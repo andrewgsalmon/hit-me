@@ -4,6 +4,9 @@ import garth from '../../assets/images/garth.gif';
 import './FailedAuth.scss';
 
 function FailedAuth() {
+
+  sessionStorage.removeItem('token')
+
   return (
     <section className="failed-auth">
       <img
