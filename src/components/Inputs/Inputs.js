@@ -240,6 +240,7 @@ function Inputs({ user, idFromParams }) {
       <h1 className="home__heading">Welcome, {user.name}!</h1>
       <div className="home__desktop-toggle">
         <section className="inputs">
+          <form onSubmit={handleSubmit} className="inputs__form">
           <div className="inputs__recommendation-container">
             <h3 className="inputs__recommendation-toggle--heading">
               I want new music based on:
@@ -263,7 +264,6 @@ function Inputs({ user, idFromParams }) {
               </span>
             </div>
           </div>
-          <form onSubmit={handleSubmit} className="inputs__form">
             <article className="form__first-parameter">
               {!toggleGenre ? (
                 <>

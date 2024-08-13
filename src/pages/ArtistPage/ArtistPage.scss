@@ -24,6 +24,10 @@
 }
 
 .artist__comments {
+  @include tablet {
+    width: 30rem;
+  }
+
   @include desktop {
     width: 35rem;
     margin: auto;

@@ -57,11 +57,19 @@
   }
 
   &__recommendation {
+    &-container {
+      display: flex;
+      flex-flow: column;
+      align-items: center;
+      margin-bottom: 1rem;
+      width: 100%;
+    }
+
     &-toggle {
       width: 3.25rem;
       height: 2rem;
       border-radius: 1rem;
-      background-color: #fff;
+      background-color: rgb(255, 98, 98);
       margin: 0 1rem;
       transition: 0.2s ease-in;
       position: relative;
@@ -72,10 +80,37 @@
         flex-flow: row nowrap;
         justify-content: center;
         align-items: center;
+        background-color: #fff;
+        @include input;
+        width: 100%;
+        height: 3rem;
+        max-width: 19.67rem;
+
+        // @include tablet {
+        //   max-width: 19.67rem;
+        // }
 
         @include desktop {
           margin-bottom: 1.17rem;
+          height: 4.1rem;
         }
+      }
+
+      &--label {
+        font-size: 0.9rem;
+        font-style: italic;
+
+        @include tablet {
+          font-size: 1rem;
+        }
+
+        @include desktop {
+          font-size: 1.33rem;
+        }
+      }
+
+      &--heading {
+        margin-bottom: 0;
       }
     }
 
@@ -83,8 +118,8 @@
       width: 2rem;
       height: 2rem;
       border-radius: 1rem;
-      border: 2px solid white;
-      background-color: rgb(255, 98, 98);
+      border: 2px solid rgb(255, 98, 98);
+      background-color: #fff;
       position: absolute;
       right: 1.25rem;
       transition: 0.1s ease-in;
@@ -110,7 +145,7 @@
     flex-flow: column;
     justify-content: center;
     align-items: center;
-    margin: 2rem 0 1.11rem 0;
+    margin-bottom: 1.11rem;
     text-align: center;
 
     @include tablet {
@@ -138,6 +173,7 @@
     align-items: center;
     width: 100%;
     height: 7.5rem;
+    position: relative;
 
     @include desktop {
       height: 7rem;
