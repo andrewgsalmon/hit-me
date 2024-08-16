@@ -26,8 +26,12 @@
 
   &__desktop-column {
     @include desktop {
+      display: flex;
+      flex-flow: column;
+      justify-content: center;
       padding: 1.66rem;
       width: 50%;
+      height: 15rem;
       border-right: 1px solid $Primary-White;
     }
   }
@@ -86,8 +90,23 @@
 
       @include desktop {
         font-size: 1.2rem;
-        width: auto;
         padding: 0.55rem 1.5rem;
+      }
+
+      &--pending {
+        @include button;
+        background: lightgray;
+        background-image: url(../../assets/images/fadeStaggerCircles.svg);
+        background-repeat: no-repeat;
+        background-size: 25%;
+        background-position: 50%;
+        min-height: 1.67rem;
+        pointer-events: none;
+
+        @include desktop {
+          min-width: 9.22rem;
+          min-height: 2.22rem;
+        }
       }
 
       &:hover {
@@ -97,28 +116,30 @@
   }
 
   &__oauth {
-    background-color: #29D763;
+    background-color: #fff;
     @include button;
     color: black;
     text-decoration: none;
     padding: 0.83rem 2.22rem;
     font-size: 0.89rem;
     border-radius: 1.67rem;
-    margin: 1.11rem;
-    background-image: url('../../assets/logo/spotify-icon.svg');
+    margin: 0 1.11rem 1.11rem 1.11rem;
+    background-image: url('../../assets/icons/google_g_icon.svg');
     background-repeat: no-repeat;
     background-position: 4%;
-    background-size: 10%;
+    background-size: 20%;
+    border: 1px solid lightgray;
     @include transition;
     width: 100%;
     text-align: center;
 
     @include desktop {
       font-size: 1.1rem;
+      padding: 0.83rem 1rem 0.83rem 3rem;
     }
 
     &:hover {
-      background-color: #1fb451;
+      background-color: $Secondary-BackgroundBlue;
     }
   }
 

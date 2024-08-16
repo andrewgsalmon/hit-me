@@ -5,7 +5,7 @@ import "react-toastify/dist/ReactToastify.css";
 import "./LoginForm.scss";
 const baseUrl = process.env.REACT_APP_BASE_URL;
 
-function LoginForm() {
+function LoginForm({ signedIn }) {
 
   const notify = (message) => {
     toast.error(message, {
@@ -40,7 +40,6 @@ function LoginForm() {
 
       sessionStorage.setItem("token", response.data.token);
 
-      // redirect upon successful login
       window.location.href = "/home";
 
     } catch (error) {
@@ -87,10 +86,11 @@ function LoginForm() {
             name="password"
             placeholder="********"
           />
-          <button type="submit" className="login__form-submit">
-            LET ME IN
+          <button type="submit" className={!signedIn ? "login__form-submit" : "login__form-submit login__form-submit--pending"}>
+            {!signedIn ? "LET ME IN" : ""}
           </button>
-          {/* <a className='login__oauth' href={`${baseUrl}/auth/spotify`}>Or sign in via Spotify</a> */}
+          <p>- or -</p>
+          <a className='login__oauth' href={`${baseUrl}/auth/google`}>Login with Google</a>
         </form>
       </section>
       <ToastContainer />
