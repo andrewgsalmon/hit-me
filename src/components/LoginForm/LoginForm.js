@@ -89,8 +89,8 @@ function LoginForm({ signedIn }) {
           <button type="submit" className={!signedIn ? "login__form-submit" : "login__form-submit login__form-submit--pending"}>
             {!signedIn ? "LET ME IN" : ""}
           </button>
-          <p>- or -</p>
-          <a className='login__oauth' href={`${baseUrl}/auth/google`}>Login with Google</a>
+          {/* <p>- or -</p>
+          <a className='login__oauth' href={`${baseUrl}/auth/google`}>Login with Google</a> */}
         </form>
       </section>
       <ToastContainer />

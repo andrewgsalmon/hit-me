@@ -98,8 +98,8 @@ function RegisterForm() {
       <span className="register__login-link">
         Already signed up? Login <a href="./login">here</a>!
       </span>
-      <a className='register__oauth' href={`${baseUrl}/auth/google`}>Sign up with Google</a>
-      <p className="register__divider">- or -</p>
+      {/* <a className='register__oauth' href={`${baseUrl}/auth/google`}>Sign up with Google</a>
+      <p className="register__divider">- or -</p> */}
       <form onSubmit={handleSubmit} className="register__form">
         <div className="register__form--tablet-column">
           <label
