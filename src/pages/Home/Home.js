@@ -46,7 +46,7 @@ function Home() {
   return (
     <>
       <Head title="Home" description="You must register to use the Hit Me app." canonical="/home"/>
-			{!user ? <Loading /> : <Inputs user={user} idFromParams={idFromParams}/>}
+			{user ? <Inputs user={user} idFromParams={idFromParams}/> : <Loading />}
     </>
   )
 }
