@@ -8,6 +8,7 @@
   &__heading {
     text-align: center;
     margin-top: 2.5rem;
+    transition: none;
   }
 
   &__desktop-toggle {
@@ -85,10 +86,6 @@
         width: 100%;
         height: 3rem;
         max-width: 19.67rem;
-
-        // @include tablet {
-        //   max-width: 19.67rem;
-        // }
 
         @include desktop {
           margin-bottom: 1.17rem;
