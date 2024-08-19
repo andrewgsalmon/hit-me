@@ -1,22 +1,7 @@
 import React from "react";
 import "./SearchResult.scss";
 
-function SearchResult({
-  customSearch,
-  setCustomSearch,
-  setSeedTrack
-}) {
-
-  let inputValue = document.querySelector(".custom-input__search-bar");
-
-  const handleBlur = () => {
-    setTimeout(() => {
-      setCustomSearch(null);
-    }, 50);
-    }
-
-  inputValue.addEventListener("blur", handleBlur);
-
+function SearchResult({ customSearch, setCustomSearch, setSeedTrack }) {
   const handleSelectTrack = (e) => {
     e.preventDefault();
 
@@ -24,8 +9,18 @@ function SearchResult({
 
     setTimeout(() => {
       setCustomSearch(null);
-    }, 500);
+    }, 50);
   };
+
+  // let inputValue = document.querySelector(".custom-input__search-bar");
+
+  // const handleBlur = () => {
+  //   setTimeout(() => {
+  //     setCustomSearch(null);
+  //   }, 2000);
+  // };
+
+  // inputValue.addEventListener("blur", handleBlur);
 
   return (
     <article className="form__custom-input--result">

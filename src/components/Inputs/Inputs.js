@@ -235,6 +235,12 @@ function Inputs({ user, idFromParams }) {
     }
   };
 
+  const handleBlur = () => {
+    setTimeout(() => {
+      setCustomSearch(null);
+    }, 100);
+  };
+
   return (
     <>
       <h1 className="home__heading">Welcome, {user.name}!</h1>
@@ -279,6 +285,7 @@ function Inputs({ user, idFromParams }) {
                       id="custom-input"
                       placeholder="Enter awesome song here..."
                       onChange={handleCustomInput}
+                      onBlur={handleBlur}
                     />
                   )}
                   {seedTrack ? (
