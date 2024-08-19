@@ -19,6 +19,8 @@ function Player({
   genrePlainText
 }) {
 
+  console.log(genrePlainText)
+
   const [newLike, setNewLike] = useState(null);
 
   const handleSave = async (event) => {
@@ -31,7 +33,7 @@ function Player({
           artist_name: recommended.artists[0].name,
           artist_id: recommended.artists[0].id,
           artist_img: recommended.album.images[0].url,
-          artist_genre: genrePlainText.toLowerCase()
+          artist_genre: genrePlainText ? genrePlainText.toLowerCase() : 'unknown genre'
         });
         setNewLike(response);
       } catch (error) {
