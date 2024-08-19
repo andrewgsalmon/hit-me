@@ -19,8 +19,6 @@ function Player({
   genrePlainText
 }) {
 
-  console.log(genrePlainText)
-
   const [newLike, setNewLike] = useState(null);
 
   const handleSave = async (event) => {
