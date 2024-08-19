@@ -10,7 +10,7 @@ function Login() {
 
   const notify = () => {
     toast.success(
-      `Successfully logged in! You will be redirected momentarily...`,
+      `Successfully logged in! You will be redirected in a moment...`,
       {
         position: "bottom-center",
         autoClose: 2000,
