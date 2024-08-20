@@ -18,9 +18,9 @@ function Welcome() {
           <div className="welcome-page__demo-container">
             <iframe
               className="welcome-page__demo-iframe"
-              width="560"
+              width="700"
               height="315"
-              src="https://www.youtube.com/embed/m2E5TFM1LWg?si=LcSO7WQtU2KxJPhx"
+              src="https://www.youtube.com/embed/s3xAxtqa6hY?si=FkatHZvNoUIPfmLo"
               title="YouTube video player"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
