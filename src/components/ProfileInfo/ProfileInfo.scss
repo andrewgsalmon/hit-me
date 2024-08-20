@@ -125,7 +125,7 @@
     font-weight: 600;
     font-size: 20px;
     margin-bottom: 0.3rem;
-    filter: drop-shadow(0px 0px 0.66rem #fff);
+    filter: drop-shadow(0px 0px 0.66rem $Primary-White);
 
     @include desktop {
       font-size: 1.33rem;
@@ -135,7 +135,7 @@
   &__value {
     margin: 0 0 30px 0;
     font-size: 0.88rem;
-    background-color: #fff;
+    background-color: $Primary-White;
     border-radius: 1rem;
     padding: 0.1rem 0.25rem;
     width: 13rem;

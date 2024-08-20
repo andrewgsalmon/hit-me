@@ -19,7 +19,7 @@
   display: block;
   margin: auto;
   width: 16.67rem;
-  filter: drop-shadow(0px 0px 0.66rem #fff);
+  filter: drop-shadow(0px 0px 0.66rem $Primary-White);
 
   @include desktop {
     width: 22.22rem;
@@ -37,7 +37,7 @@
     position: absolute;
     top: 2.75rem;
     right: 2rem;
-    background-color: #fff;
+    background-color: $Primary-White;
     padding: 0.5rem 0.5rem;
     border-radius: 2rem;
     @include drop-shadow;
@@ -63,7 +63,7 @@
     height: 2.25rem;
     margin: 0 0.25rem;
     cursor: pointer;
-    filter: drop-shadow(0px 0px 0.66rem #fff);
+    filter: drop-shadow(0px 0px 0.66rem $Primary-White);
     transition: 0.2s ease-in-out;
     fill: #282460;
 

@@ -12,16 +12,6 @@ function SearchResult({ customSearch, setCustomSearch, setSeedTrack }) {
     }, 50);
   };
 
-  // let inputValue = document.querySelector(".custom-input__search-bar");
-
-  // const handleBlur = () => {
-  //   setTimeout(() => {
-  //     setCustomSearch(null);
-  //   }, 2000);
-  // };
-
-  // inputValue.addEventListener("blur", handleBlur);
-
   return (
     <article className="form__custom-input--result">
       <div className="form__custom-input--result-info">

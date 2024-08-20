@@ -61,11 +61,11 @@ iframe {
 
     &-button {
       padding: 0.27rem 1.11rem;
-      background-color: #fff;
+      background-color: $Primary-White;
       border: 0;
       border-radius: 1.11rem;
-      color: #fff;
-      background-color: #282460;
+      color: $Primary-White;
+      background-color: $Primary-Submit;
       background-position: 50%;
       font-weight: 600;
       @include button;
@@ -98,7 +98,7 @@ iframe {
       }
 
       &:hover {
-        background-color: #4940bc;
+        background-color: $Secondary-SubmitHover;
       }
 
       &--save,
@@ -115,8 +115,8 @@ iframe {
         color: $Primary-Submit;
 
         &:hover {
-          background-color: #fff;
-          color: #4940bc;
+          background-color: $Primary-White;
+          color: $Secondary-SubmitHover;
         }
       }
 

@@ -1,7 +1,7 @@
-@use '../../styles/variables' as *;
-@use '../../styles/typography' as *;
-@use '../../styles/mixins' as *;
-@use '../../App.scss' as *;
+@use "../../styles/variables" as *;
+@use "../../styles/typography" as *;
+@use "../../styles/mixins" as *;
+@use "../../App.scss" as *;
 
 .welcome-page {
   display: flex;
@@ -17,6 +17,78 @@
 
   @include desktop {
     margin: auto;
+  }
+
+  &__cta-section {
+    width: 90%;
+
+    @include tablet {
+      display: none;
+    }
+  }
+
+  &__demo {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    padding: 25vh 0;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5019607843);
+    z-index: 1000;
+
+    &-container {
+      width: 90%;
+      position: relative;
+      margin: auto;
+
+      @include desktop {
+        width: 50rem;
+      }
+    }
+
+    &-iframe {
+      background-color: $Primary-White;
+      max-width: 100%;
+      height: auto;
+      aspect-ratio: 16 / 11;
+
+      @include tablet {
+        aspect-ratio: 16 / 9;
+        width: 100%;
+      }
+    }
+
+    &--close {
+      height: 2rem;
+      width: 2rem;
+      border-radius: 1rem;
+      border: none;
+      background-color: $Secondary-Red;
+      background-image: url(../../assets/icons/xmark-solid.svg);
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: 50%;
+      position: absolute;
+      top: -.75rem;
+      right: -.75rem;
+      z-index: 1001;
+
+      @include tablet {
+        height: 2.5rem;
+        width: 2.5rem;
+        border-radius: 1.25rem;
+      }
+
+      @include desktop {
+        height: 3rem;
+        width: 3rem;
+        border-radius: 1.5rem;
+        top: -1.25rem;
+        right: -1.25rem;
+      }
+    }
   }
 
   &__app-description {
@@ -40,7 +112,7 @@
 
       @include tablet {
         width: 50%;
-        border-right: 1px solid #fff;
+        border-right: 1px solid $Primary-White;
         filter: none;
       }
 
@@ -69,17 +141,47 @@
       padding: 0.7rem 1.3rem;
       border-radius: 1.3rem;
     }
+
+    &--demo-toggle {
+      width: 100%;
+      margin: 1rem 0;
+      background-color: $Secondary-Red;
+
+      &:hover {
+        background-color: $Secondary-Red;
+        opacity: 0.7;
+      }
+
+      &--desktop {
+        display: none;
+
+        @include tablet {
+          display: initial;
+          width: 90%;
+          max-width: 17rem;
+        }
+      }
+
+      &--mobile {
+        @include tablet {
+          display: none;
+        }
+      }
+    }
+
+    &-divider {
+      padding: 0 1rem;
+    }
   }
 
   &__cta-link {
     display: flex;
     width: 100%;
-    margin: 0 1rem;
     flex-grow: 1;
     text-decoration: none;
 
     @include desktop {
-      margin: 1rem;
+      margin: 0;
     }
   }
 
@@ -92,7 +194,6 @@
 
     &--mobile {
       display: flex;
-      margin: 1rem 0;
 
       @include tablet {
         display: none;
@@ -104,7 +205,8 @@
 
       @include tablet {
         display: flex;
-        max-width: 250px;
+        width: 90%;
+        max-width: 17rem;
       }
     }
   }

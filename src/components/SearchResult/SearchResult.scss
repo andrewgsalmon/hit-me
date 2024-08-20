@@ -18,7 +18,7 @@
       position: relative;
       z-index: 1000;
       width: 100%;
-      background: #fff;
+      background: $Primary-White;
       padding: 0.5rem;
       border-bottom: 1px solid gray;
       text-align: left;
@@ -52,7 +52,7 @@
 
     &--select {
       background-color: $Primary-Submit;
-      color: #fff;
+      color: $Primary-White;
       margin-left: 1rem;
       @include button;
 
