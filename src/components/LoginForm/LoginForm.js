@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import { ToastContainer, toast, Flip } from "react-toastify";
+import { toast, Flip } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./LoginForm.scss";
 const baseUrl = process.env.REACT_APP_BASE_URL;
@@ -93,7 +93,6 @@ function LoginForm({ signedIn }) {
           <a className='login__oauth' href={`${baseUrl}/auth/google`}>Login with Google</a>
         </form>
       </section>
-      <ToastContainer />
     </>
   );
 }

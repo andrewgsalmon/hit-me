@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Welcome.scss";
 import mobileMockup from "../../assets/images/mobile-mockup.png";
 import Head from "../../layout/Head";
 
 function Welcome() {
+  const [demoToggle, setDemoToggle] = useState(false);
+
   return (
     <>
       <Head
@@ -11,6 +13,27 @@ function Welcome() {
         description="Take control of your Spotify recommendations with Hit Me!"
         canonical="/"
       />
+      {demoToggle && (
+        <article className="welcome-page__demo">
+          <div className="welcome-page__demo-container">
+            <iframe
+              className="welcome-page__demo-iframe"
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/m2E5TFM1LWg?si=LcSO7WQtU2KxJPhx"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+            <button
+              className="welcome-page__demo--close"
+              onClick={() => setDemoToggle(false)}
+            ></button>
+          </div>
+        </article>
+      )}
       <section className="welcome-page">
         <article className="welcome-page__app-description-container">
           <p className="welcome-page__app-description">
@@ -27,7 +50,7 @@ function Welcome() {
                 Login
               </button>
             </a>
-            or
+            <span className="welcome-page__button-divider">or</span>
             <a
               className="welcome-page__cta-link welcome-page__cta-link--register"
               href="./register"
@@ -37,6 +60,12 @@ function Welcome() {
               </button>
             </a>
           </div>
+          <button
+            onClick={() => setDemoToggle(true)}
+            className="welcome-page__button welcome-page__button--demo-toggle welcome-page__button--demo-toggle--desktop"
+          >
+            View a Demo!
+          </button>
         </article>
         <article className="welcome-page__app-mockup-container">
           <div className="welcome-page__app-mockup">
@@ -47,24 +76,32 @@ function Welcome() {
             />
           </div>
         </article>
-        <article className="welcome-page__cta-container welcome-page__cta-container--mobile">
-          <a
-            className="welcome-page__cta-link welcome-page__cta-link--login"
-            href="./login"
+        <article className="welcome-page__cta-section">
+          <div className="welcome-page__cta-container welcome-page__cta-container--mobile">
+            <a
+              className="welcome-page__cta-link welcome-page__cta-link--login"
+              href="./login"
+            >
+              <button className="welcome-page__button welcome-page__button--login">
+                Login
+              </button>
+            </a>
+            <span className="welcome-page__button-divider">or</span>
+            <a
+              className="welcome-page__cta-link welcome-page__cta-link--register"
+              href="./register"
+            >
+              <button className="welcome-page__button welcome-page__button--register">
+                Register
+              </button>
+            </a>
+          </div>
+          <button
+            onClick={() => setDemoToggle(true)}
+            className="welcome-page__button welcome-page__button--demo-toggle  welcome-page__button--demo-toggle--mobile"
           >
-            <button className="welcome-page__button welcome-page__button--login">
-              Login
-            </button>
-          </a>
-          or
-          <a
-            className="welcome-page__cta-link welcome-page__cta-link--register"
-            href="./register"
-          >
-            <button className="welcome-page__button welcome-page__button--register">
-              Register
-            </button>
-          </a>
+            View a Demo!
+          </button>
         </article>
       </section>
     </>

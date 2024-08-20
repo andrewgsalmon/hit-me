@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { toast, Flip } from "react-toastify";
+import { ToastContainer, toast, Flip } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Head from "../../layout/Head";
 import "./Login.scss";
@@ -47,7 +47,7 @@ function Login() {
         canonical="/login"
       />
       <LoginForm signedIn={signedIn} />
-      {/* <ToastContainer /> */}
+      <ToastContainer />
     </>
   );
 }

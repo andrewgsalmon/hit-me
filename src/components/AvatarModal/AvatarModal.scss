@@ -1,7 +1,7 @@
-@use '../../styles/variables' as *;
-@use '../../styles/mixins' as *;
-@use '../../styles/typography' as *;
-@use '../../App.scss' as *;
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+@use "../../styles/typography" as *;
+@use "../../App.scss" as *;
 
 .avatar-modal {
   height: 100vh;
@@ -17,7 +17,7 @@
     display: flex;
     flex-flow: column nowrap;
     justify-content: space-evenly;
-    background-color: #fff;
+    background-color: $Primary-White;
     position: absolute;
     width: 75%;
     top: 25%;
@@ -31,7 +31,9 @@
     }
 
     @include desktop {
-      left: 40%;
+      left: 0;
+      margin: 0 37.5%;
+      width: 25%;
     }
   }
 
@@ -43,11 +45,11 @@
     &--close {
       height: 25px;
       min-width: 25px;
-      background-image: url('../../assets/icons/xmark-solid.svg');
+      background-image: url("../../assets/icons/xmark-solid.svg");
       background-repeat: no-repeat;
       background-size: contain;
       background-position: 50%;
-      background-color: red;
+      background-color: $Secondary-Red;
       border-radius: 12.5px;
       border: none;
       position: relative;
@@ -57,7 +59,7 @@
 
       @include tablet {
         &:hover {
-          background-color: rgb(255, 116, 116);
+          background-color: $Secondary-Red;
         }
       }
     }
@@ -119,7 +121,7 @@
 
     &--max-filesize-exceeded {
       background-color: pink;
-      color: red;
+      color: $Secondary-Red;
       border: 0px;
       pointer-events: none;
     }

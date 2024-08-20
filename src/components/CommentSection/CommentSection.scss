@@ -62,7 +62,7 @@
     color: $Primary-White;
 
     &:hover {
-      background-color: #4940bc;
+      background-color: $Secondary-SubmitHover;
     }
 
     @include tablet {

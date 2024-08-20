@@ -83,7 +83,7 @@
     &-submit {
       @include button;
       color: $Primary-White;
-      background-color: #282460;
+      background-color: $Primary-Submit;
       margin-top: 0.83rem;
       width: 100%;
       @include transition;
@@ -116,7 +116,7 @@
   }
 
   &__oauth {
-    background-color: #fff;
+    background-color: $Primary-White;
     @include button;
     color: black;
     text-decoration: none;
