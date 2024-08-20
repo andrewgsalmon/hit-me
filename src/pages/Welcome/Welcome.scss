@@ -43,7 +43,7 @@
     }
 
     @media screen and (max-width: 767px) and (orientation: landscape) {
-      padding: 1rem 0;
+      padding: 0;
     }
 
     &-container {
@@ -61,6 +61,12 @@
       max-width: 100%;
       height: auto;
       aspect-ratio: 16 / 11;
+
+      @media screen and (max-width: 767px) and (orientation: landscape) {
+        height: 100vh;
+        aspect-ratio: 16 / 9;
+        width: auto;
+      }
 
       @include tablet {
         aspect-ratio: 16 / 9;
@@ -82,6 +88,12 @@
       top: -.75rem;
       right: -.75rem;
       z-index: 1001;
+
+      @media screen and (max-width: 767px) and (orientation: landscape) {
+        position: fixed;
+        top: 0.5rem;
+        right: 0.5rem;
+      }
 
       @include tablet {
         height: 2.5rem;
