@@ -12,6 +12,7 @@
   <img style="padding: 1px; height: 27px" src='./src/assets/icons/readme-logos/s3.svg'/>
   <img style="width: 30px;" src='https://user-images.githubusercontent.com/25181517/192107858-fe19f043-c502-4009-8c47-476fc89718ad.png'/>
   <img style="width: 30px;" src='./src/assets/icons/readme-logos/mysql-svgrepo-com.svg'/>
+  <img style="width: 30px;" src='./src/assets/icons/readme-logos/docker-svgrepo-com.svg'/>
 </p>
 
 Have you ever thought to yourself... "I need some music while I'm working, but I can't decide what to listen to! I need a recommendation..."
