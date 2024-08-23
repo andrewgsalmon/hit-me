@@ -5,8 +5,11 @@ import "react-toastify/dist/ReactToastify.css";
 import "./Inputs.scss";
 import Player from "../Player/Player";
 import SearchResult from "../SearchResult/SearchResult";
-const REACT_APP_CLIENT_ID = process.env.REACT_APP_CLIENT_ID;
-const REACT_APP_CLIENT_SECRET = process.env.REACT_APP_CLIENT_SECRET;
+// const REACT_APP_CLIENT_ID = process.env.REACT_APP_CLIENT_ID;
+// const REACT_APP_CLIENT_SECRET = process.env.REACT_APP_CLIENT_SECRET;
+
+const REACT_APP_SPOTIFY_ID = process.env.REACT_APP_SPOTIFY_ID;
+const REACT_APP_SPOTIFY_SECRET = process.env.REACT_APP_SPOTIFY_SECRET;
 
 function Inputs({ user, idFromParams }) {
   const [accessToken, setAccessToken] = useState(null);
@@ -44,7 +47,7 @@ function Inputs({ user, idFromParams }) {
 
   // GET Spotify access token
   useEffect(() => {
-    const apiUrl = `https://accounts.spotify.com/api/token?grant_type=client_credentials&client_id=${REACT_APP_CLIENT_ID}&client_secret=${REACT_APP_CLIENT_SECRET}`;
+    const apiUrl = `https://accounts.spotify.com/api/token?grant_type=client_credentials&client_id=${REACT_APP_SPOTIFY_ID}&client_secret=${REACT_APP_SPOTIFY_SECRET}`;
 
     const header = {
       "Content-Type": "application/x-www-form-urlencoded",
