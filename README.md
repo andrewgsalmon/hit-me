@@ -59,13 +59,7 @@ Install the back end <a href="https://github.com/andrewgsalmon/andrew-salmon-cap
 
 #### Configure your .env file
 
-To make your app work, you'll need to add the following variables to your .env file:
-
-- *REACT_APP_CLIENT_ID=<span style="color: red;">your_client_ID</span>*
-
-- *REACT_APP_CLIENT_SECRET=<span style="color: red;">your_client_secret</span>*
-
-- *REACT_APP_BASE_URL=http://localhost:8080* <span style="color: orange;">--> We'll use this port to connect with the backend in the next step</span>
+The .env variables required are dictated in the .env.sample file included in this repo.
 
 ### Back end installation
 
@@ -75,25 +69,11 @@ To make your app work, you'll need to add the following variables to your .env f
 
 #### Create a new MySQL database
 
-Create a new schema in a MySQL database, which will allow you to register for an account, leave comments on recommended artists, and save artists to your profile.  Make note of what you called your DB, as you will need this for your .env file!
+Create a new schema in a MySQL database, which will allow you to register for an account, leave comments on recommended artists, and save artists to your profile.  Make note of what you called your DB, as you will need this for your .env file - or call it "hit_me", as is named by default in the .env.sample file in the backend repo!
 
 #### Add and configure your .env file
 
-Here's all the configuration details required for your .env file:
-
-- CLIENT_URL=http://localhost:3000
-- CORS_ORIGIN=http://localhost:3000
-- PORT=8080
-- DB_HOST=127.0.0.1
-- DB_DATABASE=<span style="color: red;">your_DB_name</span>
-- DB_USER=<span style="color: red;">your_username</span>
-- DB_PASSWORD=<span style="color: red;">your_password</span>
-- JWT_KEY=<span style="color: red;">your_JWT_key</span> --> Get a
-JWT key <a href="https://jwt.io/">here</a>!
-
-##### Additional variables required for future OAUTH implementation:
-- CLIENT_ID=<span style="color: red;">your_spotify_clientID</span>
-- CLIENT_SECRET=<span style="color: red;">your_spotify_clientID</span>
+Instructions for .env configuration are included in the .env.sample file in the backend repo.
 
 ## Starting your server
 
