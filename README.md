@@ -15,7 +15,7 @@
   <img style="width: 30px;" src='./src/assets/icons/readme-logos/docker-svgrepo-com.svg'/>
 </p>
 
-<p style="text-align: center; font-weight: bold;"><a href="https://youtu.be/s3xAxtqa6hY">View a demo of Hit Me!</a></p>
+<strong><p align="center"><a href="https://youtu.be/s3xAxtqa6hY">View a demo of Hit Me!</a></p></strong>
 
 Have you ever thought to yourself: "I need some music while I'm working, but I can't decide what to listen to... I need a recommendation!"
 
