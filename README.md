@@ -15,9 +15,11 @@
   <img style="width: 30px;" src='./src/assets/icons/readme-logos/docker-svgrepo-com.svg'/>
 </p>
 
-Have you ever thought to yourself... "I need some music while I'm working, but I can't decide what to listen to! I need a recommendation..."
+<p style="text-align: center; font-weight: bold;"><a href="https://youtu.be/s3xAxtqa6hY">View a demo of Hit Me!</a></p>
 
-Probably often, right?  Me too!  Well, the Hit Me app helps you with just that.  Just open the app, decide on the genre you want, and if you want a hugely popular artist, or one that's way more obscure.  Tell the app what you're looking for, and your soundtrack for the day has been set!
+Have you ever thought to yourself: "I need some music while I'm working, but I can't decide what to listen to... I need a recommendation!"
+
+We've all been there, right?  Me too!  Well, the Hit Me app helps you with just that.  Just open the app, decide on the genre you want, and if you want a hugely popular artist, or one that's way more obscure.  Tell the app what you're looking for, and your soundtrack for the day has been set!
 
 Like the recommendation? Save it, refer back to it later, or even find similar artists!  Or - leave a comment to share what you think of the artist!
 
