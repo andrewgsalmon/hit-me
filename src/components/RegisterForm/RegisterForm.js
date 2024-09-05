@@ -98,7 +98,10 @@ function RegisterForm() {
       <span className="register__login-link">
         Already signed up? Login <a href="./login">here</a>!
       </span>
-      <a className='register__oauth' href={`${baseUrl}/auth/google`}>Sign up with Google</a>
+      <article className="register__oauth-links">
+        <a className='register__oauth register__oauth--google' href={`${baseUrl}/auth/google`}>Signup with Google</a>
+        <a className='register__oauth register__oauth--spotify' href={`${baseUrl}/auth/spotify`}>Signup with Spotify</a>
+      </article>
       <p className="register__divider">- or -</p>
       <form onSubmit={handleSubmit} className="register__form">
         <div className="register__form--tablet-column">

@@ -28,34 +28,34 @@
   }
 
   &__divider {
-    margin: 0;
+    margin: 1rem;
   }
 
   &__oauth {
-    background-color: $Primary-White;
-    @include button;
-    color: black;
-    text-decoration: none;
-    padding: 0.83rem 2.22rem 0.83rem 3.5rem;
-    font-size: 0.89rem;
-    border-radius: 1.67rem;
-    margin: 2rem 1.11rem 1.11rem 1.11rem;
-    background-image: url('../../assets/icons/google_g_icon.svg');
-    background-repeat: no-repeat;
-    background-position: 4%;
-    background-size: 20%;
-    border: 1px solid lightgray;
-    @include transition;
-    text-align: center;
+    @include oauth;
 
-    @include desktop {
-      font-size: 1.1rem;
-      padding: 0.83rem 1rem 0.83rem 3rem;
-      min-width: 16rem;
+    &-links {
+      display: flex;
+      flex-flow: column nowrap;
+      align-items: center;
+      justify-content: space-between;
+      margin: 0;
     }
 
-    &:hover {
-      background-color: $Secondary-BackgroundBlue;
+    &--spotify {
+      @include spotify;
+
+      &:hover {
+        background-color: #1ed760;
+      }
+    }
+
+    &--google {
+      @include google;
+
+      &:hover {
+        background-color: $Secondary-BackgroundBlue;
+      }
     }
   }
 

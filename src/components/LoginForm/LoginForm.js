@@ -90,7 +90,10 @@ function LoginForm({ signedIn }) {
             {!signedIn ? "LET ME IN" : ""}
           </button>
           <p>- or -</p>
-          <a className='login__oauth' href={`${baseUrl}/auth/google`}>Login with Google</a>
+          <article className="login__oauth-links">
+            <a className='login__oauth login__oauth--google' href={`${baseUrl}/auth/google`}>Login with Google</a>
+            <a className='login__oauth login__oauth--spotify' href={`${baseUrl}/auth/spotify`}>Login with Spotify</a>
+          </article>
         </form>
       </section>
     </>
