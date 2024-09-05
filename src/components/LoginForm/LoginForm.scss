@@ -116,30 +116,38 @@
   }
 
   &__oauth {
-    background-color: $Primary-White;
-    @include button;
-    color: black;
-    text-decoration: none;
-    padding: 0.83rem 2.22rem;
-    font-size: 0.89rem;
-    border-radius: 1.67rem;
-    margin: 0 1.11rem 1.11rem 1.11rem;
-    background-image: url('../../assets/icons/google_g_icon.svg');
-    background-repeat: no-repeat;
-    background-position: 4%;
-    background-size: 20%;
-    border: 1px solid lightgray;
-    @include transition;
-    width: 100%;
-    text-align: center;
+    @include oauth;
 
-    @include desktop {
-      font-size: 1.1rem;
-      padding: 0.83rem 1rem 0.83rem 3rem;
+    &--google {
+      @include google;
+      width: 100%;
+      background-size: 10%;
+
+      &:hover {
+        background-color: $Secondary-BackgroundBlue;
+      }
     }
 
-    &:hover {
-      background-color: $Secondary-BackgroundBlue;
+    &--spotify {
+      @include spotify;
+      width: 100%;
+      background-size: 10%;
+
+      &:hover {
+        background-color: #1ed760;
+      }
+    }
+
+    &-links {
+      display: flex;
+      flex-flow: column nowrap;
+      align-items: center;
+      justify-content: space-between;
+      margin: 0;
+
+      @include tablet {
+        width: 100%;
+      }
     }
   }
 
