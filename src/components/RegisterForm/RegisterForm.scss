@@ -33,6 +33,7 @@
 
   &__oauth {
     @include oauth;
+    background-size: 15%;
 
     &-links {
       display: flex;
