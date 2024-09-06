@@ -20,7 +20,8 @@
   }
 
   &__cta-section {
-    width: 90%;
+    width: 100%;
+    max-width: 17rem;
 
     @include tablet {
       display: none;
