@@ -6,7 +6,6 @@ import "./LoginForm.scss";
 const baseUrl = process.env.REACT_APP_BASE_URL;
 
 function LoginForm({ signedIn }) {
-
   const notify = (message) => {
     toast.error(message, {
       position: "bottom-right",
@@ -28,7 +27,7 @@ function LoginForm({ signedIn }) {
     const password = event.target.password.value;
 
     if (!email || !password) {
-      notify("Both fields are required.")
+      notify("Both fields are required.");
       return;
     }
 
@@ -41,60 +40,78 @@ function LoginForm({ signedIn }) {
       sessionStorage.setItem("token", response.data.token);
 
       window.location.href = "/home";
-
     } catch (error) {
-      notify(error.response.data)
-      console.error(error.response.data)
+      notify(error.response.data);
+      console.error(error.response.data);
     }
   };
 
   return (
     <>
       <section className="login">
-        <div className="login__desktop-column">
-          <h1 className="login__heading">Sign In</h1>
-          <div className="login__register-link">
-            No account yet? <br />
-            Register <a href="./register">here!</a>
+        <div className="login__main-login">
+          <div className="login__desktop-column">
+            <h1 className="login__heading">Sign In</h1>
+            <div className="login__register-link">
+              No account yet? <br />
+              Register <a href="./register">here!</a>
+            </div>
           </div>
+          <form onSubmit={handleSubmit} className="login__form">
+            <label
+              className="login__form-label login__form-label--email"
+              htmlFor="email"
+            >
+              Email
+            </label>
+            <input
+              className="login__form-input login__form-input--email"
+              type="email"
+              id="email"
+              name="email"
+              placeholder="ringo@beatles.co.uk"
+              autoComplete="email"
+            />
+            <label
+              className="login__form-label login__form-label--password"
+              htmlFor="password"
+            >
+              Password
+            </label>
+            <input
+              className="login__form-input login__form-input--password"
+              type="password"
+              id="password"
+              name="password"
+              placeholder="********"
+            />
+            <button
+              type="submit"
+              className={
+                !signedIn
+                  ? "login__form-submit"
+                  : "login__form-submit login__form-submit--pending"
+              }
+            >
+              {!signedIn ? "LET ME IN" : ""}
+            </button>
+          </form>
         </div>
-        <form onSubmit={handleSubmit} className="login__form">
-          <label
-            className="login__form-label login__form-label--email"
-            htmlFor="email"
+        <p>- or -</p>
+        <article className="login__oauth-links">
+          <a
+            className="login__oauth login__oauth--google"
+            href={`${baseUrl}/auth/google`}
           >
-            Email
-          </label>
-          <input
-            className="login__form-input login__form-input--email"
-            type="email"
-            id="email"
-            name="email"
-            placeholder="ringo@beatles.co.uk"
-            autoComplete="email"
-          />
-          <label
-            className="login__form-label login__form-label--password"
-            htmlFor="password"
+            Login with Google
+          </a>
+          <a
+            className="login__oauth login__oauth--spotify"
+            href={`${baseUrl}/auth/spotify`}
           >
-            Password
-          </label>
-          <input
-            className="login__form-input login__form-input--password"
-            type="password"
-            id="password"
-            name="password"
-            placeholder="********"
-          />
-          <button type="submit" className={!signedIn ? "login__form-submit" : "login__form-submit login__form-submit--pending"}>
-            {!signedIn ? "LET ME IN" : ""}
-          </button>
-          <p>- or -</p>
-          <article className="login__oauth-links">
-            <a className='login__oauth login__oauth--google' href={`${baseUrl}/auth/google`}>Login with Google</a>
-            <a className='login__oauth login__oauth--spotify' href={`${baseUrl}/auth/spotify`}>Login with Spotify</a>
-          </article>
-        </form>
+            Login with Spotify
+          </a>
+        </article>
       </section>
     </>
   );
