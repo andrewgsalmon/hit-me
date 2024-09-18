@@ -7,8 +7,6 @@ import Player from "../Player/Player";
 import SearchResult from "../SearchResult/SearchResult";
 import {Artist, Recommended} from '../../types/artist'
 import {User} from '../../types/user'
-// const REACT_APP_CLIENT_ID = process.env.REACT_APP_CLIENT_ID;
-// const REACT_APP_CLIENT_SECRET = process.env.REACT_APP_CLIENT_SECRET;
 
 const REACT_APP_SPOTIFY_ID = process.env.REACT_APP_SPOTIFY_ID;
 const REACT_APP_SPOTIFY_SECRET = process.env.REACT_APP_SPOTIFY_SECRET;
@@ -26,7 +24,6 @@ function Inputs({ user }: InputsProps) {
   const [popularity, setPopularity] = useState<number>(50);
   const [recommended, setRecommended] = useState<Recommended | null>(null);
   const [artistId, setArtistId] = useState<string | null>(null);
-  // const [liked, setLiked] = useState<boolean>(false);
   const [similarArtist, setSimilarArtist] = useState<Artist | null>(null);
 
   const [customSearch, setCustomSearch] = useState<Recommended[] | null>(null);
@@ -182,7 +179,6 @@ const handleGenreChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
       );
       setRecommended(response.data.tracks[randomArtist]);
       setSimilarArtist(null);
-      // setLiked(false);
     } catch (error) {
       console.error("There was a problem with the request:", error);
     }
@@ -217,7 +213,6 @@ const handleGenreChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
         setSimilarArtist(data.artists[random]);
         setSimilarLoading(false);
         setRecommended(null);
-        // setLiked(false);
       })
       .catch((error) => {
         console.error("There was a problem with the request:", error);
