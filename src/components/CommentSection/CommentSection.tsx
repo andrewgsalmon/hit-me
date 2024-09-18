@@ -4,7 +4,6 @@ import { ToastContainer, toast, Flip } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./CommentSection.scss";
 import Comment from "../Comment/Comment";
-// import Loading from "../Loading/Loading";
 import axios from "axios";
 import {User} from '../../types/user';
 import {ArtistComment} from '../../types/artist';
@@ -100,7 +99,6 @@ function CommentSection({ user, artistId }: InputsProps) {
 
   return (
     <>
-      {/* <section className={artistClass ? artistClass : "comments"}> */}
       <section className={"artist artist__comments"}>
         <div className="comments__container">
           <div className="comments__avatar" style={avatar}></div>

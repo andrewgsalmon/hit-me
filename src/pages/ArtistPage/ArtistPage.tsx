@@ -17,7 +17,6 @@ interface RouteParams {
 
 function ArtistPage() {
   const { idFromParams } = useParams<RouteParams>();
-  // const [comments, setComments] = useState<{} | null>(null);
   const [failedAuth, setFailedAuth] = useState<boolean>(false);
   const [user, setUser] = useState<User | null>(null);
 
@@ -44,22 +43,6 @@ function ArtistPage() {
     };
     authorizeUser();
   }, [failedAuth]);
-
-  // useEffect(() => {
-  //   const getComments = async () => {
-  //     if (idFromParams) {
-  //       try {
-  //         const response = await axios.get(
-  //           `${baseUrl}/api/artists/comments/${idFromParams}`
-  //         );
-  //         setComments(response.data.reverse());
-  //       } catch (error: any) {
-  //         error.log(error);
-  //       }
-  //     }
-  //   };
-  //   getComments();
-  // }, [idFromParams]);
 
   if (!idFromParams) {
     return <Loading />;

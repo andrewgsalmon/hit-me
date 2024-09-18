@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-// import { useParams } from 'react-router-dom';
 import Head from '../../layout/Head';
 import './Home.scss'
 import Inputs from '../../components/Inputs/Inputs';
