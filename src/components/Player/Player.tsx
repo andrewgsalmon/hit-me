@@ -6,22 +6,33 @@ import britney from "../../assets/images/britney.gif";
 import Loading from "../Loading/Loading";
 const baseUrl = process.env.REACT_APP_BASE_URL;
 
+interface InputsProps {
+  recommended: any;
+  handleSubmit: any;
+  user: any;
+  similarArtist: any;
+  handleSimilar: any;
+  artistId: string | null;
+  setArtistId: any;
+  similarLoading: boolean;
+  genrePlainText: string | null;
+}
+
 function Player({
   recommended,
   handleSubmit,
   user,
-  artistFromParams,
   similarArtist,
   handleSimilar,
   artistId,
   setArtistId,
   similarLoading,
   genrePlainText
-}) {
+}: InputsProps) {
 
-  const [newLike, setNewLike] = useState(null);
+  const [newLike, setNewLike] = useState<object | boolean>(false);
 
-  const handleSave = async (event) => {
+  const handleSave = async (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
 
     if (recommended) {
@@ -54,14 +65,16 @@ function Player({
     }
   };
 
-  const handleDelete = async (id) => {
+  const handleDelete = async (e: React.MouseEvent<HTMLButtonElement>, id: string) => {
+    e.preventDefault();
+
     await axios.delete(`${baseUrl}/api/users/likes`, {
       params: {
         user_email: user.email,
         artist_id: artistId,
       },
     });
-    setNewLike(null);
+    setNewLike(false);
   };
 
   useEffect(() => {
@@ -69,10 +82,8 @@ function Player({
       setArtistId(similarArtist.id);
     } else if (recommended) {
       setArtistId(recommended.artists[0].id);
-    } else if (artistFromParams) {
-      setArtistId(artistFromParams);
     }
-  }, [recommended, artistFromParams, similarArtist, setArtistId]);
+  }, [recommended, similarArtist, setArtistId]);
 
   useEffect(() => {
     if (handleSubmit || handleSimilar) {
@@ -80,7 +91,7 @@ function Player({
     }
   }, [handleSubmit, handleSimilar]);
 
-  if (!recommended && !artistFromParams && !similarArtist) {
+  if (!recommended && !similarArtist) {
     return (
       <div className="output__standby">
         <img
@@ -122,8 +133,6 @@ function Player({
               src={`https://open.spotify.com/embed/artist/${artistId}?utm_source=generator`}
               width="100%"
               height="152px"
-              frameBorder="0"
-              allowFullScreen=""
               allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
               loading="lazy"
             ></iframe>
@@ -140,7 +149,7 @@ function Player({
                 <button
                   className="spotify-player__action-button spotify-player__action-button--saved"
                   type="submit"
-                  onClick={handleDelete}
+                  onClick={(e) => handleDelete(e, artistId)}
                 >
                   Artist saved!
                 </button>
@@ -148,10 +157,8 @@ function Player({
             </div>
           </div>
           <CommentSection
-            recommended={recommended}
             user={user}
             artistId={artistId}
-            setArtistId={setArtistId}
           />
         </section>
       )}

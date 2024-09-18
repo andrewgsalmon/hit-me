@@ -5,31 +5,37 @@ import "react-toastify/dist/ReactToastify.css";
 import "./Inputs.scss";
 import Player from "../Player/Player";
 import SearchResult from "../SearchResult/SearchResult";
+import {Artist, Recommended} from '../../types/artist'
+import {User} from '../../types/user'
 // const REACT_APP_CLIENT_ID = process.env.REACT_APP_CLIENT_ID;
 // const REACT_APP_CLIENT_SECRET = process.env.REACT_APP_CLIENT_SECRET;
 
 const REACT_APP_SPOTIFY_ID = process.env.REACT_APP_SPOTIFY_ID;
 const REACT_APP_SPOTIFY_SECRET = process.env.REACT_APP_SPOTIFY_SECRET;
 
-function Inputs({ user, idFromParams }) {
-  const [accessToken, setAccessToken] = useState(null);
+interface InputsProps {
+  user: User;
+};
 
-  const [toggleGenre, setToggleGenre] = useState(true);
-  const [genreSelected, setGenreSelected] = useState(null);
-  const [genrePlainText, setGenrePlainText] = useState(null);
-  const [popularity, setPopularity] = useState(50);
-  const [recommended, setRecommended] = useState(null);
-  const [artistId, setArtistId] = useState(null);
-  const [liked, setLiked] = useState(false);
-  const [similarArtist, setSimilarArtist] = useState(null);
+function Inputs({ user }: InputsProps) {
+  const [accessToken, setAccessToken] = useState<string | null>(null);
 
-  const [customSearch, setCustomSearch] = useState(null);
-  const [seedTrack, setSeedTrack] = useState(null);
+  const [toggleGenre, setToggleGenre] = useState<boolean>(true);
+  const [genreSelected, setGenreSelected] = useState<string | null>(null);
+  const [genrePlainText, setGenrePlainText] = useState<string | null>(null);
+  const [popularity, setPopularity] = useState<number>(50);
+  const [recommended, setRecommended] = useState<Recommended | null>(null);
+  const [artistId, setArtistId] = useState<string | null>(null);
+  // const [liked, setLiked] = useState<boolean>(false);
+  const [similarArtist, setSimilarArtist] = useState<Artist | null>(null);
 
-  const [isLoading, setIsLoading] = useState(false);
-  const [similarLoading, setSimilarLoading] = useState(false);
+  const [customSearch, setCustomSearch] = useState<Recommended[] | null>(null);
+  const [seedTrack, setSeedTrack] = useState<Recommended | null>(null);
 
-  const notify = (type, message) => {
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [similarLoading, setSimilarLoading] = useState<boolean>(false);
+
+  const notify = (type: string, message: string) => {
     if (type === "error") {
       toast.error(message, {
         position: "bottom-right",
@@ -77,10 +83,12 @@ function Inputs({ user, idFromParams }) {
   useEffect(() => {
     const toggle = document.querySelector(".inputs__recommendation-selector");
 
-    if (!toggleGenre) {
-      toggle.classList.add("inputs__recommendation-selector--song");
-    } else {
-      toggle.classList.remove("inputs__recommendation-selector--song");
+    if (toggle) {
+      if (!toggleGenre) {
+        toggle.classList.add("inputs__recommendation-selector--song");
+      } else {
+        toggle.classList.remove("inputs__recommendation-selector--song");
+      }
     }
   }, [toggleGenre]);
 
@@ -115,19 +123,21 @@ function Inputs({ user, idFromParams }) {
     getGenre();
   }, [recommended, similarArtist, accessToken]);
 
-  const handleGenreChange = (e) => {
-    const { value } = e.target;
-    const { text } = e.target.options[e.target.selectedIndex];
+const handleGenreChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const { value, selectedIndex, options } = e.target;
+    const selectedOption = options[selectedIndex];
+    const text = selectedOption ? selectedOption.text : '';
+
     setGenreSelected(value);
     setGenrePlainText(text);
   };
 
-  const handlePopularity = (e) => {
-    const { value } = e.target;
-    setPopularity(value);
+  const handlePopularity = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { value } = e.target as HTMLInputElement;
+    setPopularity(Number(value));
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (toggleGenre && !genreSelected) {
@@ -172,16 +182,16 @@ function Inputs({ user, idFromParams }) {
       );
       setRecommended(response.data.tracks[randomArtist]);
       setSimilarArtist(null);
-      setLiked(false);
+      // setLiked(false);
     } catch (error) {
       console.error("There was a problem with the request:", error);
     }
 
-    setSimilarArtist(false);
+    setSimilarArtist(null);
     setIsLoading(false);
   };
 
-  const handleSimilar = (e) => {
+  const handleSimilar = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setSimilarLoading(true);
 
@@ -206,15 +216,15 @@ function Inputs({ user, idFromParams }) {
         const random = Math.floor(Math.random() * data.artists.length);
         setSimilarArtist(data.artists[random]);
         setSimilarLoading(false);
-        setRecommended(false);
-        setLiked(false);
+        setRecommended(null);
+        // setLiked(false);
       })
       .catch((error) => {
         console.error("There was a problem with the request:", error);
       });
   };
 
-  const handleCustomInput = async (e) => {
+  const handleCustomInput = async (e: React.ChangeEvent<HTMLInputElement>) => {
     let input = e.target.value.split(" ").join("+");
 
     const apiUrl = `https://api.spotify.com/v1/search?q=${input}&type=track&market=US&limit=20&offset=0`;
@@ -491,15 +501,12 @@ function Inputs({ user, idFromParams }) {
         <Player
           recommended={recommended}
           similarArtist={similarArtist}
-          setSimilarArtist={setSimilarArtist}
           handleSimilar={handleSimilar}
           handleSubmit={handleSubmit}
           user={user}
-          liked={liked}
           artistId={artistId}
           setArtistId={setArtistId}
           similarLoading={similarLoading}
-          genreSelected={genreSelected}
           genrePlainText={genrePlainText}
         />
         <ToastContainer />

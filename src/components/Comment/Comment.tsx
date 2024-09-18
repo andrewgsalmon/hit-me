@@ -1,11 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './Comment.scss'
+import {ArtistComment} from '../../types/artist'
 const baseUrl = process.env.REACT_APP_BASE_URL;
 
-function Comment({ artistComment }) {
+interface CommentProps {
+  artistComment: ArtistComment;
+}
+
+function Comment({ artistComment }: CommentProps) {
   let { comment, name, created_at, email } = artistComment
-  const [avatar, setAvatar] = useState(null)
+  const [avatar, setAvatar] = useState({backgroundImage: `url('')`})
 
   useEffect(() => {
     const profileImg = async () => {
@@ -26,7 +31,7 @@ function Comment({ artistComment }) {
 
   }, [artistComment, email])
 
-  function formatDate(inputDate) {
+  function formatDate(inputDate: string) {
     const date = new Date(inputDate);
     const day = String(date.getDate()).padStart(2, '0');
     const month = String(date.getMonth() + 1).padStart(2, '0');

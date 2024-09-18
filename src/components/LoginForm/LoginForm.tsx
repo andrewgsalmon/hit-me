@@ -5,8 +5,12 @@ import "react-toastify/dist/ReactToastify.css";
 import "./LoginForm.scss";
 const baseUrl = process.env.REACT_APP_BASE_URL;
 
-function LoginForm({ signedIn }) {
-  const notify = (message) => {
+interface LoginFormProps {
+  signedIn: boolean;
+}
+
+const LoginForm: React.FC<LoginFormProps> = ({ signedIn }) => {
+  const notify = (message: string) => {
     toast.error(message, {
       position: "bottom-right",
       autoClose: 3000,
@@ -20,11 +24,12 @@ function LoginForm({ signedIn }) {
     });
   };
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    const email = event.target.email.value;
-    const password = event.target.password.value;
+    const form = event.target as HTMLFormElement;
+    const email:string = (form.elements.namedItem('email') as HTMLInputElement).value;
+    const password:string = (form.elements.namedItem('password') as HTMLInputElement).value;
 
     if (!email || !password) {
       notify("Both fields are required.");
@@ -40,9 +45,13 @@ function LoginForm({ signedIn }) {
       sessionStorage.setItem("token", response.data.token);
 
       window.location.href = "/home";
-    } catch (error) {
-      notify(error.response.data);
-      console.error(error.response.data);
+    } catch (error: unknown) {
+      if (axios.isAxiosError(error)) {
+        notify(error.response?.data || "An error occured.");
+        console.error(error.response?.data);
+      } else {
+        notify("An unexpected error occured.");
+      }
     }
   };
 

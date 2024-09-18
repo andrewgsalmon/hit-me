@@ -3,7 +3,11 @@ import { Link } from "react-router-dom";
 import logo from "../../assets/logo/hitme-logo.png";
 import "./Header.scss";
 
-function Header({failedAuth}) {
+interface HeaderProps {
+  failedAuth: boolean;
+}
+
+function Header({failedAuth}: HeaderProps) {
   return (
     <>
       <header className="header">

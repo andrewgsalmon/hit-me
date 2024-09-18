@@ -1,8 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { LikedArtist } from "../../types/artist";
 import "./SavedArtist.scss";
 
-function SavedArtist({ like, handleDelete }) {
+interface SavedArtistProps {
+  like: LikedArtist;
+  handleDelete: any;
+}
+
+function SavedArtist({ like, handleDelete }: SavedArtistProps) {
   let savedArtistId = `saved-artist-${like.id}`;
   let backgroundImg = {
     backgroundImage: `url('${like.artist_img}')`,
@@ -27,7 +33,8 @@ function SavedArtist({ like, handleDelete }) {
       <div
         className="saved-artists__thumb"
         style={backgroundImg}
-        alt={like.artist_name}
+        role="img"
+        aria-label={`Photo of ${like.artist_name}`}
       ></div>
       <div className="saved-artists__artist-info">
         <div className="saved-artists__artist-name">
