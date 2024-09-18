@@ -29,7 +29,8 @@
   }
 
   @include desktop {
-    width: 35rem;
+    width: 100%;
+    max-width: 30rem;
     margin: auto;
   }
 }
