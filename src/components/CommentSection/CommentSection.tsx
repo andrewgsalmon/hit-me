@@ -1,20 +1,36 @@
 import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import { ToastContainer, toast, Flip } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./CommentSection.scss";
 import Comment from "../Comment/Comment";
-import Loading from "../Loading/Loading";
+// import Loading from "../Loading/Loading";
 import axios from "axios";
+import {User} from '../../types/user';
+import {ArtistComment} from '../../types/artist';
+
+interface RouteParams {
+  idFromParams: string;
+  [key: string]: string | undefined;
+};
+
 const baseUrl = process.env.REACT_APP_BASE_URL;
 
-function CommentSection({ user, idFromParams, artistClass, artistId }) {
-  const [comments, setComments] = useState([]);
-  const [newComment, setNewComment] = useState(null);
-  const [artist, setArtist] = useState(idFromParams);
+interface InputsProps {
+  user: User;
+  artistId: string | null;
+}
+
+function CommentSection({ user, artistId }: InputsProps) {
+  const {idFromParams} = useParams<RouteParams>();
+
+  const [comments, setComments] = useState<ArtistComment[]>([]);
+  const [newComment, setNewComment] = useState<{} | null>(null);
+  const [artist, setArtist] = useState<string | undefined>(idFromParams);
 
   const avatar = {backgroundImage: `url('${user.profile_img}')`}
 
-  const notify = (type, message) => {
+  const notify = (type: string, message: string) => {
     if (type === "error") {
       toast.error(message, {
         position: "bottom-right",
@@ -36,12 +52,12 @@ function CommentSection({ user, idFromParams, artistClass, artistId }) {
     } else if (artistId) {
       setArtist(artistId);
     }
-  }, [idFromParams, artist, artistId]);
+  }, [artist, artistId, idFromParams]);
 
   useEffect(() => {
     const getComments = async () => {
       if (!artist && !idFromParams) {
-        return <Loading />
+        setComments([]);
       }
 
       if (artist) {
@@ -50,17 +66,21 @@ function CommentSection({ user, idFromParams, artistClass, artistId }) {
             `${baseUrl}/api/artists/comments/${artist}`
           );
           setComments(response.data.reverse());
-        } catch (error) {
-          error.log(error);
+        } catch (error: any) {
+          console.error(error);
         }
       }
     };
     getComments();
   }, [newComment, artist, idFromParams]);
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (!event.target.comment.value) {
+
+    const form = event.target as HTMLFormElement;
+    const {comment} = form;
+
+    if (!comment) {
       return notify("error", "Are you new to this? Add a comment before posting!")
     }
 
@@ -68,11 +88,11 @@ function CommentSection({ user, idFromParams, artistClass, artistId }) {
       const response = await axios.post(`${baseUrl}/api/artists/comment/`, {
         name: user.name,
         email: user.email,
-        comment: event.target.comment.value,
+        comment: comment.value,
         artist_id: artist,
       });
       setNewComment(response);
-      event.target.reset();
+      form.reset();
     } catch (error) {
       console.error(error);
     }
@@ -80,7 +100,8 @@ function CommentSection({ user, idFromParams, artistClass, artistId }) {
 
   return (
     <>
-      <section className={artistClass ? artistClass : "comments"}>
+      {/* <section className={artistClass ? artistClass : "comments"}> */}
+      <section className={"artist artist__comments"}>
         <div className="comments__container">
           <div className="comments__avatar" style={avatar}></div>
           <form onSubmit={handleSubmit} className="comments__input">
@@ -90,7 +111,7 @@ function CommentSection({ user, idFromParams, artistClass, artistId }) {
                 className="comments__textarea"
                 name="comment"
                 id="comment"
-                rows="5"
+                rows={5}
                 placeholder="comment here..."
               />
             ) : (
@@ -98,7 +119,7 @@ function CommentSection({ user, idFromParams, artistClass, artistId }) {
                 className="comments__textarea"
                 name="comment"
                 id="comment"
-                rows="5"
+                rows={5}
                 placeholder="Be the first to comment!"
               />
             )}
@@ -106,7 +127,7 @@ function CommentSection({ user, idFromParams, artistClass, artistId }) {
           </form>
         </div>
         {artist
-          ? comments.map((artistComment) => {
+          ? comments?.map((artistComment: ArtistComment) => {
               return (
                 <Comment key={artistComment.id} artistComment={artistComment} />
               );

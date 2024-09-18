@@ -12,7 +12,6 @@ import Profile from './pages/Profile/Profile';
 
 function App() {
 	const [failedAuth, setFailedAuth] = useState(false);
-	const [userToken, setUserToken] = useState(null);
 
 	//Login
   useEffect(() => {
@@ -20,10 +19,6 @@ function App() {
 
 		if(!token) {
 			setFailedAuth(true)
-		}
-
-		if (token) {
-			setUserToken(token)
 		}
 
 	}, [failedAuth]);
@@ -35,7 +30,7 @@ function App() {
         <main>
           <Routes>
             <Route path='/' element={<Welcome />} />
-            <Route path='login' element={<Login userToken={userToken}/>}/>
+            <Route path='login' element={<Login />}/>
             <Route path='home' element={<Home />} />
             <Route path='artist/:idFromParams' element={<ArtistPage />} />
             <Route path='register' element={<Register />} />

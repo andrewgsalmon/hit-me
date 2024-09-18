@@ -19,4 +19,12 @@
     width: 60%;
     margin-top: 2.5rem;
   }
+
+  &__oauth--google {
+    @include oauth;
+  }
+
+  &__oauth--spotify {
+    @include  oauth;
+  }
 }

@@ -5,7 +5,7 @@
 <p align="center">
   <img style="width: 30px;" src='./src/assets/icons/readme-logos/html-logo.png'/>
   <img style="width: 30px;" src='./src/assets/icons/readme-logos/sass-logo.png'/>
-  <img style="width: 30px;" src='https://user-images.githubusercontent.com/25181517/117447155-6a868a00-af3d-11eb-9cfe-245df15c9f3f.png'/>
+  <img style="width: 30px;" src='./src/assets/icons/readme-logos/typescript-official-svgrepo-com.svg'/>
   <img style="width: 30px;" src='./src/assets/icons/readme-logos/react.svg'/>
   <img style="width: 30px;" src='./src/assets/icons/readme-logos/node-js.svg'/>
   <img style="width: 30px; background-color: #fff; padding: 1px; height: 27px" src='./src/assets/icons/readme-logos/express.svg'/>

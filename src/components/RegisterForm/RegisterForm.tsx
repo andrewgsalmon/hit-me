@@ -6,11 +6,11 @@ import axios from "axios";
 const baseUrl = process.env.REACT_APP_BASE_URL;
 
 function RegisterForm() {
-  const [email, setEmail] = useState("");
-  const [pw, setPw] = useState("");
-  const [confirmPw, setConfirmPw] = useState("");
+  const [email, setEmail] = useState<string>("");
+  const [pw, setPw] = useState<string>("");
+  const [confirmPw, setConfirmPw] = useState<string>("");
 
-  const notify = (type, message) => {
+  const notify = (type: string, message: string) => {
     if (type === "error") {
       toast.error(message, {
         position: "bottom-right",
@@ -38,11 +38,11 @@ function RegisterForm() {
     }
   };
 
-  const handleChange = (event) => {
-    let { name, value } = event.target;
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = event.target;
 
     if (name === "email") {
-      setEmail(value)
+      setEmail(value);
     } else if (name === "password") {
       setPw(value);
     } else if (name === "confirmPassword") {
@@ -50,10 +50,12 @@ function RegisterForm() {
     }
   };
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    const isValidEmail = (email) => {
+    const { name, fav_artists, location} = event.target as HTMLFormElement;
+
+    const isValidEmail = (email: string) => {
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       return emailRegex.test(email);
     }
@@ -73,22 +75,24 @@ function RegisterForm() {
 
     try {
       const response = await axios.post(`${baseUrl}/api/users/register`, {
-        email: event.target.email.value,
-        password: event.target.password.value,
-        name: event.target.display_name.value,
-        fav_artists: event.target.artists.value,
-        location: event.target.location.value,
+        email: email,
+        password: pw,
+        name: name,
+        fav_artists: fav_artists,
+        location: location,
       });
       if (response && pw === confirmPw) {
         notify('success', "Successfully registered! You will be redirected momentarily...")
         setTimeout(() => {
           window.location.href = '/login';
         }, 3000);
-        event.target.reset();
+        event.currentTarget.reset();
       }
-    } catch (error) {
-      notify('error', error.response.data)
-      console.error(`Error status code ${error.response.status}:`, error.response.data)
+    } catch (error: unknown) {
+      if (axios.isAxiosError(error)) {
+        notify('error', error.response?.data);
+        console.error(`Error status code ${error.response?.status}:`, error.response?.data);
+      }
     }
   };
 
@@ -183,8 +187,7 @@ function RegisterForm() {
           </label>
           <textarea
             className="register__form-input register__form-input--artists"
-            rows="5"
-            name="artists"
+            rows={5}
             id="artists"
           />
           <button className="register__form-submit">Submit</button>
