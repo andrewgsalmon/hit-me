@@ -4,12 +4,17 @@ import axios from 'axios';
 import SavedArtistList from '../SavedArtistList/SavedArtistList';
 import Loading from '../Loading/Loading';
 import AvatarModal from '../AvatarModal/AvatarModal';
+import {User} from '../../types/user';
 const baseUrl = process.env.REACT_APP_BASE_URL;
 
-function ProfileInfo({currentUser}) {
-	const [user, setUser] = useState(currentUser);
-	const [modal, setModal] = useState(false)
-	const avatar = {backgroundImage: `url('${user.profile_img}')`}
+interface ProfileInfoProps {
+	currentUser: User;
+}
+
+function ProfileInfo({currentUser}: ProfileInfoProps) {
+	const [user, setUser] = useState<User | null>(currentUser);
+	const [modal, setModal] = useState<boolean>(false)
+	const avatar = {backgroundImage: `url('${user?.profile_img}')`}
 
 	useEffect(() => {
 		const token = sessionStorage.getItem('token');
@@ -32,7 +37,7 @@ function ProfileInfo({currentUser}) {
 
 	}, []);
 
-  const modalToggle = (e) => {
+  const modalToggle = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
 		setModal(!modal)
   }

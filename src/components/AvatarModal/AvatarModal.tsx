@@ -1,25 +1,53 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./AvatarModal.scss";
+import {User} from '../../types/user'
+import { ToastContainer, Flip, toast } from "react-toastify";
 const baseUrl = process.env.REACT_APP_BASE_URL;
 
-function AvatarModal({ modalToggle, user }) {
-  const [fileUpload, setFileUpload] = useState(null);
-  const [maxFileExceeded, setMaxFileExceeded] = useState(false);
+interface AvatarModalProps {
+  user: User;
+  modalToggle: (e: React.MouseEvent<HTMLButtonElement>) => void;
+}
 
-  const fileSelected = (e) => {
-    const file = e.target.files[0];
+function AvatarModal({ modalToggle, user }:AvatarModalProps) {
+  const [fileUpload, setFileUpload] = useState<File | null>(null);
+  const [maxFileExceeded, setMaxFileExceeded] = useState<boolean>(false);
+
+  const notify = (type: string, message: string) => {
+    if (type === "error") {
+      toast.error(message, {
+        position: "bottom-right",
+        autoClose: 3000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        transition: Flip,
+      });
+    }
+  };
+
+  const fileSelected = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
     const maxFileSize = 1024 ** 2 * 2;
 
-    if (file.size > maxFileSize) {
+    if (file && file.size > maxFileSize) {
       setMaxFileExceeded(true);
-    } else {
+    } else if (file) {
       setFileUpload(file);
     }
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    if(!fileUpload) {
+      console.error("You gotta select a file!");
+      return;
+    }
 
     const formData = new FormData();
     formData.append("avatar", fileUpload);
@@ -38,6 +66,7 @@ function AvatarModal({ modalToggle, user }) {
 
       window.location.href = "/profile";
     } catch (error) {
+      notify("error", "There was an error uploading your photo!")
       console.error(error);
     }
   };
@@ -86,6 +115,7 @@ function AvatarModal({ modalToggle, user }) {
           )}
         </form>
       </div>
+      <ToastContainer />
     </div>
   );
 }

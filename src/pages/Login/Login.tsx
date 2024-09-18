@@ -6,7 +6,7 @@ import "./Login.scss";
 import LoginForm from "../../components/LoginForm/LoginForm";
 
 function Login() {
-  const [signedIn, setSignedIn] = useState(false)
+  const [signedIn, setSignedIn] = useState<boolean>(false)
 
   const notify = () => {
     toast.success(

@@ -3,16 +3,22 @@ import { ToastContainer, toast, Flip } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import SavedArtist from "../SavedArtist/SavedArtist";
 import Loading from "../Loading/Loading";
+import { User } from "../../types/user";
+import { LikedArtist } from "../../types/artist";
 import "./SavedArtistList.scss";
 import travolta from "../../assets/images/travolta.gif";
 import axios from "axios";
 const baseUrl = process.env.REACT_APP_BASE_URL;
 
-function SavedArtistList({ user }) {
-  const [likes, setLikes] = useState(null);
-  const [newLikes, setNewLikes] = useState(null);
+interface SavedArtistListProps {
+  user: User;
+}
 
-  const notify = (artistName) => {
+function SavedArtistList({ user }: SavedArtistListProps) {
+  const [likes, setLikes] = useState<LikedArtist[] | null>(null);
+  const [newLikes, setNewLikes] = useState<{} | null>(null);
+
+  const notify = (artistName: string) => {
     toast.success(
       `Successfully removed ${artistName} from your saved artists.`,
       {
@@ -45,7 +51,7 @@ function SavedArtistList({ user }) {
     getLikes();
   }, [newLikes, user]);
 
-  const handleDelete = async (id, artistName, savedArtistId) => {
+  const handleDelete = async (id:string, artistName:string, savedArtistId:string) => {
     const response = await axios.delete(`${baseUrl}/api/users/likes`, {
       params: {
         user_email: user.email,
@@ -53,7 +59,7 @@ function SavedArtistList({ user }) {
       },
     });
     const like = document.getElementById(savedArtistId);
-    like.classList.add("saved-artists__artist--delete");
+    like?.classList.add("saved-artists__artist--delete");
 
     setTimeout(() => {
       notify(artistName);
