@@ -39,11 +39,11 @@
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
-  margin: 0 auto;
-  padding: 1.11rem 0;
+  margin: 1.11rem auto;
+  // padding: 1.11rem 0;
   width: 90%;
   text-align: center;
-  min-height: 27.5rem;
+  // min-height: 27.5rem;
 
   @include tablet {
     padding: 1.11rem;
@@ -107,7 +107,7 @@
       }
 
       &--heading {
-        margin-bottom: 0;
+        margin: 0;
       }
     }
 

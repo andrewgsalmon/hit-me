@@ -15,6 +15,11 @@ iframe {
     width: 100%;
     max-width: 768px;
     margin: auto;
+
+    @include desktop {
+      position: relative;
+      left: 2rem;
+    }
   }
 
   @include desktop {
@@ -30,9 +35,15 @@ iframe {
   flex-flow: column;
   justify-content: center;
   width: 100%;
+  margin-bottom: 2rem;
+
+  @include tablet {
+    margin-bottom: 0;
+  }
 
   @include desktop {
     flex-flow: column-reverse;
+    margin-top: 1.11rem;
   }
 
   &__action {
