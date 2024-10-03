@@ -85,7 +85,9 @@
   }
 
   &__upload-file {
-    background-color: $Primary-Submit;
+    background-color: rgb(208, 208, 208);
+    border: 0px;
+    // background-color: $Primary-Submit;
     padding: 10px 20px;
     color: white;
     border-radius: 20px;
@@ -94,6 +96,7 @@
     font-size: 1rem;
     transition: 0.2s ease-in-out;
     cursor: pointer;
+    pointer-events: none;
     @include drop-shadow;
 
     @include tablet {
@@ -126,10 +129,10 @@
       pointer-events: none;
     }
 
-    &--pending {
-      background-color: rgb(208, 208, 208);
-      border: 0px;
-      pointer-events: none;
-    }
+    // &--pending {
+    //   background-color: rgb(208, 208, 208);
+    //   border: 0px;
+    //   pointer-events: none;
+    // }
   }
 }

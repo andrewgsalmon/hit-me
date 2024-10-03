@@ -107,7 +107,7 @@ function AvatarModal({ modalToggle, user }:AvatarModalProps) {
               className={
                 fileUpload
                   ? "avatar-modal__upload-file avatar-modal__upload-file--submit"
-                  : "avatar-modal__upload-file avatar-modal__upload-file--pending"
+                  : "avatar-modal__upload-file"
               }
             >
               Submit
