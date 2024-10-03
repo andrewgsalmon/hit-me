@@ -6,6 +6,6 @@ module.exports = {
     '/node_modules/(?!axios/).*',
   ],
   moduleNameMapper: {
-    '\\.(css|scss)$': 'identity-obj-proxy',
+    '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
   },
 };

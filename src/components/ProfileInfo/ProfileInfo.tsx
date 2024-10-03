@@ -52,9 +52,9 @@ function ProfileInfo({currentUser}: ProfileInfoProps) {
 				{modal && <AvatarModal modalToggle={modalToggle} user={user}/>}
 					<div className='profile__info'>
 					<div className='profile__identity'>
-						<div className='profile__avatar' style={avatar}>
+						<div className='profile__avatar' style={avatar} aria-label={`profile photo of ${user.name}`}>
 							<form className='profile__avatar--edit'>
-								<button onClick={modalToggle} className='profile__avatar--upload'></button>
+								<button aria-label='click to upload an avatar' onClick={modalToggle} className='profile__avatar--upload'></button>
 							</form>
 						</div>
 						<div className='profile__heading-container'><h1 className='profile__heading'>{user.name}</h1></div>
