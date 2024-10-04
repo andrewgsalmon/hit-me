@@ -243,11 +243,11 @@ const handleGenreChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     }
   };
 
-  // const handleBlur = () => {
-  //   setTimeout(() => {
-  //     setCustomSearch(null);
-  //   }, 100);
-  // };
+  const handleBlur = () => {
+    setTimeout(() => {
+      setCustomSearch(null);
+    }, 100);
+  };
 
   return (
     <>
@@ -293,7 +293,7 @@ const handleGenreChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
                       id="custom-input"
                       placeholder="Enter awesome song here..."
                       onChange={handleCustomInput}
-                      // onBlur={handleBlur}
+                      onBlur={handleBlur}
                     />
                   )}
                   {seedTrack ? (
