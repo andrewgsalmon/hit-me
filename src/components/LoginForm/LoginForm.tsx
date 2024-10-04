@@ -111,12 +111,14 @@ const LoginForm: React.FC<LoginFormProps> = ({ signedIn }) => {
           <a
             className="login__oauth login__oauth--google"
             href={`${baseUrl}/auth/google`}
+            aria-label=""
           >
             Login with Google
           </a>
           <a
             className="login__oauth login__oauth--spotify"
             href={`${baseUrl}/auth/spotify`}
+            aria-label=""
           >
             Login with Spotify
           </a>

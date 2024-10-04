@@ -18,6 +18,7 @@ function SavedArtist({ like, handleDelete }: SavedArtistProps) {
     <article id={savedArtistId} className="saved-artists__artist">
       <div
         className="saved-artists__remove-like--tablet"
+        aria-label="remove liked artist from your profile"
         onClick={() =>
           handleDelete(like.artist_id, like.artist_name, savedArtistId)
         }
