@@ -101,7 +101,7 @@ function CommentSection({ user, artistId }: InputsProps) {
     <>
       <section className={"artist artist__comments"}>
         <div className="comments__container">
-          <div className="comments__avatar" style={avatar}></div>
+          <div className="comments__avatar" style={avatar} aria-label={`${user.name}'s profile picture`}></div>
           <form onSubmit={handleSubmit} className="comments__input">
             <label className="comments__textarea-label" htmlFor="comment">Like the tunes? Let us know!</label>
             {comments.length > 0 ? (

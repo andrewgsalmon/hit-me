@@ -22,7 +22,7 @@ test("welcome page rendered", () => {
 
 test("Login page rendered", () => {
   render(
-    <MemoryRouter initialEntries={["login"]}>
+    <MemoryRouter initialEntries={["/login"]}>
       <Login />
     </MemoryRouter>
   );
@@ -33,7 +33,7 @@ test("Login page rendered", () => {
 
 test("registration page rendered", () => {
   render(
-    <MemoryRouter initialEntries={["register"]}>
+    <MemoryRouter initialEntries={["/register"]}>
       <Register />
     </MemoryRouter>
   );

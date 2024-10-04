@@ -29,6 +29,7 @@ function Welcome() {
             ></iframe>
             <button
               className="welcome-page__demo--close"
+              aria-label="close the demo video"
               onClick={() => setDemoToggle(false)}
             ></button>
           </div>

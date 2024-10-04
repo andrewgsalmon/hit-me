@@ -44,7 +44,7 @@ function Comment({ artistComment }: CommentProps) {
   return (
     <article className='comment'>
       <div className='comment__container'>
-        <div className='comment__avatar' style={avatar}></div>
+        <div className='comment__avatar' style={avatar} aria-label={`${name}'s profile picture`}></div>
         <div className='comment__info'>
           <div className='comment__name-date--desktop'>
             <span className='comment__name'>{name}</span>

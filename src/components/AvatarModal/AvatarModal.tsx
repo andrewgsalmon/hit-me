@@ -81,6 +81,7 @@ function AvatarModal({ modalToggle, user }:AvatarModalProps) {
           <button
             onClick={modalToggle}
             className="avatar-modal__top-row--close"
+            aria-label=""
           ></button>
         </div>
         <form onSubmit={handleSubmit} className="avatar-modal__form">
