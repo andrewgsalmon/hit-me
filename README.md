@@ -7,6 +7,7 @@
   <img style="width: 30px;" src='./src/assets/icons/readme-logos/sass-logo.png'/>
   <img style="width: 30px;" src='./src/assets/icons/readme-logos/typescript-official-svgrepo-com.svg'/>
   <img style="width: 30px;" src='./src/assets/icons/readme-logos/react.svg'/>
+  <img style="width: 30px;" src='./src/assets/icons/readme-logos/Jest.svg'/>
   <img style="width: 30px;" src='./src/assets/icons/readme-logos/node-js.svg'/>
   <img style="width: 30px; background-color: #fff; padding: 1px; height: 27px" src='./src/assets/icons/readme-logos/express.svg'/>
   <img style="padding: 1px; height: 27px" src='./src/assets/icons/readme-logos/s3.svg'/>
@@ -19,13 +20,19 @@
 
 Have you ever thought to yourself: "I need some music while I'm working, but I can't decide what to listen to... I need a recommendation!"
 
-We've all been there, right?  Me too!  Well, the Hit Me app helps you with just that.  Just open the app, decide on the genre you want, and if you want a hugely popular artist, or one that's way more obscure.  Tell the app what you're looking for, and your soundtrack for the day has been set!
+We've all been there, right?  Me too!  Well, the Hit Me app helps you with just that.  Just open the app, decide on the genre you want, and how obscure or popular you want the recommendation to be.  Tell the app what you're looking for, and your soundtrack for the day has been set!
+
+NEW: Want music that sounds like one of your favourite artists? You can discover this way too!
 
 Like the recommendation? Save it, refer back to it later, or even find similar artists!  Or - leave a comment to share what you think of the artist!
 
-<p align="center"><strong>Get artist recommendations</strong></p>
+<p align="center"><strong>Get recommendations by genre</strong></p>
 
 <p align="center"><img width="80%" style="padding-bottom:20px;" align="center" src='./src/assets/readme-images/get-recos.gif'></p>
+
+<p align="center"><strong>Get recommendations based on favourite music</strong></p>
+
+<p align="center"><img width="80%" style="padding-bottom:20px;" align="center" src='./src/assets/readme-images/artist-search.gif'></p>
 
 <p align="center"><strong>Save artists to your profile</strong></p>
 
