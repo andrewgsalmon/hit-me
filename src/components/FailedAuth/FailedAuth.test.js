@@ -9,8 +9,8 @@ test("garth gif loads", () => {
     </MemoryRouter>
   );
 
-  const garthGif = screen.getByAltText(/gif of garth/i);
-  expect(garthGif).toBeInTheDocument();
+  const gif = screen.getByAltText(/giphy/i);
+  expect(gif).toBeInTheDocument();
 });
 
 test('login link is present', () => {

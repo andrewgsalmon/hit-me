@@ -1,7 +1,11 @@
 export type Artist = {
   id: string;
   name: string;
-  album: string;
+  album: Album;
+};
+
+export type Recommended = Artist & {
+  artists: Artist[];
 };
 
 export type Album = {
@@ -12,13 +16,6 @@ export type Album = {
 export type Images = {
   url: string
 }
-
-export type Recommended = {
-  artists: Artist[];
-  name: string;
-  album: Album;
-  id: string;
-};
 
 export type ArtistComment = {
   id: string;
