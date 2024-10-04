@@ -2,3 +2,45 @@
 @use "../../styles/mixins" as *;
 @use "../../styles/typography" as *;
 @use "../../App.scss" as *;
+
+.failed-auth {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 30px auto;
+
+  &__giphy-embed {
+    // margin-top: 20px;
+    width: 250px;
+    border-radius: 1rem;
+
+    @include tablet {
+      width: 350px;
+    }
+  }
+
+  &__giphy-attribution {
+    color: #909090;
+    font-size: 0.8rem;
+    width: 100%;
+    text-align: right;
+  }
+
+  &__login-link {
+    &:hover {
+      background-color: $Secondary-SubmitHover;
+    }
+
+    & {
+      @include transition;
+      line-height: normal;
+      text-decoration: none;
+      color: $Primary-White;
+      width: auto;
+      background-color: $Primary-Submit;
+      @include button;
+    }
+  }
+}

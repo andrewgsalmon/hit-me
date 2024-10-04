@@ -7,41 +7,6 @@
   display: contents;
 }
 
-.failed-auth {
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  margin: 30px auto;
-
-  &__giphy-embed {
-    margin-top: 20px;
-    width: 250px;
-    border-radius: 1rem;
-
-    @include tablet {
-      width: 350px;
-    }
-  }
-
-  &__login-link {
-    &:hover {
-      background-color: $Secondary-SubmitHover;
-    }
-
-    & {
-      @include transition;
-      line-height: normal;
-      text-decoration: none;
-      color: $Primary-White;
-      width: auto;
-      background-color: $Primary-Submit;
-      @include button;
-    }
-  }
-}
-
 .home__loading {
   margin: auto;
   margin-top: 2rem;
