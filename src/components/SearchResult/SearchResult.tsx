@@ -1,4 +1,4 @@
-import React, {Dispatch, SetStateAction} from "react";
+import React, { Dispatch, SetStateAction } from "react";
 import { Recommended } from "../../types/artist";
 import "./SearchResult.scss";
 
@@ -8,7 +8,11 @@ interface SearchResultProps {
   setSeedTrack: (value: Recommended | null) => void;
 }
 
-function SearchResult({ customSearch, setCustomSearch, setSeedTrack }:SearchResultProps) {
+function SearchResult({
+  customSearch,
+  setCustomSearch,
+  setSeedTrack,
+}: SearchResultProps) {
   const handleSelectTrack = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
 
@@ -22,21 +26,32 @@ function SearchResult({ customSearch, setCustomSearch, setSeedTrack }:SearchResu
   };
 
   return (
-    <article className="form__custom-input--result">
-      <div className="form__custom-input--result-info">
-        <h3 className="form__custom-input--trackname">{customSearch?.name}</h3>
-        <p className="form__custom-input--artist">
-          {customSearch?.artists[0].name}
-        </p>
-        <p className="form__custom-input--album">{customSearch?.album.name}</p>
-      </div>
-      <button
-        onClick={handleSelectTrack}
-        className="form__custom-input--select"
-      >
-        SELECT
-      </button>
-    </article>
+    <>
+      <article className="form__custom-input--result">
+        <div className="form__custom-input--result-info">
+          <img
+            src={`${customSearch?.album?.images[2]?.url}`}
+            alt={`${customSearch?.album.name} album cover`}
+            className="form__custom-input--album-art"
+          />
+          <div className="form__custom-input--track-info">
+            <h3 className="form__custom-input--trackname">
+              {customSearch?.name}
+            </h3>
+            <p className="form__custom-input--artist">
+              {customSearch?.artists[0].name}
+            </p>
+            <p className="form__custom-input--album">{customSearch?.album.name}</p>
+          </div>
+        </div>
+        <button
+          onClick={handleSelectTrack}
+          className="form__custom-input--select"
+        >
+          SELECT
+        </button>
+      </article>
+    </>
   );
 }
 

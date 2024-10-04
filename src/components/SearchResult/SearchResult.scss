@@ -26,12 +26,19 @@
 
       &-info {
         display: flex;
-        flex-flow: column nowrap;
+        flex-flow: row nowrap;
+        align-items: center;
       }
 
       &:hover {
         background: $Secondary-BackgroundBlue;
       }
+    }
+
+    &--track-info {
+      display: flex;
+      flex-flow: column nowrap;
+      padding-left: 0.5rem;
     }
 
     &--trackname, &--artist, &--album {
@@ -40,14 +47,25 @@
       line-height: 1rem;
 
       @include desktop {
-        font-size: 1.1rem;
-        margin: 0.25rem;
+        font-size: 0.9rem;
+        margin: 0.15rem;
         overflow: hidden;
       }
     }
 
     &--album {
       color: grey;
+
+      @include tablet {
+        display: none;
+      }
+
+      &-art {
+        display: none;
+        @include tablet {
+          display: flex;
+        }
+      }
     }
 
     &--select {

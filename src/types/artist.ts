@@ -6,7 +6,12 @@ export type Artist = {
 
 export type Album = {
   name: string;
+  images: Images[];
 };
+
+export type Images = {
+  url: string
+}
 
 export type Recommended = {
   artists: Artist[];
