@@ -170,15 +170,22 @@ const handleGenreChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
       headers: header,
     };
 
-    setIsLoading(true);
+    const musicPlayer = document.getElementById('spotify-player');
+    let windowWidth = window.innerWidth;
 
     try {
+      setIsLoading(true);
       const response = await axios.get(apiUrl, requestOptions);
       const randomArtist = Math.floor(
         Math.random() * response.data.tracks.length
       );
+
       setRecommended(response.data.tracks[randomArtist]);
       setSimilarArtist(null);
+
+      if (windowWidth < 1280) {
+        musicPlayer?.scrollIntoView({behavior: 'smooth'});
+      }
     } catch (error) {
       console.error("There was a problem with the request:", error);
     }

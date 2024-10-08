@@ -9,6 +9,7 @@ import Login from './pages/Login/Login';
 import Register from './pages/Register/Register';
 import Footer from './components/Footer/Footer';
 import Profile from './pages/Profile/Profile';
+// import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 
 function App() {
 	const [failedAuth, setFailedAuth] = useState(false);
@@ -28,6 +29,7 @@ function App() {
       <BrowserRouter>
         <Header failedAuth={failedAuth} />
         <main>
+          {/* <ScrollToTop /> */}
           <Routes>
             <Route path='/' element={<Welcome />} />
             <Route path='login' element={<Login />}/>
