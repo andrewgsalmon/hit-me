@@ -237,7 +237,7 @@
     padding: 0.28rem 1.67rem;
     border-radius: 1.1rem;
     border: 0;
-    background-color: $Primary-Submit;
+    background: $Primary-Submit;
     background-position: 50%;
     color: $Primary-White;
     font-weight: 600;
@@ -262,7 +262,7 @@
     }
 
     &:hover {
-      background-color: $Secondary-SubmitHover;
+      background: $Secondary-SubmitHover;
     }
 
     &--loading {

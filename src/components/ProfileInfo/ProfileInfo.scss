@@ -85,22 +85,34 @@
     &--upload {
       position: absolute;
       background-image: url("../../assets/icons/cloud-arrow-up-solid.svg");
-      height: 30px;
-      width: 30px;
+      height: 1.6667rem;
+      width: 1.6667rem;
+      border-radius: 0.8333rem;
       background-repeat: no-repeat;
       background-size: 77%;
       background-position: 50%;
       border: 2px solid white;
-      border-radius: 15px;
       background-color: gray;
       right: 0rem;
       cursor: pointer;
 
-      @include desktop {
-        width: 40px;
-        height: 40px;
-        border-radius: 20px;
+      @include tablet {
+        width: 1.75rem;
+        height: 1.75rem;
+        border-radius: 0.8725rem;
       }
+
+      @include desktop {
+        width: 2rem;
+        height: 2rem;
+        border-radius: 1rem;
+      }
+    }
+
+    @include tablet {
+      width: 7rem;
+      height: 7rem;
+      border-radius: 3.5rem;
     }
 
     @include desktop {

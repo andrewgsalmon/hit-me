@@ -8,9 +8,14 @@
   top: 10vh;
   margin: auto;
   width: 15vw;
+  height: 100vh;
   text-align: center;
 
   & p {
     margin-top: 0.5rem;
+  }
+
+  &__hidden {
+    opacity: 0;
   }
 }

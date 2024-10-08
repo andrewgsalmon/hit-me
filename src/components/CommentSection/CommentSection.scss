@@ -41,6 +41,7 @@
     border: 1px solid lightgrey;
     border-radius: 0.55rem;
     font-size: 1rem;
+    resize: none;
 
     &:focus {
       outline: 2px solid $Secondary-SubmitHover;
