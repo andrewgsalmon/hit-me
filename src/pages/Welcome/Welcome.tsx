@@ -6,6 +6,8 @@ import Head from "../../layout/Head";
 function Welcome() {
   const [demoToggle, setDemoToggle] = useState(false);
 
+  window.scrollTo(0,0);
+
   return (
     <>
       <Head

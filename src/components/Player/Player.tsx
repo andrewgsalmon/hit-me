@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import "./Player.scss";
 import CommentSection from "../CommentSection/CommentSection";
 import axios from "axios";
-import britney from "../../assets/images/britney.gif";
-import Loading from "../Loading/Loading";
+// import britney from "../../assets/images/britney.gif";
+// import Loading from "../Loading/Loading";
+import InputStandby from "../InputStandby/InputStandby";
 const baseUrl = process.env.REACT_APP_BASE_URL;
 
 interface InputsProps {
@@ -27,9 +28,8 @@ function Player({
   artistId,
   setArtistId,
   similarLoading,
-  genrePlainText
+  genrePlainText,
 }: InputsProps) {
-
   const [newLike, setNewLike] = useState<object | boolean>(false);
 
   const handleSave = async (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -42,13 +42,14 @@ function Player({
           artist_name: recommended.artists[0].name,
           artist_id: recommended.artists[0].id,
           artist_img: recommended.album.images[0].url,
-          artist_genre: genrePlainText ? genrePlainText.toLowerCase() : 'unknown genre'
+          artist_genre: genrePlainText
+            ? genrePlainText.toLowerCase()
+            : "unknown genre",
         });
         setNewLike(response);
       } catch (error) {
         console.error(error);
       }
-
     } else if (similarArtist) {
       try {
         const response = await axios.post(`${baseUrl}/api/users/likes`, {
@@ -56,7 +57,7 @@ function Player({
           artist_name: similarArtist.name,
           artist_id: similarArtist.id,
           artist_img: similarArtist.images[0].url,
-          artist_genre: similarArtist.genres[0]
+          artist_genre: similarArtist.genres[0],
         });
         setNewLike(response);
       } catch (error) {
@@ -65,7 +66,10 @@ function Player({
     }
   };
 
-  const handleDelete = async (e: React.MouseEvent<HTMLButtonElement>, id: string) => {
+  const handleDelete = async (
+    e: React.MouseEvent<HTMLButtonElement>,
+    id: string
+  ) => {
     e.preventDefault();
 
     await axios.delete(`${baseUrl}/api/users/likes`, {
@@ -91,77 +95,61 @@ function Player({
     }
   }, [handleSubmit, handleSimilar]);
 
-  if (!recommended && !similarArtist) {
-    return (
-      <div className="output__standby">
-        <img
-          className="home__britney-gif"
-          src={britney}
-          alt="gif of britney spears waiting in class"
-        />
-        <br />
-        What are you waiting for...
-        <br />
-        <strong>Hit us</strong> with your preferences!
-      </div>
-    );
-  }
-
   return (
     <>
-      {!artistId ? (
-        <Loading />
-      ) : (
-        <section className="music-section">
-          <div className="spotify-player">
-            <div className="spotify-player__action spotify-player__action--shuffle">
-              <span>Like the tunes?</span>
-              <button
-                className={
-                  similarLoading
-                    ? "spotify-player__action-button spotify-player__action-button--loading"
-                    : "spotify-player__action-button spotify-player__action-button--shuffle"
-                }
-                type="submit"
-                onClick={handleSimilar}
-              >
-                {similarLoading ? "" : "Get similar artist"}
-              </button>
-            </div>
-            <iframe
-              title="spotify-iframe"
-              src={`https://open.spotify.com/embed/artist/${artistId}?utm_source=generator`}
-              width="100%"
-              height="152px"
-              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-              loading="lazy"
-            ></iframe>
-            <div className="spotify-player__action spotify-player__action--like">
-              {!newLike ? (
+      <section id="music-section">
+        <div id="spotify-player" className="spotify-player">
+          {!artistId ? (
+            <InputStandby />
+          ) : (
+            <>
+              <div className="spotify-player__action spotify-player__action--shuffle">
+                <span>Like the tunes?</span>
                 <button
-                  className="spotify-player__action-button spotify-player__action-button--save"
+                  className={
+                    similarLoading
+                      ? "spotify-player__action-button spotify-player__action-button--loading"
+                      : "spotify-player__action-button spotify-player__action-button--shuffle"
+                  }
                   type="submit"
-                  onClick={handleSave}
+                  onClick={handleSimilar}
                 >
-                  Save this artist
+                  {similarLoading ? "" : "Get similar artist"}
                 </button>
-              ) : (
-                <button
-                  className="spotify-player__action-button spotify-player__action-button--saved"
-                  type="submit"
-                  onClick={(e) => handleDelete(e, artistId)}
-                >
-                  Artist saved!
-                </button>
-              )}
-            </div>
-          </div>
-          <CommentSection
-            user={user}
-            artistId={artistId}
-          />
-        </section>
-      )}
+              </div>
+              <iframe
+                id="spotify-iframe"
+                title="spotify-iframe"
+                src={`https://open.spotify.com/embed/artist/${artistId}?utm_source=generator`}
+                width="100%"
+                height="152px"
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy"
+              ></iframe>
+              <div className="spotify-player__action spotify-player__action--like">
+                {!newLike ? (
+                  <button
+                    className="spotify-player__action-button spotify-player__action-button--save"
+                    type="submit"
+                    onClick={handleSave}
+                  >
+                    Save this artist
+                  </button>
+                ) : (
+                  <button
+                    className="spotify-player__action-button spotify-player__action-button--saved"
+                    type="submit"
+                    onClick={(e) => handleDelete(e, artistId)}
+                  >
+                    Artist saved!
+                  </button>
+                )}
+              </div>
+              <CommentSection user={user} artistId={artistId} />
+            </>
+          )}
+        </div>
+      </section>
     </>
   );
 }

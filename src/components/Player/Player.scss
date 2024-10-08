@@ -10,7 +10,7 @@ iframe {
   @include drop-shadow;
 }
 
-.music-section {
+#music-section {
   @include tablet {
     width: 100%;
     max-width: 768px;
@@ -136,26 +136,5 @@ iframe {
         margin-left: 1.11rem;
       }
     }
-  }
-}
-
-.output__standby {
-  text-align: center;
-  width: 70%;
-  margin: 1.11rem auto;
-
-  @include desktop {
-    width: 50%;
-    padding: 0 1.11rem;
-    font-size: 1.33rem;
-    margin-top: 1.17rem;
-  }
-}
-
-.home__britney-gif {
-  border-radius: 20px;
-
-  @include desktop {
-    width: 80%;
   }
 }

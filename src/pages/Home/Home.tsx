@@ -11,6 +11,8 @@ function Home() {
   const [user, setUser] = useState(null);
 	const [failedAuth, setFailedAuth] = useState(false);
 
+	window.scrollTo(0,0);
+
 	useEffect(() => {
 		const token = sessionStorage.getItem('token');
 

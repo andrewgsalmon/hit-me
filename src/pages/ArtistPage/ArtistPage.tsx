@@ -20,6 +20,8 @@ function ArtistPage() {
   const [failedAuth, setFailedAuth] = useState<boolean>(false);
   const [user, setUser] = useState<User | null>(null);
 
+  window.scrollTo(0,0);
+
   useEffect(() => {
     const token = sessionStorage.getItem("token");
 

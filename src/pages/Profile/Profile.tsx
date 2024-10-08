@@ -12,6 +12,8 @@ function Profile() {
   const [failedAuth, setFailedAuth] = useState(false);
   const token = sessionStorage.getItem("token");
 
+  window.scrollTo(0,0);
+
   if (!currentUser) {
     const authorizeUser = async () => {
       try {
