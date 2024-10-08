@@ -10,9 +10,9 @@ interface HeaderProps {
 function Header({ failedAuth }: HeaderProps) {
   return (
     <>
-      <header className="header">
-        <Link className="header-logo" to={failedAuth ? "/" : "/home"}>
-          <img className="header-logo" src={logo} alt="hit me logo" />
+      <header id="header">
+        <Link to={failedAuth ? "/" : "/home"}>
+          <img id="header-logo" src={logo} alt="hit me logo" />
         </Link>
         <br />
         <div className="social-icons">

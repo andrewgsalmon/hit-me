@@ -3,7 +3,7 @@
 @use "../../styles/typography" as *;
 @use "../../App.scss" as *;
 
-.header {
+#header {
   position: relative;
   top: 0.55rem;
   width: 100%;
@@ -15,7 +15,7 @@
   }
 }
 
-.header-logo {
+#header-logo {
   display: block;
   margin: auto;
   width: 16.67rem;

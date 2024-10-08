@@ -9,17 +9,15 @@
 
 html {
   margin: 0;
-  height:100%;
   width: 100vw;
-  background-color:$Primary-White;
   font-size: 18px;
   line-height: 26px;
 }
 
 body {
-  background-image: linear-gradient(to bottom, rgb(250, 198, 151), white);
-  transition: 0.5s;
+  background-color: $Primary-Background;
   padding-bottom: 60px;
+  min-height: 100vh;
 }
 
 main {
