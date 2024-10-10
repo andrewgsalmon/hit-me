@@ -4,7 +4,7 @@
 @use '../../App.scss' as *;
 
 .comment {
-  padding: 1.1rem;
+  padding: 1.1rem 0;
   border-top: 1px solid $Primary-White;
 
   &__container {

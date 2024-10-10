@@ -26,10 +26,10 @@
 }
 
 .artist__comments {
-  padding: 0;
+  padding: 0 1.11rem;
 
   @include tablet {
-    width: 30rem;
+    width: 28rem;
   }
 
   @include desktop {
