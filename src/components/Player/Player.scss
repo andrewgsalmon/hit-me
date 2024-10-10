@@ -30,6 +30,11 @@ iframe {
   }
 }
 
+#spotify-iframe {
+  padding: 1.11rem;
+  width: 100%;
+}
+
 .spotify-player {
   display: flex;
   flex-flow: column;
