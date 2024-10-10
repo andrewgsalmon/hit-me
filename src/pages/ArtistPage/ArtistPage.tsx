@@ -63,6 +63,7 @@ function ArtistPage() {
         <>
           <section className="artist artist__player">
             <iframe
+              id="spotify-iframe"
               title="spotify-iframe"
               src={`https://open.spotify.com/embed/artist/${idFromParams}?utm_source=generator`}
               width="100%"
