@@ -30,8 +30,8 @@ iframe {
 }
 
 #spotify-iframe {
-  margin: 1.11rem;
   width: 100%;
+  margin: 1.11rem 0;
 }
 
 .spotify-player {
@@ -40,6 +40,7 @@ iframe {
   justify-content: center;
   width: 100%;
   margin-bottom: 2rem;
+  padding: 0 1.11rem;
 
   @include tablet {
     margin-bottom: 0;
@@ -51,7 +52,6 @@ iframe {
   }
 
   &__action {
-    margin: 1.11rem 1.11rem 0 1.11rem;
     display: flex;
     justify-content: space-between;
     align-items: center;

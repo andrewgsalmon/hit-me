@@ -21,7 +21,7 @@
   &__container {
     display: flex;
     flex-flow: row nowrap;
-    padding: 2rem 1.11rem;
+    padding: 2rem 0;
 
     @include tablet {
       margin: 1.11rem 0;
