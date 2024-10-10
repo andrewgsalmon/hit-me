@@ -14,7 +14,7 @@ iframe {
   @include tablet {
     width: 100%;
     max-width: 768px;
-    margin: auto;
+    margin: 0 auto;
 
     @include desktop {
       position: relative;
@@ -42,7 +42,7 @@ iframe {
   }
 
   @include desktop {
-    flex-flow: column-reverse;
+    flex-flow: column;
     margin-top: 1.11rem;
   }
 
@@ -63,12 +63,6 @@ iframe {
 
     @include tablet {
       justify-content: flex-end;
-    }
-
-    &--shuffle {
-      @include desktop {
-        margin-bottom: 20px;
-      }
     }
 
     &-button {
