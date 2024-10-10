@@ -4,7 +4,6 @@
 @use "../../App.scss" as *;
 
 iframe {
-  padding: 1.11rem;
   height: 23.6rem;
   border: 0;
   @include drop-shadow;
@@ -31,7 +30,7 @@ iframe {
 }
 
 #spotify-iframe {
-  padding: 1.11rem;
+  margin: 1.11rem;
   width: 100%;
 }
 
