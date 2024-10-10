@@ -4,6 +4,8 @@
 @use '../../App.scss' as *;
 
 .artist {
+  padding: 0 1.11rem;
+
   @include tablet {
     max-width: 768px;
     width: 100%;
@@ -24,6 +26,8 @@
 }
 
 .artist__comments {
+  padding: 0;
+
   @include tablet {
     width: 30rem;
   }
