@@ -4,7 +4,7 @@
 @use '../../App.scss' as *;
 
 .artist {
-  padding: 0 1.11rem;
+  // padding: 0 1.11rem;
 
   @include tablet {
     max-width: 768px;
@@ -15,6 +15,7 @@
 
 .artist__player {
   margin-top: 1.2rem;
+  padding: 0 1.11rem;
 
   @include desktop {
     display: flex;
@@ -29,12 +30,13 @@
   padding: 0 1.11rem;
 
   @include tablet {
-    width: 28rem;
+    width: 25rem;
   }
 
   @include desktop {
     width: 100%;
     max-width: 30rem;
     margin: 0 auto 4rem auto;
+    padding: 0;
   }
 }

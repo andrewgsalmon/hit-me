@@ -16,7 +16,7 @@
       display: flex;
       flex-flow: row nowrap;
       align-items: flex-start;
-      margin: 2.22rem 7.22rem;
+      margin: 0 7.22rem 2.22rem;
     }
   }
 
@@ -40,18 +40,15 @@
   flex-flow: column nowrap;
   align-items: center;
   margin: 1.11rem auto;
-  // padding: 1.11rem 0;
   width: 90%;
   text-align: center;
-  // min-height: 27.5rem;
 
   @include tablet {
-    padding: 1.11rem;
+    padding: 0 1.11rem;
   }
 
   @include desktop {
     width: 50%;
-    padding: 0 1.11rem;
     position: sticky;
     top: 2.22rem;
     border-right: 1px solid white;

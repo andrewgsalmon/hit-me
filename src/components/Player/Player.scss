@@ -49,6 +49,13 @@ iframe {
   @include desktop {
     flex-flow: column;
     margin-top: 1.11rem;
+    padding: 0;
+  }
+
+  &__player-controls {
+    @include desktop {
+      padding: 0 1.11rem;
+    }
   }
 
   &__action {
