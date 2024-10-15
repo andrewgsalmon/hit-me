@@ -2,8 +2,6 @@ import React, { useState, useEffect } from "react";
 import "./Player.scss";
 import CommentSection from "../CommentSection/CommentSection";
 import axios from "axios";
-// import britney from "../../assets/images/britney.gif";
-// import Loading from "../Loading/Loading";
 import InputStandby from "../InputStandby/InputStandby";
 const baseUrl = process.env.REACT_APP_BASE_URL;
 
@@ -103,48 +101,50 @@ function Player({
             <InputStandby />
           ) : (
             <>
-              <div className="spotify-player__action spotify-player__action--shuffle">
-                <span>Like the tunes?</span>
-                <button
-                  className={
-                    similarLoading
-                      ? "spotify-player__action-button spotify-player__action-button--loading"
-                      : "spotify-player__action-button spotify-player__action-button--shuffle"
-                  }
-                  type="submit"
-                  onClick={handleSimilar}
-                >
-                  {similarLoading ? "" : "Get similar artist"}
-                </button>
-              </div>
-              <iframe
-                id="spotify-iframe"
-                title="spotify-iframe"
-                src={`https://open.spotify.com/embed/artist/${artistId}?utm_source=generator`}
-                width="100%"
-                height="152px"
-                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                loading="lazy"
-              ></iframe>
-              <div className="spotify-player__action spotify-player__action--like">
-                {!newLike ? (
+              <article className="spotify-player__player-controls">
+                <div className="spotify-player__action spotify-player__action--shuffle">
+                  <span>Like the tunes?</span>
                   <button
-                    className="spotify-player__action-button spotify-player__action-button--save"
+                    className={
+                      similarLoading
+                        ? "spotify-player__action-button spotify-player__action-button--loading"
+                        : "spotify-player__action-button spotify-player__action-button--shuffle"
+                    }
                     type="submit"
-                    onClick={handleSave}
+                    onClick={handleSimilar}
                   >
-                    Save this artist
+                    {similarLoading ? "" : "Get similar artist"}
                   </button>
-                ) : (
-                  <button
-                    className="spotify-player__action-button spotify-player__action-button--saved"
-                    type="submit"
-                    onClick={(e) => handleDelete(e, artistId)}
-                  >
-                    Artist saved!
-                  </button>
-                )}
-              </div>
+                </div>
+                <iframe
+                  id="spotify-iframe"
+                  title="spotify-iframe"
+                  src={`https://open.spotify.com/embed/artist/${artistId}?utm_source=generator`}
+                  width="100%"
+                  height="152px"
+                  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                  loading="lazy"
+                ></iframe>
+                <div className="spotify-player__action spotify-player__action--like">
+                  {!newLike ? (
+                    <button
+                      className="spotify-player__action-button spotify-player__action-button--save"
+                      type="submit"
+                      onClick={handleSave}
+                    >
+                      Save this artist
+                    </button>
+                  ) : (
+                    <button
+                      className="spotify-player__action-button spotify-player__action-button--saved"
+                      type="submit"
+                      onClick={(e) => handleDelete(e, artistId)}
+                    >
+                      Artist saved!
+                    </button>
+                  )}
+                </div>
+              </article>
               <CommentSection user={user} artistId={artistId} />
             </>
           )}

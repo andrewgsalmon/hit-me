@@ -4,10 +4,10 @@
 @use '../../App.scss' as *;
 
 .comment {
-  padding: 1.1rem 0;
   border-top: 1px solid $Primary-White;
 
   &__container {
+    padding: 1.1rem;
     display: flex;
     flex-flow: row nowrap;
   }
@@ -19,6 +19,12 @@
     background-image: url('../../assets/icons/profile-avatar.jpeg');
     background-size: contain;
     flex-shrink: 0;
+
+    @include tablet {
+      width: 3rem;
+      height: 3rem;
+      border-radius: 1.5rem
+    }
   }
 
   &__info {

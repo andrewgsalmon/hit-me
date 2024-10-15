@@ -9,6 +9,8 @@ afterEach(() => {
   cleanup();
 });
 
+window.scrollTo = jest.fn();
+
 describe("hit me app", () => {
   it("renders successfully", () => {
     render(<App />);

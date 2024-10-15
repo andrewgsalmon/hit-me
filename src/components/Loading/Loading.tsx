@@ -9,7 +9,7 @@ const [rendered, setRendered] = useState(false);
   useEffect(() => {
     setTimeout(() => {
       setRendered(true)
-    }, 1000);
+    }, 200);
   }, [])
 
   return (
