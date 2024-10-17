@@ -19,20 +19,6 @@
       margin: 0 7.22rem 2.22rem;
     }
   }
-
-  &__britney-gif {
-    width: 11.11rem;
-    @include drop-shadow;
-
-    @include tablet {
-      width: 16.67rem;
-    }
-
-    @include desktop {
-      width: 70%;
-      margin-bottom: 0.5rem;
-    }
-  }
 }
 
 .inputs {

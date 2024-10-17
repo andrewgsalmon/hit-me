@@ -1,8 +1,8 @@
 import React from "react";
 import britney from "../../assets/images/britney.gif";
-import "./InputStandby.scss";
+import "./OutputStandby.scss";
 
-function InputStandby() {
+function OutputStandby() {
   return (
     <div className="output__standby">
       <img
@@ -10,12 +10,13 @@ function InputStandby() {
         src={britney}
         alt="gif of britney spears waiting in class"
       />
-      <br />
-      What are you waiting for...
-      <br />
-      <strong>Hit us</strong> with your preferences!
+      <article className="output__standby--copy">
+        What are you waiting for...
+        <br />
+        <strong>Hit us</strong> with your preferences!
+      </article>
     </div>
   );
 }
 
-export default InputStandby;
+export default OutputStandby;

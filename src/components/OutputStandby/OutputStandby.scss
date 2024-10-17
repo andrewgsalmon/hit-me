@@ -11,13 +11,28 @@
     padding: 0 1.11rem;
     font-size: 1.33rem;
     margin-top: 1.17rem;
+    text-align: left;
+  }
+
+  &--copy {
+    @include desktop {
+      width: 80%;
+      text-align: center;
+    }
   }
 }
 
 .home__britney-gif {
   border-radius: 20px;
+  width: 60%;
+  @include drop-shadow;
+
+  @include tablet {
+    width: 15rem;
+  }
 
   @include desktop {
     width: 80%;
+    margin-bottom: 0.5rem;
   }
 }
