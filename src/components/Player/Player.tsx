@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./Player.scss";
 import CommentSection from "../CommentSection/CommentSection";
 import axios from "axios";
-import InputStandby from "../InputStandby/InputStandby";
+import OutputStandby from "../OutputStandby/OutputStandby";
 const baseUrl = process.env.REACT_APP_BASE_URL;
 
 interface InputsProps {
@@ -98,7 +98,7 @@ function Player({
       <section id="music-section">
         <div id="spotify-player" className="spotify-player">
           {!artistId ? (
-            <InputStandby />
+            <OutputStandby />
           ) : (
             <>
               <article className="spotify-player__player-controls">

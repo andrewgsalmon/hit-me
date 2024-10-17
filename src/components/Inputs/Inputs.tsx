@@ -492,12 +492,12 @@ const handleGenreChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
               />
               <p className="form__input--popularity-label">Major</p>
             </div>
-            <button
+            {!genreSelected && !seedTrack ? "" : <button
               className={isLoading ? "form__submit form__submit--loading" : "form__submit"}
               type="submit"
             >
               {isLoading ? "" : !artistId ? "HIT ME!" : "HIT ME AGAIN!"}
-            </button>
+            </button>}
           </form>
         </section>
         <Player
